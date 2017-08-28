@@ -32,6 +32,25 @@ ActiveRecord::Schema.define(version: 20170828143409) do
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
 
+  create_table "events", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "timeslot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_events_on_course_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invites_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -57,4 +76,8 @@ ActiveRecord::Schema.define(version: 20170828143409) do
   end
 
   add_foreign_key "courses", "users", column: "owner_id"
+  add_foreign_key "events", "courses"
+  add_foreign_key "events", "users"
+  add_foreign_key "invites", "events"
+  add_foreign_key "invites", "users"
 end

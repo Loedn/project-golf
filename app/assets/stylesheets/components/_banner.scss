@@ -3,10 +3,20 @@
     image-url("banner-background.png");
   background-size: cover;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .homepage--header {
+    font-size: 4em;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  }
 }
 
 .banner {
-  height: calc(50vh + 70px);
+  // height: calc(50vh + 70px);
+  height: 40vh;
   width: 100%;
   margin-top: -70px;
   box-shadow: $subtle-shadow;
