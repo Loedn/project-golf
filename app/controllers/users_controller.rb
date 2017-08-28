@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all?
   end
 
   def show
-  end
-
-  def new
+    @user = User.find(params[:id])
   end
 
   def destroy
+    @user = User.new
   end
 
-  def create
-  end
+  private
+
   def user_params
-  params.require(:user).permit(:photo, :photo_cache)
-end
+  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache)
+  end
 end
