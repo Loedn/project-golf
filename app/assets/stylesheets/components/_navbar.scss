@@ -32,16 +32,15 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 8px 16px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
   color: #f9f9f9;
-  font-size: 18px;
+  font-size: 20px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
   text-decoration: none;
 }
 
@@ -78,9 +77,25 @@
 
 //////// custom
 
-.btn-login {
-  background-color: $main-green;
+.btn-signup a {
+  display: inline-block;
+  font-weight: 100;
+  border: 1px solid $main-green;
+  border-radius: 4px;
+  transition: $fast-transition;
+  padding: 5px 16px;
+
+  &:hover {
+    background-color: white;
+    color: $main-green;
+    border: 1px solid white;
+  }
 }
 
-.btn-signup {
+.btn-login a {
+  transition: $fast-transition;
+  padding: 5px 16px;
+  &:hover {
+    color: lighten($main-green, 14%);
+  }
 }
