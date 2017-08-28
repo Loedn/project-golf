@@ -1,0 +1,13 @@
+.banner--homepage {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    image-url("banner-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner {
+  height: calc(50vh + 70px);
+  width: 100%;
+  margin-top: -70px;
+  box-shadow: $subtle-shadow;
+}
