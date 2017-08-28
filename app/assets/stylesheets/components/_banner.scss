@@ -1,0 +1,12 @@
+.banner--homepage {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    image-url("banner-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner {
+  height: 60vh;
+  width: 100%;
+  margin-top: -70px;
+}
