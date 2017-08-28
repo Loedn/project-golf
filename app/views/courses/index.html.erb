@@ -1,5 +1,5 @@
-<%= render 'shared/banner', page: 'home' %>
-<%= render 'shared/searchbar', page: 'home'%>
+<%= render 'shared/banner', page: 'home', course: false %>
+<%= render 'shared/searchbar', page: 'home' %>
 <div class="row cards--container">
   <% @courses.each do |course| %>
   <%= render 'shared/course_card', course: course %>
