@@ -1,0 +1,45 @@
+.btn-guest {
+  display: flex;
+  p {
+    padding: 10px 0 0 10px;
+  }
+  img {
+    width: 40px;
+    border-radius: 50%;
+    align-self: center;
+  }
+}
+
+.btn-timeslots {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.btn-option {
+}
+
+.btn-facebook {
+  background: #4267b2;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  text-align: center;
+  width: 250px;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition-duration: 0.2s;
+  margin: 4px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    filter: brightness(1.1);
+  }
+  &::before {
+    font-weight: normal;
+    font-size: 24px;
+    margin: 2px;
+    padding-right: 10px;
+    font-family: FontAwesome;
+    content: "\f230";
+  }
+}
