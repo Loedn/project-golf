@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # get 'courses/create'
 
 
+  get 'users/show'
+  get 'users/friends'
+ 
 
   get 'events/show'
 

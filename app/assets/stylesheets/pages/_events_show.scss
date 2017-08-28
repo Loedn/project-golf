@@ -1,0 +1,28 @@
+.event-page-details {
+height: 200px;
+h1 {
+  padding: 10px 0 0 10px;
+  }
+p {
+  padding: 0 0 0 10px;
+  margin: 0 0 0 0;
+  }
+}
+.event-page-guest {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px 0px 10px;
+  p {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}
+.event-page-guest-name {
+  display: flex;
+  align-items: center;
+}
+.event-page-guest-pay {
+  display: flex;
+  align-items: center;
+}

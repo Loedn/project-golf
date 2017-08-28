@@ -1,0 +1,34 @@
+.events-list-container {
+  flex-grow: 1;
+}
+.event-container {
+  display: flex;
+  justify-content: space-between;
+  //align-items: center;
+  margin: 0 10px 10px 0;
+  border: 1px solid rgba(220,224,244,0.4);
+}
+.event-date {
+  font-weight: bold;
+  padding: 10px 10px 10px 10px;
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.event-details {
+  flex-grow: 1;
+  padding: 10px 10px 10px 10px;
+  p {
+    margin-bottom: 0;
+  }
+}
+.guests {
+  margin: 10px 10px 10px 10px;
+}
+.hosting {
+  background: gray;
+}
+.to-pay {
+  opacity: 0.4;
+}
