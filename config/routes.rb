@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/destroy'
-
-  get 'users/create'
+  # get 'courses/index'
+  #
+  # get 'courses/show'
+  #
+  # get 'courses/new'
+  #
+  # get 'courses/create'
 
   get 'events/show'
 
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'courses#index'
+  resources :courses
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
