@@ -18,7 +18,7 @@
   align-items: flex-end;
   .card--details {
     transition: all 0.5s ease-out, background-color 0.2s ease-out;
-    margin-left: 15px;
+    margin: 0 15px;
     margin-bottom: -100px;
     padding: 20px;
     border-radius: 4px;
@@ -32,7 +32,7 @@
     .card--details {
       transform: translateY(-200px);
       transition: all 0.5s ease-out, background-color 0.4s ease-out 0.2s;
-      background-color: transparentize($navy, .15);
+      background-color: transparentize($navy, .25);
     }
     .card--details__hidden {
       // display: block;
@@ -40,7 +40,8 @@
     }
   }
   h1 {
-    text-shadow: 1px 1px 0 $main-green;
+    // text-shadow: 1px 1px 0 $main-green;
     margin: 0;
+    margin-bottom: 10px;
   }
 }
