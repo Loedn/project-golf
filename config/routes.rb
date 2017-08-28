@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'courses/index'
   #
   # get 'courses/show'
@@ -6,6 +7,13 @@ Rails.application.routes.draw do
   # get 'courses/new'
   #
   # get 'courses/create'
+
+  get 'events/show'
+
+  get 'events/create'
+
+  get 'events/index'
+
 
   devise_for :users
   root to: 'courses#index'
