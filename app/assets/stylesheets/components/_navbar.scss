@@ -37,8 +37,8 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: #f9f9f9;
+  font-size: 18px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -74,4 +74,13 @@
   transform: rotate(45deg);
   border-left: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
+}
+
+//////// custom
+
+.btn-login {
+  background-color: $main-green;
+}
+
+.btn-signup {
 }
