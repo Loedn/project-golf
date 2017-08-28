@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'users/index'
 
   get 'users/show'
@@ -8,6 +9,13 @@ Rails.application.routes.draw do
   get 'users/destroy'
 
   get 'users/create'
+
+  get 'events/show'
+
+  get 'events/create'
+
+  get 'events/index'
+
 
   devise_for :users
   root to: 'pages#home'
