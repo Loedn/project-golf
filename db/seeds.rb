@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Course.destroy_all
+Course.create!(name: 'Asiago', description: "good golf course, the best one")
+Course.create!(name: 'Asiago', description: "good golf course, the best one")
+Course.create!(name: 'Asiago', description: "good golf course, the best one")
+Course.create!(name: 'Asiago', description: "good golf course, the best one")
+Course.create!(name: 'Asiago', description: "good golf course, the best one")
+Course.create!(name: 'Asiago', description: "good golf course, the best one")

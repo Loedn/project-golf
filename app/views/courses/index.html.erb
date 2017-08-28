@@ -1,2 +1,7 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<%= render 'shared/banner', page: 'home', course: false %>
+<%= render 'shared/searchbar', page: 'home' %>
+<div class="row cards--container">
+  <% @courses.each do |course| %>
+  <%= render 'shared/course_card', course: course %>
+  <% end %>
+</div>

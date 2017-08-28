@@ -2,6 +2,7 @@
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
+    
   <% end %>
 
   <!-- Right Navigation -->
@@ -39,7 +40,12 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="btn-signup">
+        <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link " %>
+      </div>
+      <div class="btn-login">
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
     <% end %>
   </div>
 
@@ -55,4 +61,3 @@
     </div>
   </div>
 </div>
-
