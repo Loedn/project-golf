@@ -1,0 +1,15 @@
+.avatar-small {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.friend-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 0px 10px;
+  border: 1px solid rgba(220,224,244,0.4);
+  p {
+    font-weight: bold;
+  }
+}

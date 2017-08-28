@@ -1,2 +1,58 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="user-container">
+  <%= render 'shared/user' %>
+  <div class="events-list-container">
+    <h1>My Upcoming Events</h1>
+    <div class="event-container hosting">
+      <div class="event-date">
+        <p>Tue 10th Oct</p>
+        <p>10:00 am</p>
+      </div>
+      <div class="event-details">
+        <p><b>Event Name (hosting)</b></p>
+        <p>Golf course name</p>
+        <p>Payment: complete</p>
+      </div>
+      <div class="guests">
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+      </div>
+    </div>
+   <div class="event-container">
+      <div class="event-date">
+        <p>Tue 10th Oct</p>
+        <p>10:00 am</p>
+      </div>
+      <div class="event-details">
+        <p><b>Event Name</b></p>
+        <p>Golf course name</p>
+        <p>Payment: incomplete</p>
+      </div>
+      <div class="guests">
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small to-pay"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small to-pay"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+      </div>
+    </div>
+
+    <h1>My Past Events</h1>
+    <div class="event-container">
+      <div class="event-date">
+        <p>Tue 10th Oct</p>
+        <p>10:00 am</p>
+      </div>
+      <div class="event-details">
+        <p><b>Event Name</b></p>
+        <p>Golf course name</p>
+      </div>
+      <div class="guests">
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small to-pay"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small to-pay"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+        <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+      </div>
+    </div>
+  </div>
+</div>
