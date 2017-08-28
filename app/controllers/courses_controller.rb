@@ -12,4 +12,10 @@ class CoursesController < ApplicationController
 
   def create
   end
+
+  private
+
+  def course_params
+  params.require(:course).permit(:name, :description, :photo, :photo_cache)
+  end
 end

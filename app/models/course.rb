@@ -8,5 +8,5 @@ class Course < ApplicationRecord
   # validates :email, presence: true
   # validates :phone, presence: true
   # validates :timeslots, presence: true
-
+  mount_uploader :photo, PhotoUploader
 end
