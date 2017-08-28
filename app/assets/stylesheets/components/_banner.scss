@@ -1,6 +1,13 @@
-.banner--homepage {
+.banner {
+  // height: calc(50vh + 70px);
+  height: 40vh;
+  width: 100%;
+  margin-top: -70px;
+  box-shadow: $subtle-shadow;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
-    image-url("banner-background.png");
+    image-url(
+      "banner-background.png"
+    ); // this should not be here. the background image should be inlined and this image should be used only in the homepage
   background-size: cover;
   background-position: center;
   display: flex;
@@ -12,12 +19,4 @@
     margin: 0;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
   }
-}
-
-.banner {
-  // height: calc(50vh + 70px);
-  height: 40vh;
-  width: 100%;
-  margin-top: -70px;
-  box-shadow: $subtle-shadow;
 }
