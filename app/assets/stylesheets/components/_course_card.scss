@@ -1,0 +1,46 @@
+.card {
+  background-size: cover;
+  background-position: center;
+}
+.cards--container {
+  margin-top: 25px;
+  padding: 0 40px;
+}
+
+.course--card {
+  height: 500px;
+  box-shadow: $subtle-shadow;
+  transition: all 0.5s ease-out;
+  color: white;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  .card--details {
+    transition: all 0.5s ease-out, background-color 0.2s ease-out;
+    margin-left: 15px;
+    margin-bottom: -100px;
+    padding: 20px;
+    border-radius: 4px;
+    .card--details__hidden {
+      opacity: 0;
+      // display: none;
+      transition: all 0.8s ease-out;
+    }
+  }
+  &:hover {
+    .card--details {
+      transform: translateY(-200px);
+      transition: all 0.5s ease-out, background-color 0.4s ease-out 0.2s;
+      background-color: transparentize($navy, .15);
+    }
+    .card--details__hidden {
+      // display: block;
+      opacity: 1;
+    }
+  }
+  h1 {
+    text-shadow: 1px 1px 0 $main-green;
+    margin: 0;
+  }
+}
