@@ -12,6 +12,10 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGFxdMqM6SlQmV1Dlrq0Vp_FBabFAN-o&libraries=places"></script>
+
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

@@ -9,9 +9,10 @@ class Course < ApplicationRecord
   # validates :phone, presence: true
   # validates :timeslots, presence: true
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   # after_create :set_timeslots
-
 private
 
   # def set_timeslots

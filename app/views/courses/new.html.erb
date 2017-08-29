@@ -4,7 +4,7 @@
       <h1 class="text-center">Add a New Course</h1>
       <%= simple_form_for @course do |f| %>
       <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of Golf Course', error: 'Please insert name of the club' %>
-      <%= f.input :address, input_html: { class: 'search-address' }, placeholder: 'Golf Course address' %>
+      <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf Course address' %>
       <%= f.input :description, placeholder: 'Please describe your golf' %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
