@@ -91,5 +91,12 @@
   align-items: center;
   h1 {
     font-size: 1.4em;
+    margin: 0;
+    color: white;
+    margin-left: 20px;
+    font-family: 'Graduate', $base-font;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
