@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   after_action :verify_policy_scoped, only: :index
-  skip_after_action :verify_authorized, only: :index
+  skip_after_action :verify_authorized, only: [:index]
 
 
   def index
@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    authorize @course
   end
 
   def new

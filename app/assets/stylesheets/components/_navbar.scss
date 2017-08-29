@@ -84,3 +84,12 @@
   border-left: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
 }
+
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 1.4em;
+  }
+}
