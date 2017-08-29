@@ -1,8 +1,8 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon <%= "transparent-navbar" if params[:controller] == 'courses' && params[:action] == 'index' %> ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
-    
+
   <% end %>
 
   <!-- Right Navigation -->

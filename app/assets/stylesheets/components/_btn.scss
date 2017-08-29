@@ -38,6 +38,30 @@
     content: "\f230";
   }
 }
+
+.btn-signup a {
+  display: inline-block;
+  font-weight: 100;
+  border: 1px solid $main-green;
+  border-radius: 4px;
+  transition: $fast-transition;
+  padding: 5px 16px;
+
+  &:hover {
+    background-color: white;
+    color: $main-green;
+    border: 1px solid white;
+  }
+}
+
+.btn-login a {
+  transition: $fast-transition;
+  padding: 5px 16px;
+  &:hover {
+    color: lighten($main-green, 14%);
+  }
+}
+
 .btn-gray {
   width: 100%;
   margin-bottom: 20px;
@@ -79,5 +103,4 @@
     color: white;
   }
 }
-
-
+`
