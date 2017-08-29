@@ -13,12 +13,23 @@ class CoursesController < ApplicationController
     @course = Course.new
   end
 
+  def update
+    authorize @course
+    @course = Course.find(params[:id])
+    # binding.pry
+    @course.update(courses_params)
+    # @course.save
+    # redirect_to course_dashboard_path(@course)
+  end
+
   def destroy
+    authorize @course
     @course = Course.destroy(params[:id])
-    # we should add a redirect_to here    
+    # we should add a redirect_to here
   end
 
   def create
+    authorize @course
   end
 
   private

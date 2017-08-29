@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
   get 'users/friends'
- 
+
 
   get 'events/show'
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'events/index'
 
+  get '/events/new', to: 'courses#show'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
