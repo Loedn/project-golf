@@ -9,15 +9,10 @@
     align-self: center;
   }
 }
-
 .btn-timeslots {
   padding-left: 40px;
   padding-right: 40px;
 }
-
-.btn-option {
-}
-
 .btn-facebook {
   background: #4267b2;
   border-radius: 5px;
@@ -28,7 +23,7 @@
   font-weight: bold;
   padding: 10px 15px;
   transition-duration: 0.2s;
-  margin: 4px;
+  margin: 10px 0 10px 0px;
   &:hover {
     color: white;
     text-decoration: none;
@@ -66,3 +61,46 @@
     color: lighten($main-green, 14%);
   }
 }
+
+.btn-gray {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: $navy;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    background: $navy;
+    opacity: 0.8;
+    color: white;
+  }
+}
+.btn-light-gray {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: $navy;
+  opacity: 0.6;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    background: $navy;
+    opacity: 0.4;
+    color: white;
+  }
+}
+.btn-green {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: $main-green;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    background: $main-green;
+    opacity: 0.8;
+    color: white;
+  }
+}
+`
