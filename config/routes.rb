@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   # get 'courses/create'
 
 
-  get 'users/show'
-  get 'users/friends'
+  # get 'users/show'
+  # get 'users/friends'
 
 
-  get 'events/show'
+  # get 'events/show'
 
-  get 'events/create'
+  # get 'events/create'
 
-  get 'events/index'
+  # get 'events/index'
 
   get '/events/new', to: 'courses#show'
   devise_for :users,

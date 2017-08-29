@@ -1,2 +1,14 @@
-<h1>Courses#new</h1>
-<p>Find me in app/views/courses/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1 class="text-center">Add a New Course</h1>
+      <%= simple_form_for(@course) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
