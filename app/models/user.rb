@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :invited_events , through: :invites, source: :events
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email_name, presence: true
+  validates :email, presence: true
   # validates :gender, presence: true
 
   # this for uploading profile pic
