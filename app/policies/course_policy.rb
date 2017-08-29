@@ -4,12 +4,17 @@ class CoursePolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    record.owner == user
+  end
+
   def update?
-    record.user == user
+    edit?
   end
 
   def destroy?
-    record.user == user
+    record.owner == user
+
   end
 
 
