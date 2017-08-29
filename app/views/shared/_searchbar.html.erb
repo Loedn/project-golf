@@ -1,1 +1,13 @@
-<form action="/courses" class="form-inline search-form <%= page == 'home' ? 'searchbar--home' : '' %>"><div class="form-border"><input type="text" name="address" class="form-control search-address" id="inlineFormInput" placeholder="Location"><div class="input-group"><input name="date" type="date" class="form-control" id="inlineFormInputGroup" placeholder="Date"></div><% if page == 'home' %><div class="input-group"><input type="text" name="difficulty" class="form-control" id="inlineFormInputGroup" placeholder="Difficulty"></div><% end %><button type="submit" class="btn btn-success search-button">Search</button></div></form>
+<form action="/courses" class="form-inline search-form <%= page == 'home' ? 'searchbar--home' : '' %>">
+  <div class="form-border">
+    <input type="text" name="address" class="form-control search-address" id="inlineFormInput" placeholder="Location">
+    <div class="input-group">
+      <input name="date" type="date" class="form-control" id="inlineFormInputGroup" placeholder="Date">
+    </div><% if page == 'home' %>
+    <div class="input-group">
+      <input type="text" name="difficulty" class="form-control" id="inlineFormInputGroup" placeholder="Difficulty">
+    </div>
+    <% end %>
+    <button type="submit" class="btn btn-success search-button">Search</button>
+  </div>
+</form>
