@@ -1,21 +1,20 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  # this for events thing
   has_many :invites
   has_many :events
-  # has_many :invited_events , through: :invites, source: :events
+  has_many :invited_events , through: :invites, source: :events
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email_name, presence: true
   # validates :gender, presence: true
 
-
-
-
-
-
+  # this for uploading profile pic
   mount_uploader :photo, PhotoUploader
 
+  # this for fb login
   devise :omniauthable, omniauth_providers: [:facebook]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
