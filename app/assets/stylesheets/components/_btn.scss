@@ -1,18 +1,3 @@
-.btn-guest {
-  display: flex;
-  p {
-    padding: 10px 0 0 10px;
-  }
-  img {
-    width: 40px;
-    border-radius: 50%;
-    align-self: center;
-  }
-}
-.btn-timeslots {
-  padding-left: 40px;
-  padding-right: 40px;
-}
 .btn-facebook {
   background: #4267b2;
   border-radius: 5px;
@@ -66,18 +51,6 @@
     color: white;
   }
 }
-.btn-green {
-  margin-bottom: 20px;
-  border-radius: 5px;
-  background: $main-green;
-  text-decoration: none;
-  color: white;
-  &:hover {
-    text-decoration: none;
-    background: $main-green;
-    opacity: 0.8;
-    color: white;
-  }
-}
+
 
 
