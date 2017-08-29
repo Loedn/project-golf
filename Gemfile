@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'pundit'
+gem "geocoder"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
