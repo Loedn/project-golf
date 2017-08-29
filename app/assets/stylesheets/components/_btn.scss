@@ -23,6 +23,30 @@
     content: "\f230";
   }
 }
+
+.btn-signup a {
+  display: inline-block;
+  font-weight: 100;
+  border: 1px solid $main-green;
+  border-radius: 4px;
+  transition: $fast-transition;
+  padding: 5px 16px;
+
+  &:hover {
+    background-color: white;
+    color: $main-green;
+    border: 1px solid white;
+  }
+}
+
+.btn-login a {
+  transition: $fast-transition;
+  padding: 5px 16px;
+  &:hover {
+    color: lighten($main-green, 14%);
+  }
+}
+
 .btn-gray {
   width: 100%;
   margin-bottom: 20px;
@@ -52,5 +76,17 @@
   }
 }
 
-
+.btn-green {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: $main-green;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+    background: $main-green;
+    opacity: 0.8;
+    color: white;
+  }
+}
 

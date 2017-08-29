@@ -1,2 +1,26 @@
-<%= render 'shared/banner', page: 'show', course: @course %>
+
+<%= render 'shared/course_show_banner', course: @course %>
+
+
+<div class="course-show-container">
+
+  <div class="flex">
+    <div class="show--content">
+      <div class="show--content__box">
+        <p><%= @course.description %></p>
+      </div>
+      <div class="show--content__box">
+        <h3>Hey HEY heu hEHEY HEYYYYYY</h3>
+      </div>
+      <div class="show--content__box">
+        <h3>Hey HEY heu hEHEY HEYYYYYY</h3>
+      </div>
+      <div class="show--content__box">
+        <h3>Hey HEY heu hEHEY HEYYYYYY</h3>
+      </div>
+
+    </div>
+      <%= render 'shared/course_show_recap', course: @course %>
+  </div>
+</div>
 

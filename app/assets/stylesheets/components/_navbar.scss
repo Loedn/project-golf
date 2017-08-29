@@ -1,13 +1,16 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
-  background: transparent;
+  background: $navy;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.transparent-navbar {
+  background-color: transparent;
 }
 
 /* Logo */
@@ -73,29 +76,4 @@
   transform: rotate(45deg);
   border-left: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
-}
-
-//////// custom
-
-.btn-signup a {
-  display: inline-block;
-  font-weight: 100;
-  border: 1px solid $main-green;
-  border-radius: 4px;
-  transition: $fast-transition;
-  padding: 5px 16px;
-
-  &:hover {
-    background-color: white;
-    color: $main-green;
-    border: 1px solid white;
-  }
-}
-
-.btn-login a {
-  transition: $fast-transition;
-  padding: 5px 16px;
-  &:hover {
-    color: lighten($main-green, 14%);
-  }
 }
