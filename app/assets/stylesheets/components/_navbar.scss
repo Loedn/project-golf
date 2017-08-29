@@ -70,7 +70,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $navy !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -98,5 +98,8 @@
   }
   a:hover {
     text-decoration: none;
+  }
+  img {
+    margin-left: 10px;
   }
 }
