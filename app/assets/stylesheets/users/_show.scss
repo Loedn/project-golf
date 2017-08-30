@@ -1,35 +1,64 @@
-.grid {
-  display: grid;
-  grid-template-columns: 400px 1fr 1fr 1fr;
-  grid-template-rows: 33% 33% 33%;
+.user-profile {
+  background-color: #f4f4f4;
+  width: 60vw;
+  margin: 20px auto;
+}
+.user-card {
+  display: flex;
+  justify-content: flex-start;
+  // border: 1px solid black;
 }
 
-.grid-pic {
-  grid-row: row 1 / span 3;
-  grid-column: column 1 / span 1;
+.user-pic {
+  img {
+    width: 20vh;
+    height: 20vh;
+  }
+}
+.user-details {
+  border-radius: 2px;
+  border: 1px solid $navy;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  background-color: #f9f9f9;
+  color: black;
+}
+.user-name {
+  h2 {
+    margin: 0;
+  }
 }
 
-.grid-name {
-  grid-row: row 1 / span 1;
-  grid-column: column 2 / span 2;
+.user-bio {
+  p {
+    color: lighten($navy, 25%);
+
+    margin: 0;
+  }
+
+}
+.user-stuff {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+}
+.user-friend {
+  p {
+    margin: 0;
+  }
 }
 
-.grid-bio {
-  grid-row: row 2 / span 1;
-  grid-column: column 2 / span 2;
+.user-location {
+  p {
+    margin: 0;
+  }
 }
 
-.grid-friend {
-  grid-row: row 3 / span 1;
-  grid-column: column 2 / span 1;
-}
-
-.grid-location {
-  grid-row: row 3 / span 1;
-  grid-column: column 3 / span 1;
-}
-
-.grid-add {
-  grid-row: row 3 / span 1;
-  grid-column: column 4 / span 1;
+.user-add {
+  p {
+    margin: 0;
+  }
 }
