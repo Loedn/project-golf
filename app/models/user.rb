@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :invites
   has_many :events
   has_many :invited_events , through: :invites, source: :events
+  has_many :course
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
