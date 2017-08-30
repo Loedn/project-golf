@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  grid-template-columns: 400px 1fr 1fr 1fr;
+  grid-template-rows: 33% 33% 33%;
+}
+
+.grid-pic {
+  grid-row: row 1 / span 3;
+  grid-column: column 1 / span 1;
+}
+
+.grid-name {
+  grid-row: row 1 / span 1;
+  grid-column: column 2 / span 2;
+}
+
+.grid-bio {
+  grid-row: row 2 / span 1;
+  grid-column: column 2 / span 2;
+}
+
+.grid-friend {
+  grid-row: row 3 / span 1;
+  grid-column: column 2 / span 1;
+}
+
+.grid-location {
+  grid-row: row 3 / span 1;
+  grid-column: column 3 / span 1;
+}
+
+.grid-add {
+  grid-row: row 3 / span 1;
+  grid-column: column 4 / span 1;
+}
