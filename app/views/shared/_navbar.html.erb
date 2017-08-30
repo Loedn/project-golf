@@ -44,7 +44,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#", method: :delete do %>
+              <%= link_to destroy_user_session_path , method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
