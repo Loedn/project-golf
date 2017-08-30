@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  # belongs_to :owner
   has_many :events, dependent: :destroy
+  belongs_to :owner, :class_name => :User , :foreign_key => "owner_id"
   validates :name, presence: true
   # validates :address, presence: true
   # validates :image, presence: true
@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   # validates :email, presence: true
   # validates :phone, presence: true
   # validates :timeslots, presence: true
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :image, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 

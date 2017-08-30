@@ -6,13 +6,10 @@
 
   <div class="flex">
     <div class="show--content">
-      <div class="show--content__box">
-        <p><%= @course.description %></p>
+      <div class="show--content__box" id="map">
       </div>
       <div class="show--content__box">
-        <h3><%= @course.latitude %></h3>
-        <h3><%= @course.longitude %></h3>
-        <h3><%= @course.address %></h3>
+        <p><%= @course.description %></p>
       </div>
       <div class="show--content__box">
         <h3>Hey HEY heu hEHEY HEYYYYYY</h3>
@@ -25,3 +22,136 @@
       <%= render 'shared/course_show_recap', course: @course %>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+
+  const styles = [
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#f49935"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#fad959"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#a1cdfc"
+            },
+            {
+                "saturation": 30
+            },
+            {
+                "lightness": 49
+            }
+        ]
+    }
+  ];
+
+  var handler = Gmaps.build('Google', { markers: { clusterer: undefined } });
+    handler.buildMap({ provider: {styles: styles }, internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw [{lat: @course.latitude, lng: @course.longitude}].to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+       handler.getMap().setZoom(12);
+    });
+  </script>
+<% end %>

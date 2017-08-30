@@ -14,7 +14,6 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "UserName", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -24,7 +23,7 @@
 <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -40,11 +39,12 @@
             </li>
             <li>
               <%= link_to "#" do %>
+              <!-- edit_course_path(current_user.course)  -->
                 <i class="fa fa-tachometer"></i>  <%= t(".settings", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#", method: :delete do %>
+              <%= link_to destroy_user_session_path , method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
@@ -53,11 +53,11 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <div class="btn-signup">
-        <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link " %>
+      <div class="btn btn-signup" data-toggle="modal" data-target="#signup">
+        <p>Signup</p>
       </div>
-      <div class="btn-login">
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="btn btn-login" data-toggle="modal" data-target="#login">
+        <p>Login</p>
       </div>
     <% end %>
   </div>
@@ -93,6 +93,68 @@
           <% end %>
         </li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<!--Signup Modal -->
+<div id="signup" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Signup</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :first_name, required: true %>
+          <%= f.input :last_name, required: true %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+          <%= f.input :photo %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class:"btn btn-gray" %>
+        </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Login Modal -->
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Signup</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-actions">
+          <%= f.button :submit, "Login", class:"btn btn-gray" %>
+        </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

@@ -20,11 +20,15 @@ Rails.application.routes.draw do
   get '/events/new', to: 'courses#show'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  get '/:id/dashboard', to: 'users#show'
 
   root to: 'courses#index'
+
   resources :courses do
      resources :events
      end
+
+  resources :courses
+  resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

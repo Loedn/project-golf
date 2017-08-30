@@ -9,8 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGFxdMqM6SlQmV1Dlrq0Vp_FBabFAN-o&libraries=places"></script>
 
@@ -18,5 +18,6 @@
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <%= javascript_include_tag 'application' %>
     <%= render 'shared/footer' %>
+    <%= yield(:after_js) %>
   </body>
 </html>
