@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @invitees = @event.invited_users
+    @comment = Comment.new
     authorize @event
   end
 

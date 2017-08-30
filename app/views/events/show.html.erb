@@ -85,9 +85,7 @@
             <div id="map" class="map">
             </div>
             <div class="event-box">
-              <h3>Comments</h3>
-              <p>Author: I've paid for everyone</p>
-              <p>Alex: Thanks</p>
+              <%= render 'comments/form', event: @event, comment: @comment  %>
             </div>
         </div>
       </div>
