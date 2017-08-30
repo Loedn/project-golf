@@ -23,54 +23,14 @@
                 </div>
               </div>
             </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Arthur Littmann <small>organizer</small></p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-pay">
-                  Pay
-                </div>
-              </div>
-            </div>
-             <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Alex</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-paid">
-                  Paid
-                </div>
-              </div>
-            </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Jordan</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-to-pay">
-                  To Pay
-                </div>
-              </div>
-            </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Alessandro</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-to-pay">
-                To Pay
-                </div>
-              </div>
-            </div>
+
+
+            <% @event.invites.each do |invite| %>
+              <%= render 'shared/event_invite', invite: invite, event: @event %>
+            <% end %>
+
+
+
             <div class="event-guest">
               <div class="event-guest-name total">
               </div>
