@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get '/:id/dashboard', to: 'users#show'
+  get '/newcourse', to: 'courses#new'
+
 
   root to: 'courses#index'
   resources :courses

@@ -6,8 +6,8 @@
       <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of Golf Course', error: 'Please insert name of the club' %>
       <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf Course address' %>
       <%= f.input :description, placeholder: 'Please describe your golf' %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :image %>
+      <%= f.input :image_cache, as: :hidden %>
       <%= f.button :submit, class:"btn btn-success" %>
       <% end %>
     </div>
