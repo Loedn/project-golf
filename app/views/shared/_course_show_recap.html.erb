@@ -1,23 +1,40 @@
+<%= simple_form_for [@course, @event] do |f| %>
+  <div class="recap--container">
+    <h1>your booking:</h1>
 
-<div class="recap--container">
-  <h1>your booking:</h1>
+    <div class="recap--container__details">
+      <div class="recap-details-box">
+        <p class="recap-label">invite your friends:</p>
+        <div class="recap-invites">
+        </div>
+          <div class="event-checkbox-container">
 
-  <div class="recap--container__details">
-    <div class="recap-details-box">
-      <p class="recap-label">invited:</p>
+            <% @friends.each do |friend| %>
+            <div class="form-group check_boxes optional event_invited_users">
+              <span class="checkbox">
+                <label for="event_invited_user_ids_<%= friend.id %>">
+                  <input class="check_boxes optional hidden" type="checkbox" value="<%= friend.id %>" name="event[invited_user_ids][]" id="event_invited_user_ids_<%= friend.id %>">
+                  <%= image_tag "logo.png", class: 'event-checkbox' %>
+                </label>
+              </span>
+            </div>
+            <% end %>
+        </div>
+
+
+
+
+
+
+
+
+      </div>
+      <div class="recap-details-box">
+        <p class="recap-label">date:</p>
+        <%= f.input :timeslot, as: :date, start_year: Date.today.year, end_year: Date.today.year + 1, start_month: Date.today.month, end_month: Date.today.month + 6, start_day: Date.today.day, order: [:day, :month, :year], label: false %>
+
+      </div>
     </div>
-    <div class="recap-details-box">
-      <p class="recap-label">date:</p>
-
-    </div>
-    <div class="recap-details-box">
-      <p class="recap-label"></p>
-
-    </div>
-    <div class="recap-details-box">
-      <p class="recap-label"></p>
-
-    </div>
+    <%= f.submit "confirm", :class => 'recap-btn-confirm' %>
   </div>
-  <%= link_to "confirm", root_path , class: 'recap-btn-confirm' %>
-</div>
+<% end %>

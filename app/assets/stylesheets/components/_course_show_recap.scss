@@ -1,5 +1,8 @@
+form.new_event {
+  width: 27vw;
+}
 .recap--container {
-  height: 500px;
+  height: 700px;
   width: 100%;
   background-color: $navy;
   flex-basis: 27%;
@@ -27,12 +30,25 @@
       }
     }
   }
+  .recap-invites {
+    display: flex;
+    justify-content: space-around;
+    img {
+      // border: 1px solid $main-green;
+      box-shadow: $subtle-shadow;
+      border-radius: 50%;
+      width: 60px;
+      align-self: center;
+    }
+  }
   h1 {
     color: white;
     font-size: 1.2em;
     text-align: center;
   }
   .recap-btn-confirm {
+    appearance: none;
+    border: none;
     color: $navy;
     width: 100%;
     background-color: darken($main-green, 5%);
@@ -46,5 +62,13 @@
     &:hover {
       background-color: $main-green;
     }
+  }
+}
+
+.event-checkbox-container {
+  display: flex;
+  .event-checkbox {
+    align-self: center;
+    width: 50px;
   }
 }
