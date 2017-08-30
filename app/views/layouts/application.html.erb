@@ -18,5 +18,6 @@
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <%= javascript_include_tag 'application' %>
     <%= render 'shared/footer' %>
+    <%= yield(:after_js) %>
   </body>
 </html>

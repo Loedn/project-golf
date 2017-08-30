@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get '/events/new', to: 'courses#show'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  
 
   root to: 'courses#index'
   resources :courses
