@@ -14,9 +14,7 @@ Rails.application.routes.draw do
 
 
   # get 'events/show'
-
   # get 'events/create'
-
   # get 'events/index'
 
   get '/events/new', to: 'courses#show'
@@ -24,7 +22,13 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'courses#index'
+
+  resources :courses do
+     resources :events
+     end
+
   resources :courses
   resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

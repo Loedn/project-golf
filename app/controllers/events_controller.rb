@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @invitees = @event.invited_users
+    authorize @event
   end
 
   def new
@@ -21,7 +22,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.course = params[:id]
     @event.user = current_user
-    
+
     if @event.save
       redirect_to event_path(@event)
     else
