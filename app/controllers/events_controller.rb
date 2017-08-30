@@ -32,10 +32,12 @@ class EventsController < ApplicationController
 
 
     if @event.save
-      params[:event][:invited_user_ids].each do |id|
-        Invite.create(user: User.find(id), event: @event)
+      unless params[:event][:invited_user_ids].nil?
+        params[:event][:invited_user_ids].each do |id|
+          Invite.create(user: User.find(id), event: @event)
+        end
       end
-      redirect_to root_path
+      redirect_to event_path(@event)
     else
       render :new
     end
