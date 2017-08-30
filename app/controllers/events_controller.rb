@@ -5,14 +5,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    def show
      @event = Event.find(params[:id])
      @invitees = @event.invited_users
      @comment = Comment.new
      authorize @event
    end
 
-  end
 
   def new
     @event = Event.new
@@ -30,13 +28,13 @@ class EventsController < ApplicationController
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
 
-
     if @event.save
       unless params[:event][:invited_user_ids].nil?
         params[:event][:invited_user_ids].each do |id|
           Invite.create(user: User.find(id), event: @event)
         end
       end
+      Invite.create(user: current_user, event: @event)
       redirect_to event_path(@event)
     else
       render :new
