@@ -11,9 +11,13 @@ class Course < ApplicationRecord
   mount_uploader :image, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-
+  before_save :capitalize_description
   # after_create :set_timeslots
 private
+
+  def capitalize_description
+    self.description = self.description.capitalize
+  end
 
   # def set_timeslots
   #   array = []
