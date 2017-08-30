@@ -18,11 +18,13 @@
     flex-basis: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    margin-left: 3.5vw;
     padding: 30px;
     color: white;
     h1 {
-      flex-basis: 50%;
+      font-size: 3.4em;
+      text-shadow: 2px 1px 0 rgba(0, 0, 0, .8);
     }
   }
 }
