@@ -65,10 +65,19 @@ form.new_event {
   }
 }
 
+.event-checkbox:checked {
+  & + .event-checkbox-label {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+  }
+  body {
+    background-color: red;
+  }
+}
 .event-checkbox-container {
   display: flex;
-  .event-checkbox {
+  .event-checkbox-label {
+    border-radius: 50%;
     align-self: center;
-    width: 50px;
+    width: 45px;
   }
 }
