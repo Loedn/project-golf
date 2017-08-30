@@ -24,7 +24,9 @@
   }
 }
 
-.btn-signup a {
+.btn-signup p {
+  color: white;
+  margin: 0;
   display: inline-block;
   font-weight: 100;
   border: 1px solid $main-green;
@@ -39,7 +41,9 @@
   }
 }
 
-.btn-login a {
+.btn-login p {
+  color: white;
+  margin: 0;
   transition: $fast-transition;
   padding: 5px 16px;
   &:hover {
@@ -91,4 +95,3 @@
 .search-button {
   background: $main-green;
 }
-
