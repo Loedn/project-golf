@@ -1,21 +1,8 @@
 Rails.application.routes.draw do
 
-  # get 'courses/index'
-  #
-  # get 'courses/show'
-  #
-  # get 'courses/new'
-  #
-  # get 'courses/create'
-
-
-  # get 'users/show'
-  # get 'users/friends'
-
-
-  # get 'events/show'
-  # get 'events/create'
-  # get 'events/index'
+  resources :events, only: [ :index, :show ] do
+    resources :comments, only: :create
+  end
 
   get '/events/new', to: 'courses#show'
   devise_for :users,
