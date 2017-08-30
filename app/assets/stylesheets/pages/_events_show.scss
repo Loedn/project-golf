@@ -1,76 +1,28 @@
-.event-container{
-  flex:display;
-  margin-right: 0px;
+.event-page-details {
+height: 200px;
+h1 {
+  padding: 10px 0 0 10px;
+  }
+p {
+  padding: 0 0 0 10px;
+  margin: 0 0 0 0;
+  }
 }
-.event-container-left {
-  flex-basis: 70%;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-.event-container-right {
-  flex-basis: 30%;
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-.event-container-right .map {
-  height: 200px;
-  background: white;
-  margin-bottom: 20px;
-}
-.event-card {
-  height: 200px;
-  border-radius: 8px;
-  box-shadow: $subtle-shadow, 1px 1px 3px 0 rgba(0, 0, 0, 0.3),
-    0 0 4px 3px rgba(0, 0, 0, 0.11);
-  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)),
-    image-url("banner-background.png");
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  h1 {
-    color: white;
-    padding: 10px 0 0 0;
-    }
-  p {
-    color: white;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    }
-}
-.event-details {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-}
-.event-box {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.13);
-  background-color: #f9f9f9;
-  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.15);
-  margin-top: 20px;
-  margin-bottom: 20px;
-    h3 {
-      margin-top: 20px;
-      margin-left: 20px;
-      font-size: 26px;
-    }
-}
-.event-guest {
+.event-page-guest {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 20px 20px 20px;
+  margin: 10px 10px 0px 10px;
   p {
     margin-bottom: 0;
     margin-right: 10px;
   }
 }
-.event-guest-name {
+.event-page-guest-name {
   display: flex;
   align-items: center;
 }
-.event-guest-pay {
+.event-page-guest-pay {
   display: flex;
   align-items: center;
 }
