@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Course.destroy_all
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
-Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
+User.destroy_all
+Event.destroy_all
+
+course = Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
+user = User.create!(email: 'jchoongnw@gmail.com', password: '123456', first_name: 'Jess', last_name: 'Choong')
+Event.create!(course: course, user: user)
+

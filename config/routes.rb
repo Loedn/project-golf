@@ -14,9 +14,7 @@ Rails.application.routes.draw do
 
 
   # get 'events/show'
-
   # get 'events/create'
-
   # get 'events/index'
 
   get '/events/new', to: 'courses#show'
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
   get '/:id/dashboard', to: 'users#show'
 
   root to: 'courses#index'
-  resources :courses
+  resources :courses do
+     resources :events
+     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

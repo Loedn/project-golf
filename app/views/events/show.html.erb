@@ -1,67 +1,103 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="event-page-container">
-        <div class="event-page-details" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <h1>Event Name</h1>
-          <p>Golf course name</p>
-          <p>Tue 10th Oct 10:00am</p>
-        </div>
-        <div class="event-page-guests">
-          <div class="event-page-guest">
-            <div class="event-page-guest-name">
-              <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-              <p>Author Littmann</p>
-            </div>
-            <div class="event-page-guest-pay">
-              <p>£25</p>
-              <button>Paid</button>
-            </div>
-          </div>
-           <div class="event-page-guest">
-            <div class="event-page-guest-name">
-              <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-              <p>Author Littmann</p>
-            </div>
-            <div class="event-page-guest-pay">
-              <p>£25</p>
-              <button>Paid</button>
-            </div>
-          </div>
-           <div class="event-page-guest">
-            <div class="event-page-guest-name">
-              <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-              <p>Author Littmann</p>
-            </div>
-            <div class="event-page-guest-pay">
-              <p>£25</p>
-              <button>Paid</button>
-            </div>
-          </div>
-           <div class="event-page-guest">
-            <div class="event-page-guest-name">
-              <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-              <p>Author Littmann</p>
-            </div>
-            <div class="event-page-guest-pay">
-              <p>£25</p>
-              <button>Paid</button>
-            </div>
-          </div>
-        </div>
 
-      <div class="event-page-scores">
-        <h3>Scores</h3>
+<!-- <div class="container"> -->
+<!--   <div class="row">
+    <div class="col"> -->
+      <div class="event-container">
+        <div class="event-container-left">
+          <div class="event-card">
+            <div class="event-details">
+              <h1>Event Name</h1>
+              <p>Golf course name</p>
+              <p>Tue 10th Oct 10:00am</p>
+            </div>
+          </div>
+          <div class="event-box">
+            <div class="event-guest">
+              <div class="event-guest-name">
+                <h3>Players</h3>
+              </div>
+              <div class="event-guest-pay">
+                <p>£75</p>
+                <div class="btn btn-pay">
+                  Pay All
+                </div>
+              </div>
+            </div>
+            <div class="event-guest">
+              <div class="event-guest-name">
+                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+                <p>Arthur Littmann <small>organizer</small></p>
+              </div>
+              <div class="event-guest-pay">
+                <p>£25</p>
+                <div class="btn btn-pay">
+                  Pay
+                </div>
+              </div>
+            </div>
+             <div class="event-guest">
+              <div class="event-guest-name">
+                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+                <p>Alex</p>
+              </div>
+              <div class="event-guest-pay">
+                <p>£25</p>
+                <div class="btn btn-paid">
+                  Paid
+                </div>
+              </div>
+            </div>
+            <div class="event-guest">
+              <div class="event-guest-name">
+                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+                <p>Jordan</p>
+              </div>
+              <div class="event-guest-pay">
+                <p>£25</p>
+                <div class="btn btn-to-pay">
+                  To Pay
+                </div>
+              </div>
+            </div>
+            <div class="event-guest">
+              <div class="event-guest-name">
+                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+                <p>Alessandro</p>
+              </div>
+              <div class="event-guest-pay">
+                <p>£25</p>
+                <div class="btn btn-to-pay">
+                To Pay
+                </div>
+              </div>
+            </div>
+            <div class="event-guest">
+              <div class="event-guest-name total">
+              </div>
+            </div>
+          </div>
+          <div class="event-box">
+            <h3>Scores</h3>
+            <%= render 'shared/score_card' %>
+          </div>
+        </div>
+        <div class="event-container-right">
+            <div id="map" class="map">
+            </div>
+            <div class="event-box">
+              <h3>Comments</h3>
+              <p>Author: I've paid for everyone</p>
+              <p>Alex: Thanks</p>
+            </div>
+        </div>
       </div>
-  </div>
-</div>
+<!--     </div>
+  </div> -->
+<!-- </div> -->
 
- <div class="map">
-    <p>map</p>
- </div>
-<div class="event-page-comments">
-  <h3>Comments</h3>
-  <p>Author: I've paid for everyone</p>
-  <p>Alex: Thanks</p>
-</div>
+
+
+
+
+
 
