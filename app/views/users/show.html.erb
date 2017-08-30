@@ -1,29 +1,48 @@
-<div class="user-container">
+<div class="user-profile">
   <%= render 'shared/user' %>
-  <div class="stats-container">
-    <h1>My Statistics</h1>
-    <p>Statistics</p>
+  <div class="user-card">
+    <div class="user-pic">
+      <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
+    </div>
+    <div class="user-details">
+      <div class="user-name">
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      </div>
+      <div class="user-bio">
+        <p>wolo ldko sdokv </p>
+      </div>
+    <div class="user-stuff">
+        <div class="user-friend">
+          <p>3 friends</p>
+        </div>
+        <div class="user-location">
+          <p>london</p>
+        </div>
+        <div class="user-add">
+          <p>add me</p>
+        </div>
+    </div>
+    </div>
+  </div>
+<br>
+  <div class="nav nav-pills nav-justified">
+    <ul class="list-inline">
+      <li><a href="#">Matches</a></li>
+      <li class="active"><a href="#">Friends</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Stats</a></li>
+      <li><%= link_to "Add New Course", new_course_path %></li>
+    </ul>
   </div>
 </div>
 
-<div class="grid">
 
-  <div class="grid-pic">
-    <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg" alt="" height="42" width="42">
-  </div>
-  <div class="grid-name">
-    <h2><%= @user.first_name %><%= @user.last_name %></h2>
-  </div>
-  <div class="grid-bio">
-    <p>wolo ldko sdokv </p>
-  </div>
-  <div class="grid-friend">
-    <p>3 friends</p>
-  </div>
-  <div class="grid-location">
-    <p>london</p>
-  </div>
-  <div class="grid-add">
-    <p>add me</p>
-  </div>
-</div>
+
+
+
+
+<!--
+<div class="stats-container">
+  <h1>My Statistics</h1>
+  <p>Statistics</p>
+</div> -->
