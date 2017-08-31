@@ -1,56 +1,42 @@
-.user-profile {
+.course-profile {
   background-color: #f4f4f4;
-  width: 50%;
+  width: 80%;
   margin: 20px auto;
   position: relative;
 }
-.user-card {
+.course-card {
   display: flex;
   justify-content: flex-start;
   position: relative;
-  // border: 1px solid black;
 }
-
-.user-pic {
+.course-pic {
   img {
     width: 20vh;
     height: 20vh;
     border-radius: 2px;
   }
 }
-.user-details {
+.course-details {
   border-radius: 2px;
   position: relative;
   margin-left: 10px;
   background-color: #f4f4f4;
   color: black;
 }
-
-.user-add {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  color: $main-green;
-  font-size: 30px;
-  margin: 0;
-}
-
-.user-name h2 {
+.course-name h2 {
   font-family: $header-font;
   margin-top: 6px;
   margin-bottom: 0px;
   font-size: 22px;
   font-weight: bold;
 }
-
-.user-bio {
+.course-description {
   font-family: $base-font;
   color: lighten($navy, 25%);
   font-size: 14px;
   margin: 0;
 }
-
-.user-location {
+.course-location {
   position: absolute;
   bottom: 2px;
   left: 2px;

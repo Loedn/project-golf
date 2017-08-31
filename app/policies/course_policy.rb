@@ -14,9 +14,11 @@ class CoursePolicy < ApplicationPolicy
 
   def destroy?
     record.owner == user
-
   end
 
+  def dashboard?
+    edit?
+  end
 
   class Scope < Scope
     attr_reader :user, :Scope
