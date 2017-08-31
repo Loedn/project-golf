@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   has_many :events, dependent: :destroy
   belongs_to :owner, :class_name => :User , :foreign_key => "owner_id"
   validates :name, presence: true
+  has_many :holes
   # validates :address, presence: true
   # validates :image, presence: true
   # validates :description, presence: true

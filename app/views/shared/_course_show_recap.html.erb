@@ -1,5 +1,7 @@
 <%= simple_form_for [@course, @event] do |f| %>
   <div class="recap--container">
+  <% if current_user %>
+
     <h1>your booking:</h1>
 
     <div class="recap--container__details">
@@ -50,6 +52,9 @@
       </div>
     </div>
     <%= f.submit "confirm", :class => 'recap-btn-confirm' %>
+    <% else %>
+      <p>Please sign in first</p>
+    <% end %>
   </div>
 <% end %>
 
