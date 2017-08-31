@@ -24,6 +24,8 @@ end
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'

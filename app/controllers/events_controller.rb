@@ -29,15 +29,15 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.timeslot = DateTime.new(params[:event]["timeslot(1i)"].to_i, params[:event]["timeslot(2i)"].to_i, params[:event]["timeslot(3i)"].to_i )
 
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
 
     invites_names = "" # event title string with invites names
-
-    params[:event][:invited_user_ids].each do |id|
-      invites_names += ", #{User.find(id).first_name}"
+    if params[:event][:invited_user_ids]
+      params[:event][:invited_user_ids].each do |id|
+        invites_names += ", #{User.find(id).first_name}"
+      end
     end
     @event.title = "#{@event.course.name} day with #{current_user.first_name}#{invites_names}"
     authorize @event

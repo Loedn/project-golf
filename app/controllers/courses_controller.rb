@@ -17,7 +17,9 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @event = Event.new
-    @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends
+    if current_user
+      @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends\
+    end
     authorize @course
   end
 
@@ -61,10 +63,10 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-  params.require(:course).permit(:name, :address, :description, :image, :image_cache)
+  params.require(:course).permit(:name, :address, :description, :image, :image_cache, :price)
   end
 
   def course_edit_params
-    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges)
+    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price)
   end
 end

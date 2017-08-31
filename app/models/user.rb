@@ -5,8 +5,10 @@ class User < ApplicationRecord
   # this for events thing
   has_many :invites
   has_many :events
+  has_many :comments
   has_many :invited_events , through: :invites, source: :events
   has_many :courses
+  has_many :hole_scores
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
@@ -19,6 +21,12 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

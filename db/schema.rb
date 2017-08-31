@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831111312) do
+
+ActiveRecord::Schema.define(version: 20170831145701) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170831111312) do
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["event_id"], name: "index_comments_on_event_id", using: :btree
   end
 
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170831111312) do
     t.integer  "owner_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.float    "price"
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
 
@@ -49,6 +54,27 @@ ActiveRecord::Schema.define(version: 20170831111312) do
     t.string   "title"
     t.index ["course_id"], name: "index_events_on_course_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "hole_scores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "hole_id"
+    t.integer  "event_id"
+    t.integer  "strikes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_hole_scores_on_event_id", using: :btree
+    t.index ["hole_id"], name: "index_hole_scores_on_hole_id", using: :btree
+    t.index ["user_id"], name: "index_hole_scores_on_user_id", using: :btree
+  end
+
+  create_table "holes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "par"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_holes_on_course_id", using: :btree
   end
 
   create_table "invites", force: :cascade do |t|
@@ -90,6 +116,10 @@ ActiveRecord::Schema.define(version: 20170831111312) do
   add_foreign_key "courses", "users", column: "owner_id"
   add_foreign_key "events", "courses"
   add_foreign_key "events", "users"
+  add_foreign_key "hole_scores", "events"
+  add_foreign_key "hole_scores", "holes"
+  add_foreign_key "hole_scores", "users"
+  add_foreign_key "holes", "courses"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
 end

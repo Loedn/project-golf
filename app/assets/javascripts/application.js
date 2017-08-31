@@ -5,3 +5,6 @@
 //= require gmaps/google
 //= require_tree .
 //= require typed
+//= require moment
+//= require bootstrap-datetimepicker
+
