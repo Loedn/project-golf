@@ -35,6 +35,12 @@
         <%= f.input :timeslot, as: :date, start_year: Date.today.year, end_year: Date.today.year + 1, start_month: Date.today.month, end_month: Date.today.month + 6, start_day: Date.today.day, order: [:day, :month, :year], label: false %>
 
       </div>
+      <div class="recap-details-box">
+        <p class="recap-label">Total Price:</p>
+        <div class='recap-details-price'>
+          <p>£ <%= @course.price%></p>
+        </div>
+      </div>
     </div>
     <%= f.submit "confirm", :class => 'recap-btn-confirm' %>
   </div>
