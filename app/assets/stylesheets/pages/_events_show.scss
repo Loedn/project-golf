@@ -19,6 +19,7 @@
   height: 200px;
   background: white;
   margin-bottom: 20px;
+  margin-top: 0;
 }
 .event-banner {
   height: 200px;
@@ -83,12 +84,72 @@
 .event-guest-name {
   display: flex;
   align-items: center;
+
+  h3 {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
   color: transparentize($navy, .4);
+
 }
 .event-guest-pay {
   display: flex;
   align-items: center;
 }
+
+.avatar-xs{
+  width: 30px;
+  border-radius: 50%;
+  margin: 2px 4px 2px 4px;
+  align-self: center;
+
+}
+.comments-box {
+  position: sticky;
+  height: 550px;
+  top: 20px;
+  overflow: auto;
+}
+.comments-form {
+  margin: 20px 20px 20px 20px;
+}
+ .comments-form h3 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+.message {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.message-text-container {
+  flex-grow: 1;
+  width: 32px;
+}
+.message-name {
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    font-size: 10px;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+}
+.message-content {
+  background: #ccc;
+  color: $navy;
+  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  font-size: 16px;
+   p {
+    margin-bottom: 0;
+    padding: 5px 5px 5px 5px;
+  }
+}
+
+
 
 .event-guest-image {
   border-radius: 50%;
@@ -119,3 +180,4 @@
     outline: none;
   }
 }
+
