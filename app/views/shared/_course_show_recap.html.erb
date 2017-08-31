@@ -56,7 +56,14 @@
 <%= content_for(:after_js) do%>
   <script>
   $(function () {
-    $('#datetimepicker1').datetimepicker();
+
+    $('#datetimepicker1').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+      minDate: new Date(),
+      defaultDate: new Date(),
+      sideBySide: true,
+      // inline: true
+    });
   });
   </script>
 <% end %>
