@@ -10,13 +10,7 @@
           <div class="event-checkbox-container">
 
             <% @friends.each do |friend| %>
-            <% if !friend.facebook_picture_url.nil? %>
-              <% image_url = friend.facebook_picture_url %>
-            <% elsif !friend.photo.nil? %>
-              <% image_url = friend.photo %>
-            <% else %>
-              <% image_url = "http://placehold.it/60" %>
-            <% end %>
+            <% image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/60" %>
             <div class="form-group check_boxes optional event_invited_users">
               <span class="checkbox">
                 <label for="event_invited_user_ids_<%= friend.id %>">

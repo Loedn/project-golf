@@ -1,5 +1,5 @@
-.event-container{
-  flex:display;
+.event-container {
+  flex: display;
   margin-right: 0px;
 }
 .event-container-left {
@@ -31,12 +31,12 @@
   h1 {
     color: white;
     padding: 10px 0 0 0;
-    }
+  }
   p {
     color: white;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    }
+  }
 }
 .event-details {
   position: absolute;
@@ -50,17 +50,19 @@
   box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.15);
   margin-top: 20px;
   margin-bottom: 20px;
-    h3 {
-      margin-top: 20px;
-      margin-left: 20px;
-      font-size: 26px;
-    }
+  h3 {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 26px;
+  }
 }
 .event-guest {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 20px 20px 20px 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
   p {
     margin-bottom: 0;
     margin-right: 10px;
@@ -69,8 +71,17 @@
 .event-guest-name {
   display: flex;
   align-items: center;
+  color: transparentize($navy, .4);
 }
 .event-guest-pay {
   display: flex;
   align-items: center;
+}
+
+.event-guest-image {
+  border-radius: 50%;
+  margin-right: 30px;
+  box-shadow: 0 0 0 3px lightblue;
+  width: 60px;
+  height: 60px;
 }

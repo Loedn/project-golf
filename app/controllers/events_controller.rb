@@ -29,12 +29,12 @@ class EventsController < ApplicationController
     @event.course = Course.find(params[:course_id])
 
     if @event.save
+      Invite.create(user: current_user, event: @event, status: 'paid')
       unless params[:event][:invited_user_ids].nil?
         params[:event][:invited_user_ids].each do |id|
-          Invite.create(user: User.find(id), event: @event, status: 'pending')
+          Invite.create(user: User.find(id), event: @event, status: 'payment-pending')
         end
       end
-      Invite.create(user: current_user, event: @event, status: 'pending')
       redirect_to event_path(@event)
     else
       render :new
