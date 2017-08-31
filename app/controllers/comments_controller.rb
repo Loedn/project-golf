@@ -6,9 +6,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.event = @event
     if @comment.save
-      redirect_to event_path(@event) # make ajax functionality
+      respond_to do |format|
+        format.html { redirect_to event_path(@event) }
+        format.js
+      end
+      # redirect_to event_path(@event) # make ajax functionality
     else
-      render 'events/show'
+      respond_to do |format|
+        format.html { render 'events/show' }
+        format.js
+      # render 'events/show'
+      end
     end
   end
 

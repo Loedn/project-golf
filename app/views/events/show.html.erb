@@ -44,8 +44,20 @@
         <div class="event-container-right">
             <div id="map" class="map">
             </div>
-            <div class="event-box">
-              <%= render 'shared/comments_form', event: @event, comment: @comment  %>
+            <div class="event-box comments">
+              <h2>
+                <%= pluralize @event.comments.size, "comment" %>
+              </h2>
+              <div id="comments">
+                <% if @event.comments.blank? %>
+                  be the first to leave a comment for <%= @event.name %>
+                <% else %>
+                  <% @event.comments.each do |comment| %>
+                    <%= render 'comments/show', comment: comment %>
+                  <% end %>
+                <% end %>
+              </div>
+              <%= render 'comments/form', event: @event, comment: @comment  %>
             </div>
         </div>
       </div>
