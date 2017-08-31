@@ -70,7 +70,7 @@ form.new_event {
 }
 .event-checkbox:checked {
   & + .event-checkbox-label {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 3px lightblue;
   }
   body {
     background-color: red;
@@ -81,6 +81,7 @@ form.new_event {
   .event-checkbox-label {
     border-radius: 50%;
     align-self: center;
-    width: 45px;
+    width: 60px;
+    height: 60px;
   }
 }
