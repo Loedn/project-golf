@@ -14,7 +14,7 @@
           <i class="fa fa-pencil" aria-hidden="true"></i>
         <% end %>
       </h1>
-      <p><%= @event.timeslot %></p>
+      <p><%= @event.timeslot.strftime('%A, %d %b - %H:%M') %></p>
     </div>
   </div>
 <% end %>

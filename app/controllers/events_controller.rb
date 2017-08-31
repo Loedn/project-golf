@@ -29,7 +29,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.timeslot = DateTime.new(params[:event]["timeslot(1i)"].to_i, params[:event]["timeslot(2i)"].to_i, params[:event]["timeslot(3i)"].to_i )
 
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
