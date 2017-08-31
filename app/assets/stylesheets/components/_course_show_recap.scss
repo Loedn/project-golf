@@ -73,9 +73,6 @@ form.new_event {
   & + .event-checkbox-label {
     box-shadow: 0 0 0 3px lightblue;
   }
-  body {
-    background-color: red;
-  }
 }
 .event-checkbox-container {
   display: flex;
@@ -91,9 +88,9 @@ form.new_event {
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .8);
   text-align: center;
-  background-color: transparentize($main-green, .7);
+  background-color: lighten($navy, 15%);
   padding: 20px 0;
   border-radius: 2px;
   p {
