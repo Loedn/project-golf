@@ -32,10 +32,31 @@
       </div>
       <div class="recap-details-box">
         <p class="recap-label">date:</p>
-        <%= f.input :timeslot, as: :date, start_year: Date.today.year, end_year: Date.today.year + 1, start_month: Date.today.month, end_month: Date.today.month + 6, start_day: Date.today.day, order: [:day, :month, :year], label: false %>
 
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' class="form-control" name="event[timeslot]"/>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="recap-details-box">
+        <p class="recap-label">Total Price:</p>
+        <div class='recap-details-price'>
+          <p>£ <%= @course.price%></p>
+        </div>
       </div>
     </div>
     <%= f.submit "confirm", :class => 'recap-btn-confirm' %>
   </div>
+<% end %>
+
+<%= content_for(:after_js) do%>
+  <script>
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+  </script>
 <% end %>

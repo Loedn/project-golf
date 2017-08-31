@@ -6,11 +6,11 @@
   padding: 10px 30px 10px 10px;
   flex-basis: 73%;
   #map {
-    height: 200px;
+    height: 300px;
   }
   .show--content__box {
     box-shadow: 1px 1px 16px 0 rgba(0, 0, 0, 0.1);
-    // height: 200px;
+    min-height: 300px;
     padding: 47px 50px 32px;
     border-radius: 2px;
     margin-bottom: 19px;

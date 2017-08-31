@@ -10,6 +10,7 @@ form.new_event {
   top: 80px;
   z-index: 10000;
   margin: 0;
+  margin-bottom: 50px;
   border-radius: 4px;
   margin-top: -150px;
   box-shadow: $subtle-shadow, 2px 2px 18px 0 rgba(0, 0, 0, 0.4);
@@ -72,9 +73,6 @@ form.new_event {
   & + .event-checkbox-label {
     box-shadow: 0 0 0 3px lightblue;
   }
-  body {
-    background-color: red;
-  }
 }
 .event-checkbox-container {
   display: flex;
@@ -83,5 +81,19 @@ form.new_event {
     align-self: center;
     width: 60px;
     height: 60px;
+  }
+}
+.recap-details-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: rgba(255, 255, 255, .8);
+  text-align: center;
+  background-color: lighten($navy, 15%);
+  padding: 20px 0;
+  border-radius: 2px;
+  p {
+    margin: 0;
   }
 }
