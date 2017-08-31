@@ -4,13 +4,8 @@
     <div class="col"> -->
       <div class="event-container">
         <div class="event-container-left">
-          <div class="event-card">
-            <div class="event-details">
-              <h1>Event Name</h1>
-              <p>Golf course name</p>
-              <p>Tue 10th Oct 10:00am</p>
-            </div>
-          </div>
+
+          <%= render 'shared/event_banner', event: @event, course: @course %>
           <div class="event-box">
             <div class="event-guest">
               <div class="event-guest-name">
@@ -42,8 +37,7 @@
           </div>
         </div>
         <div class="event-container-right">
-            <div id="map" class="map">
-            </div>
+            <div id="event-map"></div>
             <div class="event-box">
               <%= render 'shared/comments_form', event: @event, comment: @comment  %>
             </div>
@@ -177,7 +171,7 @@
   ];
 
   var handler = Gmaps.build('Google', { markers: { clusterer: undefined } });
-    handler.buildMap({ provider: {styles: styles }, internal: { id: 'map' } }, function() {
+    handler.buildMap({ provider: {styles: styles }, internal: { id: 'event-map' } }, function() {
       markers = handler.addMarkers(<%= raw [{lat: @event.course.latitude, lng: @event.course.longitude}].to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
