@@ -5,7 +5,14 @@ class CoursesController < ApplicationController
 
   def index
     @courses = policy_scope(Course)
-  end
+    @address = params[:address]
+
+    if @address.nil? || @address == ''
+      @courses = Course.all
+    else
+      @courses = Course.near(params[:address], 100).where.not(latitude: nil, longitude: nil)
+    end
+  end     
 
   def show
     @course = Course.find(params[:id])

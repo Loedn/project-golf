@@ -16,6 +16,7 @@ gem 'pundit'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'typedjs-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
