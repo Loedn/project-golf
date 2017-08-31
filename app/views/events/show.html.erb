@@ -23,54 +23,14 @@
                 </div>
               </div>
             </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Arthur Littmann <small>organizer</small></p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-pay">
-                  Pay
-                </div>
-              </div>
-            </div>
-             <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Alex</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-paid">
-                  Paid
-                </div>
-              </div>
-            </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Jordan</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-to-pay">
-                  To Pay
-                </div>
-              </div>
-            </div>
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
-                <p>Alessandro</p>
-              </div>
-              <div class="event-guest-pay">
-                <p>£25</p>
-                <div class="btn btn-to-pay">
-                To Pay
-                </div>
-              </div>
-            </div>
+
+
+            <% @event.invites.each do |invite| %>
+              <%= render 'shared/event_invite', invite: invite, event: @event %>
+            <% end %>
+
+
+
             <div class="event-guest">
               <div class="event-guest-name total">
               </div>
@@ -85,7 +45,7 @@
             <div id="map" class="map">
             </div>
             <div class="event-box">
-              <%= render 'comments/form', event: @event, comment: @comment  %>
+              <%= render 'shared/comments_form', event: @event, comment: @comment  %>
             </div>
         </div>
       </div>
@@ -93,9 +53,135 @@
   </div> -->
 <!-- </div> -->
 
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
 
+  const styles = [
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#f49935"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#fad959"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#a1cdfc"
+            },
+            {
+                "saturation": 30
+            },
+            {
+                "lightness": 49
+            }
+        ]
+    }
+  ];
 
-
-
-
-
+  var handler = Gmaps.build('Google', { markers: { clusterer: undefined } });
+    handler.buildMap({ provider: {styles: styles }, internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw [{lat: @event.course.latitude, lng: @event.course.longitude}].to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+       handler.getMap().setZoom(12);
+    });
+  </script>
+<% end %>

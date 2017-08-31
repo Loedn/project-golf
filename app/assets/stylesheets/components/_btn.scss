@@ -114,10 +114,11 @@
   width: 100px;
   border-radius: 5px;
   background: $main-green;
-  opacity:0.8;
+  opacity: 0.8;
   text-decoration: none;
   color: white;
-    &:hover {
+  cursor: disabled;
+  &:hover {
     text-decoration: none;
     //background: $main-green;
     //opacity: 0.6;
@@ -128,14 +129,13 @@
   width: 100px;
   border-radius: 5px;
   background: $navy;
-  opacity:0.6;
+  opacity: 0.6;
   text-decoration: none;
   color: white;
-    &:hover {
+  &:hover {
     text-decoration: none;
     //background: $navy;
     //opacity: 0.4;
     color: white;
   }
 }
-

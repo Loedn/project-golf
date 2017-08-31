@@ -1,0 +1,12 @@
+<div class="event-guest">
+  <div class="event-guest-name">
+    <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-small"/>
+    <p><%= "#{invite.user.first_name.capitalize} #{invite.user.last_name.capitalize}" %> <small><%= invite == event.invites.first ? ' - Organizer' : '' %></small></p>
+  </div>
+  <div class="event-guest-pay">
+    <p>£25</p>
+    <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : ''  %> ">
+      <%= invite.status %>
+    </div>
+  </div>
+</div>

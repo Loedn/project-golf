@@ -5,14 +5,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    def show
      @event = Event.find(params[:id])
      @invitees = @event.invited_users
      @comment = Comment.new
      authorize @event
    end
 
-  end
 
   def new
     @event = Event.new
@@ -30,12 +28,14 @@ class EventsController < ApplicationController
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
 
-
     if @event.save
-      params[:event][:invited_user_ids].each do |id|
-        Invite.create(user: User.find(id), event: @event)
+      unless params[:event][:invited_user_ids].nil?
+        params[:event][:invited_user_ids].each do |id|
+          Invite.create(user: User.find(id), event: @event, status: 'pending')
+        end
       end
-      redirect_to root_path
+      Invite.create(user: current_user, event: @event, status: 'pending')
+      redirect_to event_path(@event)
     else
       render :new
     end
