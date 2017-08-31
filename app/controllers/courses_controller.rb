@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @event = Event.new
-    @friends = User.all # in the future this should be something like current_user.friends
+    @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends
     authorize @course
   end
 
