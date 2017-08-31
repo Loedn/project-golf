@@ -1,6 +1,7 @@
-.event-container{
-  flex:display;
-  margin-right: 0px;
+.event-container {
+  flex: display;
+  margin: 0 auto;
+  padding: 10px 40px;
 }
 .event-container-left {
   flex-basis: 70%;
@@ -13,31 +14,42 @@
   margin-right: 20px;
   margin-left: 20px;
 }
-.event-container-right .map {
+
+#event-map {
   height: 200px;
   background: white;
   margin-bottom: 20px;
   margin-top: 0;
 }
-.event-card {
+.event-banner {
   height: 200px;
-  border-radius: 8px;
-  box-shadow: $subtle-shadow, 1px 1px 3px 0 rgba(0, 0, 0, 0.3),
-    0 0 4px 3px rgba(0, 0, 0, 0.11);
-  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)),
-    image-url("banner-background.png");
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.27);
+
   position: relative;
   background-size: cover;
   background-position: center;
   h1 {
+    input {
+      background-color: transparent;
+      border: none;
+      width: 600px;
+      display: inline;
+      &:focus {
+        outline: none;
+      }
+    }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     padding: 10px 0 0 0;
-    }
+    font-size: 1.4em;
+    font-weight: $font-weight-normal;
+  }
   p {
     color: white;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    }
+    padding: 0;
+    margin: 0;
+  }
 }
 .event-details {
   position: absolute;
@@ -51,17 +63,19 @@
   box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.15);
   margin-top: 20px;
   margin-bottom: 20px;
-    h3 {
-      margin-top: 20px;
-      margin-left: 20px;
-      font-size: 26px;
-    }
+  h3 {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 26px;
+  }
 }
 .event-guest {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 20px 20px 20px 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
   p {
     margin-bottom: 0;
     margin-right: 10px;
@@ -70,15 +84,20 @@
 .event-guest-name {
   display: flex;
   align-items: center;
+
   h3 {
     margin-top: 0;
     margin-left: 0;
   }
+
+  color: transparentize($navy, .4);
+
 }
 .event-guest-pay {
   display: flex;
   align-items: center;
 }
+
 .avatar-xs{
   width: 30px;
   border-radius: 50%;
@@ -127,6 +146,38 @@
    p {
     margin-bottom: 0;
     padding: 5px 5px 5px 5px;
+  }
+}
+
+
+
+.event-guest-image {
+  border-radius: 50%;
+  margin-right: 30px;
+  box-shadow: 0 0 0 3px lightblue;
+  width: 60px;
+  height: 60px;
+}
+
+.edit_event_title_button {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 80px;
+  font-size: 1em;
+  transition: all .2s;
+  opacity: .8;
+  &:hover {
+    background: transparent;
+    color: white;
+    opacity: 1;
+  }
+  &:active {
+    background-color: transparent;
+    outline: none;
+  }
+  &:focus {
+    outline: none;
   }
 }
 

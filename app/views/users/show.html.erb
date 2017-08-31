@@ -1,6 +1,9 @@
 <div class="user-profile">
   <%= render 'shared/user' %>
   <div class="user-card">
+    <div class="user-add">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </div>
     <div class="user-pic">
       <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
     </div>
@@ -9,19 +12,11 @@
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       </div>
       <div class="user-bio">
-        <p>wolo ldko sdokv </p>
+        <p>Amateur golfer looking for golf buddies</p>
       </div>
-    <div class="user-stuff">
-        <div class="user-friend">
-          <p>3 friends</p>
-        </div>
-        <div class="user-location">
-          <p>london</p>
-        </div>
-        <div class="user-add">
-          <p>add me</p>
-        </div>
-    </div>
+      <div class="user-location">
+        <p><i class="fa fa-location-arrow" aria-hidden="true"></i> London</p>
+      </div>
     </div>
   </div>
 <br>

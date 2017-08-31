@@ -1,0 +1,20 @@
+<% if course.image? %>
+  <% url = cl_image_path course.image, crop: :fill %>
+<% else %>
+  <% url = image_path "banner-background.png" %>
+<% end %>
+
+
+<%= simple_form_for [course, event], method: :patch, remote: true do |f| %>
+  <div class="event-banner" style="background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6)),
+    url(<%= url %>);">
+    <div class="event-details">
+      <h1><input type="text" value="<%= event.title %>" name="event[title]" >
+        <%= f.button :button, class: 'edit_event_title_button' do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        <% end %>
+      </h1>
+      <p><%= @event.timeslot.strftime('%A, %d %b - %H:%M') %></p>
+    </div>
+  </div>
+<% end %>
