@@ -1,0 +1,20 @@
+<% @courses.each do |course|%>
+  <div class="course-profile">
+    <div class="course-card">
+      <div class="course-pic">
+        <%=image_tag course.image %>
+      </div>
+      <div class="course-details">
+        <div class="course-name">
+          <h2><%= course.name %></h2>
+        </div>
+        <div class="course-bio">
+          <p><%= course.description %></p>
+        </div>
+        <div class="course-location">
+          <p><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= course.address %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
