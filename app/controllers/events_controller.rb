@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
-    skip_after_action :verify_authorized, only: [:create]
   def index
     @events = Event.where(user_id[current_user.id])
   end
 
   def show
      @event = Event.find(params[:id])
+     @course = @event.course
      @invitees = @event.invited_users
      @comment = Comment.new
      authorize @event
@@ -21,6 +21,12 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    authorize @event
+  end
+
   def create
     @event = Event.new(event_params)
     @event.timeslot = DateTime.new(params[:event]["timeslot(1i)"].to_i, params[:event]["timeslot(2i)"].to_i, params[:event]["timeslot(3i)"].to_i )
@@ -28,6 +34,13 @@ class EventsController < ApplicationController
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
 
+    invites_names = "" # event title string with invites names
+
+    params[:event][:invited_user_ids].each do |id|
+      invites_names += ", #{User.find(id).first_name}"
+    end
+    @event.title = "#{@event.course.name} day with #{current_user.first_name}#{invites_names}"
+    authorize @event
     if @event.save
       Invite.create(user: current_user, event: @event, status: 'paid')
       unless params[:event][:invited_user_ids].nil?
@@ -84,7 +97,7 @@ class EventsController < ApplicationController
 private
 
   def event_params
-    params.require(:event).permit(:timeslot)
+    params.require(:event).permit(:timeslot, :title)
   end
 
 

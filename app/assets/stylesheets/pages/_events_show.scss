@@ -1,6 +1,7 @@
 .event-container {
   flex: display;
-  margin-right: 0px;
+  margin: 0 auto;
+  padding: 10px 40px;
 }
 .event-container-left {
   flex-basis: 70%;
@@ -13,29 +14,41 @@
   margin-right: 20px;
   margin-left: 20px;
 }
-.event-container-right .map {
+
+#event-map {
   height: 200px;
   background: white;
   margin-bottom: 20px;
 }
-.event-card {
+.event-banner {
   height: 200px;
   border-radius: 8px;
-  box-shadow: $subtle-shadow, 1px 1px 3px 0 rgba(0, 0, 0, 0.3),
-    0 0 4px 3px rgba(0, 0, 0, 0.11);
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.27);
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)),
     image-url("banner-background.png");
   position: relative;
   background-size: cover;
   background-position: center;
   h1 {
+    input {
+      background-color: transparent;
+      border: none;
+      width: 600px;
+      display: inline;
+      &:focus {
+        outline: none;
+      }
+    }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     padding: 10px 0 0 0;
+    font-size: 1.4em;
+    font-weight: $font-weight-normal;
   }
   p {
     color: white;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    padding: 0;
+    margin: 0;
   }
 }
 .event-details {
@@ -84,4 +97,22 @@
   box-shadow: 0 0 0 3px lightblue;
   width: 60px;
   height: 60px;
+}
+
+.edit_event_title_button {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 80px;
+  font-size: 1.5em;
+  transition: all .2s;
+  opacity: .8;
+  &:hover {
+    background: transparent;
+    color: white;
+    opacity: 1;
+  }
+  &:focus {
+    outline: none;
+  }
 }
