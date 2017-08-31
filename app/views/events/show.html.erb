@@ -42,23 +42,28 @@
           </div>
         </div>
         <div class="event-container-right">
-            <div id="map" class="map">
-            </div>
-            <div class="event-box comments">
-              <h2>
-                <%= pluralize @event.comments.size, "comment" %>
-              </h2>
-              <div id="comments">
-                <% if @event.comments.blank? %>
-                  be the first to leave a comment for <%= @event.name %>
-                <% else %>
-                  <% @event.comments.each do |comment| %>
-                    <%= render 'comments/show', comment: comment %>
-                  <% end %>
-                <% end %>
-              </div>
+          <div id="map" class="map event-box">
+          </div>
+
+          <div class="event-box comments-box">
+            <div class="comments-form">
               <%= render 'comments/form', event: @event, comment: @comment  %>
+              <h3>
+                <%= pluralize @event.comments.size, "comment" %>
+              </h3>
             </div>
+            <div id="comments">
+              <% if @event.comments.blank? %>
+                be the first to leave a comment
+              <% else %>
+                <% @event.comments.reverse.each do |comment| %>
+                  <%= render 'comments/show', comment: comment %>
+                <% end %>
+              <% end %>
+            </div>
+
+          </div>
+
         </div>
       </div>
 <!--     </div>

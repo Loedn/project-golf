@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = Comment.new(comment_params)
     @comment.event = @event
+    @comment.user = current_user
     if @comment.save
       respond_to do |format|
         format.html { redirect_to event_path(@event) }

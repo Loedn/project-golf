@@ -1,1 +1,15 @@
-<p><%= comment.content %></p>
+<div class="message">
+  <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="avatar-xs"/>
+  <div class="message-text-container">
+    <div class="message-name">
+      <h3><%= comment.user.first_name %> :</h3>
+      <h3><%= comment.updated_at.to_s(:time) %></h3>
+    </div>
+    <div class="message-content">
+      <p><%= comment.content %></p>
+    </div>
+  </div>
+
+</div>
+
+
