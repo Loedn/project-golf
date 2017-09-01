@@ -38,6 +38,7 @@
         </div>
         <div class="event-container-right">
 
+          <div id="event-map"></div>
           <div class="event-box comments-box">
             <div class="comments-form">
               <%= render 'comments/form', event: @event, comment: @comment  %>
@@ -53,13 +54,7 @@
                   <%= render 'comments/show', comment: comment %>
                 <% end %>
               <% end %>
-
-            <div id="event-map"></div>
-            <div class="event-box">
-              <%= render 'comments/form', event: @event, comment: @comment  %>
-
             </div>
-
           </div>
 
         </div>
