@@ -7,7 +7,7 @@
   </div>
   <% end %>
   <div class="event-guest-pay">
-    <p>£ <%= (@course.price / @event.invites.length).round(2) %></p>
+    <p>£ <%= (@course.price).round(2) %></p>
     <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : ''  %> ">
       <% if invite.status == 'payment-pending' %>
         <p>Pending</p>
