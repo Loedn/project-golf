@@ -12,7 +12,7 @@
                 <h3>Players</h3>
               </div>
               <div class="event-guest-pay">
-                <p><%= @event.price %></p>
+                <p><%= @course.price %></p>
                 <div class="btn btn-pay">
                   Pay All
                 </div>
@@ -56,7 +56,7 @@
 
             <div id="event-map"></div>
             <div class="event-box">
-              <%= render 'shared/comments_form', event: @event, comment: @comment  %>
+              <%= render 'comments/form', event: @event, comment: @comment  %>
 
             </div>
 

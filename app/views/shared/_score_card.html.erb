@@ -1,126 +1,29 @@
-<article class="front9">
-  <div class="hole">
-    <span>Front</span>
-      <% @course.holes.count.times do |n| %>
-        <span><%= n+1 %></span>
-        <% if n == 8 %>
-        <span>In</span>
-  </div>
-  <div class="par">
-    <span>Par</span>
-    <% count = 0 %>
-    <% @course.holes.each do |hole| %>
-    <span><%= hole.par %></span>
-    <% count += hole.par %>
+<table>
+  <thead>
+    <tr>
+      <td>Hole</td>
+      <td>Par</td>
+      <% @event.invited_users.each do |user| %>
+      <td><%= user.first_name %></td>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @course.holes.each_with_index do |hole, index| %>
+      <tr>
+        <th><%= index+1 %></th>
+        <td><%= hole.par %></td>
+        <% @event.invited_users.each do |user| %>
+          <% hole_scores = user.hole_scores.where(hole_id: hole.id) %>
+          <% if hole_scores.any? %>
+            <% hole_scores.each do |hole_score| %>
+              <td><%= hole_score.strikes %></td>
+            <% end %>
+          <% else %>
+            <td>0</td>
+          <% end %>
+        <% end %>
+      </tr>
     <% end %>
-    <span>LOOK HERE IDIOT<%= count %></span>
-  </div>
-</article>
-<article class="back9">
-  <div class="hole">
-    <span>Back</span>
-      <% end %>
-      <% end %>
-      <span>Out</span>
-      <span>Total</span>
-  </div>
-</article>
-<article class="front9">
-
-
-
-
-
-
-
-
-
-
-
-    <div class="score">
-        <span>Arthur</span>
-        <span><input type="text" /></span>
-        <span>5</span>
-        <span>4</span>
-        <span>5</span>
-        <span>3</span>
-        <span>3</span>
-        <span>5</span>
-        <span>4</span>
-        <span>4</span>
-        <span class="sub">36</span>
-    </div>
-
-
-
-    </div>
-    <div class="par">
-        <span>Par</span>
-        <span>5</span>
-        <span>3</span>
-        <span>4</span>
-        <span>3</span>
-        <span>5</span>
-        <span>4</span>
-        <span>4</span>
-        <span>3</span>
-        <span>5</span>
-        <span>36</span>
-    <span>72</span>
-    </div>
-    <div class="score">
-        <span>Arthur</span>
-        <span>6</span>
-        <span>2</span>
-        <span>5</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>4</span>
-        <span>3</span>
-        <span>6</span>
-        <span class="sub">41</span>
-        <span class="total">77</span>
-    <div class="score">
-        <span>Alex</span>
-        <span>6</span>
-        <span>2</span>
-        <span>5</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>4</span>
-        <span>3</span>
-        <span>6</span>
-        <span class="sub">41</span>
-        <span class="total">77</span>
-    </div>
-        <div class="score">
-        <span>Jordan</span>
-        <span>6</span>
-        <span>2</span>
-        <span>5</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>4</span>
-        <span>3</span>
-        <span>6</span>
-        <span class="sub">41</span>
-        <span class="total">77</span>
-    </div>
-        <div class="score">
-        <span>Alessandro</span>
-        <span>6</span>
-        <span>2</span>
-        <span>5</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>4</span>
-        <span>3</span>
-        <span>6</span>
-        <span class="sub">41</span>
-        <span class="total">77</span>
-    </div>
-</article>
+  </tbody>
+</table>

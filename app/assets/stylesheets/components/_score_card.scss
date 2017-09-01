@@ -1,12 +1,18 @@
-.front9, .back9 {
+.front9 {
+  display: flex;
   margin-left: 20px;
   margin-bottom: 1em;
+  flex-direction: column;
   .hole {
+    display: flex;
+    flex-direction: column;
     background-color: $navy;
     color: white;
     span {padding: .5em 0;}
   }
   .par {
+    display: flex;
+    flex-direction: column;
     background-color: #ccc;
     color: #white;
     span {padding: .25em 0;}
