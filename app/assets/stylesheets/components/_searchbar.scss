@@ -1,9 +1,9 @@
 .searchbar--home {
-  margin-top: -60px;
+  // margin-top: -60px;
   color: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  // flex-direction: column;
+  // align-items: center;
   .form-border {
     // box-shadow: $subtle-shadow, 0 0px 16px 1px rgba(0, 0, 0, 0.1);
   }
@@ -13,5 +13,15 @@
     color: white;
     font-size: 5em;
     border-bottom: 1px solid white;
+    height: 68px;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: white;
+      text-align: center;
+    }
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
   }
 }

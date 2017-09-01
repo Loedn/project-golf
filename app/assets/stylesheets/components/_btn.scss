@@ -1,5 +1,11 @@
 .search-button {
-  background: $main-green;
+  background: transparent;
+  margin-left: -120px;
+  font-size: 1.6em;
+  &:hover {
+    color: white;
+    content: '';
+  }
 }
 
 .btn-facebook {

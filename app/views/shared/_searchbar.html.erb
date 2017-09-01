@@ -1,14 +1,29 @@
-<form action="/courses" class="form-inline search-form searchbar--home"><div class="form-border"><input type="text" name="address" class="form-control autocomplete_input" id="inlineFormInput" placeholder=""></div><button type="submit" class="btn btn-success search-button">Search</button></div></form>
-<h1 id="hallo"></h1>
+<form action="/courses" class="form-inline search-form searchbar--home"><div class="form-border"><input type="text" name="address" class="form-control autocomplete_input" id="inlineFormInput" placeholder=""></div><button type="submit" class="btn search-button"></button></div></form>
+
 <% content_for(:after_js) do %>
   <script>
     var options = {
-      strings: ["London", "Madrid", "Your mom", ""],
+      strings: ["London", "Madrid", "Vicenza", "Dixon's House", ""],
       loop: false,
+      loopCount: Infinity,
       typeSpeed: 50,
       attr: 'placeholder'
     };
+
+    var button = document.querySelector('.search-button');
+    var input = document.getElementById('inlineFormInput');
     $('#inlineFormInput').typed(options);
-    document.getElementById('inlineFormInput').style.color('white');
+    changeButtonText = function (e) {
+      console.log(e)
+      console.log(button)
+      if (e.target.value !== '') {
+        button.innerText = 'Search'
+      }
+    }
+    input.ad(0 hdEventListener('input', changeButtonText)
+
+
+
+
   </script>
 <% end %>

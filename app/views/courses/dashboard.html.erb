@@ -3,6 +3,15 @@
 
   <div class="flex">
       <div class="show--content dashboard--content">
+      </div>
+      <div class="show--content dashboard--content">
+        <%= simple_form_for @course, method: :patch do |f| %>
+        <%= f.input :image %>
+
+        <%= f.input :image_cache, as: :hidden %>
+        <%= f.submit 'Change Image' %>
+
+        <% end %>
         <h1>Course Settings:</h1>
         <div class="show--content__box course-description">
           <%= simple_form_for @course do |f| %>

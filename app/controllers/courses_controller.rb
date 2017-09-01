@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  after_action :verify_policy_scoped, only: [:dashboard]
-  skip_after_action :verify_authorized, only: [:dashboard]
+  # after_action :verify_policy_scoped, only: [:dashboard]
+  # skip_after_action :verify_authorized, only: [:dashboard]
 
   def index
     @courses = policy_scope(Course)
@@ -24,7 +24,9 @@ class CoursesController < ApplicationController
   end
 
   def dashboard
-    @course = policy_scope(Course).where(owner: current_user).first
+    # @course = policy_scope(Course).where(owner: current_user).first
+    @course = Course.find(params[:course_id])
+    authorize @course
     redirect_to root_path if @course.nil?
   end
 
@@ -37,14 +39,16 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     authorize @course
     @course.update(course_edit_params)
-    # build the array of date based on params[:course][:disabled_days]
+    #build the array of date based on params[:course][:disabled_days]
     updated_days = []
-    params[:course][:disabled_days].each do |d|
-      updated_days << d
+    if params[:course][:disabled_days]
+      params[:course][:disabled_days].each do |d|
+        updated_days << d
+        @course.update(disabled_days: updated_days.slice(1, updated_days.size))
+      end
     end
-    @course.update(disabled_days: updated_days.slice(1, updated_days.size))
 
-    redirect_to course_dashboard_path
+    redirect_to @course
   end
 
   def destroy

@@ -3,9 +3,10 @@ class Course < ApplicationRecord
   belongs_to :owner, :class_name => :User , :foreign_key => "owner_id"
   validates :name, presence: true
   has_many :holes
-  # validates :address, presence: true
+  validates :price, presence: true
+  validates :address, presence: true
   # validates :image, presence: true
-  # validates :description, presence: true
+  validates :description, presence: true
   # validates :email, presence: true
   # validates :phone, presence: true
   # validates :timeslots, presence: true
