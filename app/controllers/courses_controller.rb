@@ -68,6 +68,6 @@ class CoursesController < ApplicationController
   end
 
   def course_edit_params
-    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price)
+    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price, :disabled_days)
   end
 end

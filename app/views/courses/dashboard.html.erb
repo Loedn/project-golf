@@ -1,11 +1,16 @@
-<%= render 'shared/course_show_banner', course: @course %>
-
 
 <div class="course-show-container">
 
   <div class="flex">
       <div class="show--content">
         <div class="show--content__box" id="map"></div>
+        <div class="show--content__box course-description">
+          <%= simple_form_for @course do |f| %>
+            <p>Disabled days:</p>
+            <input type="checkbox" name="course[disabled_days]"> <label for="course[disabled_days]">Monday</label>
+          <%= f.submit 'Edit your course description' %>
+          <% end %>
+        </div>
         <div class="show--content__box course-description">
           <p class="content-box--label">
             Change your description:
