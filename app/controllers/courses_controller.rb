@@ -23,18 +23,10 @@ class CoursesController < ApplicationController
     authorize @course
   end
 
-  def update
-    @course = Course.find(params[:id])
-    @course.update(courses_params)
-    redirect_to course_dashboard_path(@course)
-    authorize @course
-  end
-
   def dashboard
     @course = policy_scope(Course).where(owner: current_user).first
     redirect_to root_path if @course.nil?
   end
-
 
   def new
     @course = Course.new
@@ -43,8 +35,16 @@ class CoursesController < ApplicationController
 
   def update
     @course = Course.find(params[:id])
-    @course.update(course_edit_params)
     authorize @course
+    @course.update(course_edit_params)
+    # build the array of date based on params[:course][:disabled_days]
+    updated_days = []
+    params[:course][:disabled_days].each do |d|
+      updated_days << d
+    end
+    @course.update(disabled_days: updated_days.slice(1, updated_days.size))
+
+    redirect_to course_dashboard_path
   end
 
   def destroy
@@ -68,6 +68,6 @@ class CoursesController < ApplicationController
   end
 
   def course_edit_params
-    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price, :disabled_days)
+    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price)
   end
 end
