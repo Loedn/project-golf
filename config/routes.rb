@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'courses#index'
-  get '/courses/dashboard', to: 'courses#dashboard', as: "course_dashboard"
   resources :courses do
      resources :events
+     get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
   end
 
   resources :users

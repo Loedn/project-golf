@@ -1,6 +1,6 @@
 .banner {
-  // height: calc(50vh + 70px);
-  height: 40vh;
+  height: calc(50vh + 70px);
+  // height: 40vh;
   width: 100%;
   margin-top: -70px;
   box-shadow: $subtle-shadow, 0 0 10px 1px rgba(0, 0, 0, 0.3);
@@ -11,11 +11,15 @@
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   .homepage--header {
     font-size: 4em;
+    text-align: center;
     color: white;
+    font-weight: $font-weight-light;
+
     margin: 0;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
   }
