@@ -12,7 +12,7 @@
                 <h3>Players</h3>
               </div>
               <div class="event-guest-pay">
-                <p>£ <%= @course.price %></p>
+                <p>£ <%= @course.price * @event.invited_users.count %></p>
                 <div class="btn btn-pay">
                   Pay All
                 </div>
