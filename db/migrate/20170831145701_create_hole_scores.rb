@@ -4,7 +4,7 @@ class CreateHoleScores < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.references :hole, foreign_key: true
       t.references :event, foreign_key: true
-      t.integer :strikes
+      t.integer :strikes, default: 0
 
       t.timestamps
     end
