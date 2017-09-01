@@ -14,7 +14,8 @@
           <i class="fa fa-pencil" aria-hidden="true"></i>
         <% end %>
       </h1>
-      <p><%= @event.timeslot.strftime('%A, %d %b - %H:%M') %></p>
+      <p class="event-banner-location" ><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @course.address %></p>
+      <p class="event-banner-date"><%= @event.timeslot.strftime('%A, %d %b - %H:%M') %></p>
     </div>
   </div>
 <% end %>

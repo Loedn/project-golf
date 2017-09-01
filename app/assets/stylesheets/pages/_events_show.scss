@@ -16,13 +16,13 @@
 }
 
 #event-map {
-  height: 200px;
+  height: 350px;
   background: white;
   margin-bottom: 20px;
   margin-top: 0;
 }
 .event-banner {
-  height: 200px;
+  height: 350px;
   border-radius: 5px;
   box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.27);
 
@@ -49,6 +49,17 @@
     color: white;
     padding: 0;
     margin: 0;
+  }
+  .event-banner-location {
+    font-style: italic;
+    font-weight: $font-weight-light;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 0.9em;
+    padding-bottom: 15px;
+  }
+  .event-banner-date {
+    font-size: .95em;
+    color: rgba(255, 255, 255, 0.87);
   }
 }
 .event-details {
