@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
     else
       @courses = Course.near(params[:address], 100).where.not(latitude: nil, longitude: nil)
     end
-  end     
+  end
 
   def show
     @course = Course.find(params[:id])
@@ -32,6 +32,7 @@ class CoursesController < ApplicationController
 
   def dashboard
     @course = policy_scope(Course).where(owner: current_user).first
+    redirect_to root_path if @course.nil?
   end
 
 
@@ -41,9 +42,9 @@ class CoursesController < ApplicationController
   end
 
   def update
-    authorize @course
     @course = Course.find(params[:id])
     @course.update(course_edit_params)
+    authorize @course
   end
 
   def destroy

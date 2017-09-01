@@ -8,12 +8,12 @@
 Course.destroy_all
 User.destroy_all
 Event.destroy_all
+user = User.create!(email: 'jchoongnw@gmail.com', password: '123456', first_name: 'Jess', last_name: 'Choong')
 
-course = Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one")
+course = Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one", price: 125.0, owner_id: 1)
 18.times do |i|
   hole = Hole.new(name: '#{i+1}', par: 3)
   hole.course = course
   hole.save!
 end
-user = User.create!(email: 'jchoongnw@gmail.com', password: '123456', first_name: 'Jess', last_name: 'Choong')
 event = Event.create!(course: course, user: user)
