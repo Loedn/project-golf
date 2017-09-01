@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
   end
 
   def dashboard
-    @courses = policy_scope(Course).where(owner: current_user)
+    @course = policy_scope(Course).where(owner: current_user).first
   end
 
 
