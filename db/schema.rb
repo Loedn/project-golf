@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901104356) do
+
+ActiveRecord::Schema.define(version: 20170901113159) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +35,13 @@ ActiveRecord::Schema.define(version: 20170901104356) do
     t.float    "longitude"
     t.string   "email"
     t.string   "phone"
-    t.datetime "timeslots",   default: [],              array: true
-    t.string   "badges",      default: [],              array: true
+    t.datetime "timeslots",     default: [],              array: true
+    t.string   "badges",        default: [],              array: true
     t.integer  "owner_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.float    "price"
+    t.integer  "disabled_days", default: [],              array: true
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
 

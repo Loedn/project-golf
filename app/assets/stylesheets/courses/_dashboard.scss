@@ -9,13 +9,7 @@
   justify-content: flex-start;
   position: relative;
 }
-.course-pic {
-  img {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 2px;
-  }
-}
+
 .course-details {
   border-radius: 2px;
   position: relative;
@@ -33,8 +27,12 @@
 .course-description {
   font-family: $base-font;
   color: lighten($navy, 25%);
-  font-size: 14px;
+  font-size: 20px;
   margin: 0;
+}
+.edit-description-textarea {
+  background-color: #f9f9f9;
+  border: solid 1px rgba(0, 0, 0, 0.1);
 }
 .course-location {
   position: absolute;
@@ -47,4 +45,8 @@
   p {
     margin: 0;
   }
+}
+
+.dashboard--content {
+  margin: 0 auto;
 }

@@ -1,8 +1,10 @@
-form.new_event {
+.new_event,
+.dashboard_sidepanel {
   width: 27vw;
 }
 .recap--container {
   height: 700px;
+  max-width: 27vw;
   width: 100%;
   background-color: $navy;
   flex-basis: 27%;

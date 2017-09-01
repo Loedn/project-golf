@@ -11,6 +11,7 @@ User.destroy_all
 
 user = User.create!(email: 'jchoongnw@gmail.com', password: '123456', first_name: 'Jess', last_name: 'Choong')
 course = Course.create!(name: 'Asiago', address: '16 Villa Gaudelet, Paris', description: "good golf course, the best one", price: 25.0, owner: user)
+
 18.times do |i|
   hole = Hole.new(name: '#{i+1}', par: 3)
   hole.course = course
