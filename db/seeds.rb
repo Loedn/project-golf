@@ -9,6 +9,7 @@ Event.destroy_all
 Course.destroy_all
 User.destroy_all
 
+
 user = User.create!(email: 'test@test.com', password: '123456', first_name: 'Super', last_name: 'User')
 
 course1 = Course.create!(image:"image/upload/v1504274734/colli.jpg", name: 'G.C. Colli Berici', address: 'Str. Monti Comunali, 36040 Brendola VI, Italia', description: "The Golf Club is located in a privileged position, both for the scenic landscape setting between the Berici Hills and for the easy access given by the proximity to the Montecchio Maggiore motorway exit, just a short distance from the historic center of Vicenza. The route runs on 18 holes at an altitude of 300 m above sea level, enclosed in the hills of the municipalities of Brendola and Altavilla. The first nine holes, overlooking the plain terrace around Vicenza, enjoy the enchanting panorama offered by the Lessini Mountains and the Little Dolomites; While the second nine go into a thick and relaxing forest of oaks, hornbeams and chestnut trees.", price: 45.00, owner: user)
@@ -61,9 +62,10 @@ course7 = Course.create!(image:"image/upload/v1504274733/london.jpg", name: 'G.C
   hole.save!
 end
 
-course7 = Course.create!(image:"image/upload/v1504274734/royalblack.jpg", name: 'G.C. Royal Blackheath', address: 'Court Rd, London SE9 5AF', description: "Our beautiful 18 hole parkland course boasts excellent fairways, true greens and challenging holes, whilst the magnificent 17th century Clubhouse - with stunning views across the course - is the perfect place to relax after a game. Situated in a tranquil corner of South East London, Royal Blackheath is just 9 miles from the City of London and is situated near historic Greenwich - home of the National Maritime Museum, Royal Observatory and the Cutty Sark. Whether you are new to the sport or a seasoned player, a warm welcome awaits you at Royal Blackheath Golf Club.", price: 80, owner: user)
+course8 = Course.create!(image:"image/upload/v1504274734/royalblack.jpg", name: 'G.C. Royal Blackheath', address: 'Court Rd, London SE9 5AF', description: "Our beautiful 18 hole parkland course boasts excellent fairways, true greens and challenging holes, whilst the magnificent 17th century Clubhouse - with stunning views across the course - is the perfect place to relax after a game. Situated in a tranquil corner of South East London, Royal Blackheath is just 9 miles from the City of London and is situated near historic Greenwich - home of the National Maritime Museum, Royal Observatory and the Cutty Sark. Whether you are new to the sport or a seasoned player, a warm welcome awaits you at Royal Blackheath Golf Club.", price: 80, owner: user)
 18.times do |i|
   hole = Hole.new(name: '#{i+1}', par: 3)
-  hole.course = course7
+  hole.course = course8
   hole.save!
 end
+

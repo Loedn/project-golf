@@ -1,22 +1,30 @@
-<%= render 'shared/course_show_banner', course: @course %>
-
 
 <div class="course-show-container">
 
   <div class="flex">
-    <div class="show--content">
-      <div class="show--content__box" id="map"></div>
-      <div class="show--content__box course-description">
-        <p class="content-box--label">
-          The course
-        </p>
-        <p class="content-box--text">
-          <%= @course.description %>
-        </p>
-      </div>
+      <div class="show--content dashboard--content">
+        <h1>Course Settings:</h1>
+        <div class="show--content__box course-description">
+          <%= simple_form_for @course do |f| %>
+          <% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
 
-    </div>
-      <%= render 'shared/course_dashboard_sidepanel', course: @course %>
+            <%= f.input :disabled_days, collection: week_days, as: :check_boxes, value_method: lambda { |d| week_days.index(d) } %>
+          <%= f.submit 'Add disabled days' %>
+          <% end %>
+        </div>
+
+
+        <div class="show--content__box course-description">
+          <p class="content-box--label">
+            Change your description:
+          </p>
+          <%= simple_form_for @course, method: :patch, remote: true do |f| %>
+
+            <textarea class="edit-description-textarea" cols=110 rows=10 type="text" value="" name="course[description]" ><%= @course.description %></textarea>
+            <%= f.submit 'Edit your course description' %>
+            <% end %>
+        </div>
+      </div>
   </div>
 </div>
 
@@ -120,7 +128,7 @@
     {
         "featureType": "transit",
         "elementType": "all",
-        "stylers": [
+        "stylers": [Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             {
                 "visibility": "off"
             }

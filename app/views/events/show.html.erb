@@ -12,7 +12,7 @@
                 <h3>Players</h3>
               </div>
               <div class="event-guest-pay">
-                <p><%= @course.price %></p>
+                <p>£ <%= @course.price %></p>
                 <div class="btn btn-pay">
                   Pay All
                 </div>
@@ -37,14 +37,15 @@
           </div>
         </div>
         <div class="event-container-right">
+          <div id="event-map"></div>
 
           <div id="event-map"></div>
           <div class="event-box comments-box">
             <div class="comments-form">
-              <%= render 'comments/form', event: @event, comment: @comment  %>
               <h3>
                 <%= pluralize @event.comments.size, "comment" %>
               </h3>
+              <%= render 'comments/form', event: @event, comment: @comment  %>
             </div>
             <div id="comments">
               <% if @event.comments.blank? %>
@@ -55,6 +56,7 @@
                 <% end %>
               <% end %>
             </div>
+
           </div>
 
         </div>

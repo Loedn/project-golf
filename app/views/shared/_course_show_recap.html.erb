@@ -23,14 +23,6 @@
             </div>
             <% end %>
         </div>
-
-
-
-
-
-
-
-
       </div>
       <div class="recap-details-box">
         <p class="recap-label">date:</p>
@@ -61,12 +53,15 @@
 <%= content_for(:after_js) do%>
   <script>
   $(function () {
-
+  var today = moment();
+  var tomorrowAtEight = moment(today).add('days', 1).set({'hour': 8, 'minute': 0})
     $('#datetimepicker1').datetimepicker({
       format: 'DD/MM/YYYY HH:mm',
-      minDate: new Date(),
-      defaultDate: new Date(),
+      minDate: tomorrowAtEight,
+      defaultDate: tomorrowAtEight,
       sideBySide: true,
+      stepping: 10,
+      daysOfWeekDisabled:  <%= @course.disabled_days %>
       // inline: true
     });
   });
