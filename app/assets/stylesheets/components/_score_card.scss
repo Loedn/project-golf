@@ -1,42 +1,12 @@
-.front9, .back9 {
-  margin-left: 20px;
-  margin-bottom: 1em;
-  .hole {
-    background-color: $navy;
-    color: white;
-    span {padding: .5em 0;}
-  }
-  .par {
-    background-color: #ccc;
-    color: #white;
-    span {padding: .25em 0;}
-  }
-  .score {
-    color: $navy;
-    span {padding: .75em 0;}
-  }
-  span {
-    border: rgba(0,0,0,.25) solid 1px;
-    border-width: 0 0 0 1px;
-    display: inline-block;
-    text-align: center;
-    width: 3em;
-
-    &:first-child {
-      text-align: left;
-      padding-left: 1em;
-      border-width: 0;
-      width: 170px;
-    }
-  }
+thead {
+  background-color: $navy;
+  color: white;
 }
 
+#holen {
+  background-color: #d3d3d3;
+}
 
-@media screen and (min-width: 80em) {
-  .front9, .back9 {
-    display: inline-block
-  }
-  .back9 span:first-child {
-    // display: none;
-  }
+#parn {
+  background-color: lighten(#d3d3d3, 7%);  
 }
