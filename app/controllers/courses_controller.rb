@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
     else
       @courses = Course.near(params[:address], 100).where.not(latitude: nil, longitude: nil)
     end
-  end     
+  end
 
   def show
     @course = Course.find(params[:id])
@@ -57,6 +57,11 @@ class CoursesController < ApplicationController
     @course.owner = current_user
     @course.save
     redirect_to course_path(@course)
+    18.times do |i|
+      hole = Hole.new(name: '#{i+1}', par: 3)
+      hole.course = @course
+      hole.save!
+    end
     authorize @course
   end
 
