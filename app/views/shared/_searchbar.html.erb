@@ -13,14 +13,12 @@
     var button = document.querySelector('.search-button');
     var input = document.getElementById('inlineFormInput');
     $('#inlineFormInput').typed(options);
-    changeButtonText = function (e) {
-      console.log(e)
-      console.log(button)
+
+    input.addEventListener('input', function (e) {
       if (e.target.value !== '') {
         button.innerText = 'Search'
       }
-    }
-    input.ad(0 hdEventListener('input', changeButtonText)
+    })
 
 
 
