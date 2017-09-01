@@ -1,5 +1,5 @@
-<table>
-  <thead>
+<table class="table table-bordered table-condensed">
+  <thead class="">
     <tr>
       <td>Hole</td>
       <td>Par</td>
@@ -8,11 +8,11 @@
       <% end %>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table table-striped">
     <% @course.holes.each_with_index do |hole, index| %>
       <tr>
-        <th><%= index+1 %></th>
-        <td><%= hole.par %></td>
+        <th id="holen"><%= index+1 %></th>
+        <td id="parn"><%= hole.par %></td>
         <% @event.invited_users.each do |user| %>
           <% hole_scores = user.hole_scores.where(hole_id: hole.id) %>
           <% if hole_scores.any? %>
