@@ -1,19 +1,52 @@
 <% if course.image? %>
-  <% url = cl_image_path course.image, height: 300, width: 400, crop: :fill %>
+<% url = cl_image_path course.image, height: 300, width: 400, crop: :fill %>
 <% else %>
-  <% url = image_path "banner-background.png" %>
+<% url = image_path "banner-background.png" %>
 <% end %>
 
 <div class="col-xs-12 col-md-6 col-lg-4">
-  <%= link_to course_path(course) do%>
-  <div class="card course--card" style="background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url(<%= url %>)">
-    <div class="card--details">
-    <h1><%= course.name %></h1>
-      <div class="card--details__hidden">
-        <p><%= course.address %></p>
-        <p><%= course.price.to_i %> BUCKS</p>
-      </div>
+<div class="card" >
+  <%= link_to course_path(course) do %>
+  <div class="card-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
+    <div class="card-overlay">
+      <h2><%= course.name %></h2>
+      <p><%= course.address %></p>
     </div>
+
   </div>
   <% end %>
+
+  <div class="card-info">
+
+    <div class="card-options">
+      <div class="card-options_top">
+        <div class="rating">
+          <% rating = 4 # rating == course.rating %>
+          <% rating.times do %>
+            <i class="fa fa-star"></i>
+          <% end %>
+          <% (5 - rating).times do  %>
+            <i class="fa fa-star-o"></i>
+          <% end %>
+        </div>
+        <div class="price tag tag__green">$ <%= course.price.to_i %></div>
+      </div>
+
+      <div class="card-badges">
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+      </div>
+    </div>
+
+    <div class="card-book-now">
+      <%= link_to course_path(course) do %>
+      <p>Book now</p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
 </div>
