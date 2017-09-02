@@ -5,8 +5,24 @@ thead {
 
 #holen {
   background-color: #d3d3d3;
+  text-align: center;
+  border-color: transparentize($navy, .4);
 }
 
 #parn {
-  background-color: lighten(#d3d3d3, 7%);  
+  background-color: lighten(#d3d3d3, 7%);
+  text-align: center;
+  border-color: transparentize($navy, .4);
+}
+#player-score {
+  text-align: center;
+  border-color: transparentize($navy, .4);
+}
+
+.event-box {
+  border-color: transparentize($navy, .4);
+  padding: 10px 40px;
+  h3 {
+    margin-left: 0;
+  }
 }

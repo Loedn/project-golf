@@ -17,10 +17,10 @@
           <% hole_scores = user.hole_scores.where(hole_id: hole.id) %>
           <% if hole_scores.any? %>
             <% hole_scores.each do |hole_score| %>
-              <td><%= hole_score.strikes %></td>
+              <td id="player-score"><%= hole_score.strikes %></td>
             <% end %>
           <% else %>
-            <td>0</td>
+            <td id="player-score">0</td>
           <% end %>
         <% end %>
       </tr>
