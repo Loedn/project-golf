@@ -1,4 +1,4 @@
 <%= simple_form_for([ event, comment ], remote: true) do |form| %>
   <%= form.input :content, as: :text, label: false %>
-  <%= form.button :submit, class:"btn-gray" %>
+  <%= form.submit "Add Comment", class:"btn-gray" %>
 <% end  %>

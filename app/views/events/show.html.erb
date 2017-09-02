@@ -13,8 +13,8 @@
               </div>
               <div class="event-guest-pay">
                 <p>£ <%= @course.price * @event.invited_users.count %></p>
-                <div class="btn btn-pay">
-                  Pay All
+                <div class="btn btn-pay-all">
+                  <p>Pay All <i class="fa fa-credit-card" aria-hidden="true"></i></p>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
             </div>
             <div id="comments">
               <% if @event.comments.blank? %>
-                be the first to leave a comment
+                <p>Be the first to leave a comment</p>
               <% else %>
                 <% @event.comments.reverse.each do |comment| %>
                   <%= render 'comments/show', comment: comment %>

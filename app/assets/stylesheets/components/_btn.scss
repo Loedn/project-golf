@@ -75,37 +75,11 @@
     color: white;
   }
 }
-// .btn-light-gray {
-//   margin-bottom: 20px;
-//   border-radius: 5px;
-//   background: $navy;
-//   opacity: 0.6;
-//   text-decoration: none;
-//   color: white;
-//   &:hover {
-//     text-decoration: none;
-//     background: $navy;
-//     opacity: 0.4;
-//     color: white;
-//   }
-// }
-// .btn-green {
-//   margin-bottom: 20px;
-//   border-radius: 5px;
-//   background: $main-green;
-//   text-decoration: none;
-//   color: white;
-//   &:hover {
-//     text-decoration: none;
-//     background: $main-green;
-//     opacity: 0.8;
-//     color: white;
-//   }
-// }
 
 .btn-pay {
-  width: 100px;
-  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   background: $navy;
   text-decoration: none;
   color: white;
@@ -116,31 +90,49 @@
     color: white;
   }
 }
-.btn-paid {
+.btn-pay-all {
   width: 100px;
-  border-radius: 5px;
   background: $main-green;
-  opacity: 0.8;
-  text-decoration: none;
   color: white;
-  cursor: not-allowed;
+  transition: all .2s;
+  border-radius: 8px;
+  i{
+    line-height: 2;
+  }
   &:hover {
-    text-decoration: none;
-    background: $main-green;
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.15);
+  }
+}
+.btn-paid {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $navy;
+  color: $navy;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+  i {
+        line-height: 2;
   }
 }
 .btn-to-pay {
-  width: 100px;
-  border-radius: 5px;
-  background: $navy;
-  opacity: 0.6;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: $main-green;
+  border: 1px solid $main-green;
   text-decoration: none;
-  color: white;
+  background-color: transparent;
   &:hover {
     text-decoration: none;
-    //background: $navy;
-    //opacity: 0.4;
+    background-color: $main-green;
+    color: transparent;
     color: white;
   }
+  i {
+          line-height: 2;
+    }
 }
