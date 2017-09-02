@@ -81,6 +81,7 @@
   height: 50px;
   border-radius: 50%;
   background: $navy;
+  transition: $fast-transition;
   text-decoration: none;
   color: white;
   &:hover {
@@ -96,7 +97,7 @@
   color: white;
   transition: all .2s;
   border-radius: 8px;
-  i{
+  i {
     line-height: 2;
   }
   &:hover {
@@ -115,7 +116,7 @@
   background-color: transparent;
   cursor: not-allowed;
   i {
-        line-height: 2;
+    line-height: 2;
   }
 }
 .btn-to-pay {
@@ -133,6 +134,6 @@
     color: white;
   }
   i {
-          line-height: 2;
-    }
+    line-height: 2;
+  }
 }

@@ -102,7 +102,6 @@
   }
 
   color: transparentize($navy, .4);
-
 }
 .event-guest-pay {
   display: flex;
@@ -115,14 +114,13 @@
 }
 
 .status.pending {
-  color: red;
+  color: $red;
 }
-.avatar-xs{
+.avatar-xs {
   width: 30px;
   border-radius: 50%;
   margin: 2px 4px 2px 4px;
   align-self: center;
-
 }
 .comments-box {
   position: sticky;
@@ -133,10 +131,10 @@
 .comments-form {
   margin: 20px 20px 20px 20px;
 }
- .comments-form h3 {
-    font-size: 16px;
-    margin-top: 0;
-  }
+.comments-form h3 {
+  font-size: 16px;
+  margin-top: 0;
+}
 .message {
   display: flex;
   justify-content: space-between;
@@ -163,18 +161,16 @@
   text-align: left;
   border-radius: 2px;
   font-size: 16px;
-   p {
+  p {
     margin-bottom: 0;
     padding: 5px 5px 5px 5px;
   }
 }
 
-
-
 .event-guest-image {
   border-radius: 50%;
   margin-right: 30px;
-  box-shadow: 0 0 0 3px lightblue;
+  box-shadow: 0 0 0 3px $main-green;
   width: 60px;
   height: 60px;
 }
