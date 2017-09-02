@@ -15,6 +15,25 @@
           <%= @course.description %>
         </p>
       </div>
+      <div class="show--content__box ">
+        <p class="content-box--label">
+          Information
+        </p>
+        <div class="course-info">
+          <div class="content-box--text">
+            <p><i class="fa fa-phone" aria-hidden="true"></i> 0771379423493</p>
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> idk@test.com</p>
+            <p><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @course.address %></p>
+            <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i>Closed on:<% @course.disabled_days.each do |day| %><%= day %><% end %></p>
+          </div>
+          <div class="content-box--text">
+            <div class="hexagon"></div> <p>Badge #1</p>
+            <div class="hexagon"></div> <p>Badge #2</p>
+            <div class="hexagon"></div> <p>Badge #3</p>
+            <div class="hexagon"></div> <p>Badge #4</p>
+          </div>
+        </div>
+      </div>
 
     </div>
       <%= render 'shared/course_show_recap', course: @course %>
