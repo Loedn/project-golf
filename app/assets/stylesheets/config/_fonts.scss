@@ -1,5 +1,6 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Graduate');
 // Font-size and line-height
 $base-size: 16px;
@@ -58,7 +59,7 @@ $font-weight-bold: 900;
 }
 
 // Fonts family
-$base-font: "Helvetica", "sans-serif";
+$base-font: "Nunito", "Avenir", "Helvetica", "sans-serif";
 $header-font: $base-font;
 $navbar-font: $base-font;
 

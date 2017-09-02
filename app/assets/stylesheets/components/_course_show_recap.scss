@@ -28,8 +28,23 @@
       flex-basis: 25%;
       padding: 10px 25px;
       .recap-label {
-        color: lighten($navy, 25%);
+        color: rgba(255, 255, 255, .88);
         font-size: .9em;
+        font-family: $headers-font;
+      }
+      .recap-datetimepicker {
+        background-color: lighten($main-green, 20%);
+        color: lighten($navy, 15%);
+        border-color: black;
+        font-family: $base-font;
+      }
+      span.glyphicon {
+        color: #ffc107;
+        // color: $navy;
+      }
+      .input-group-addon {
+        background-color: $main-green;
+        border-color: black;
       }
     }
   }
