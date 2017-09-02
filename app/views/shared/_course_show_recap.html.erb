@@ -45,7 +45,29 @@
     </div>
     <%= f.submit "confirm", :class => 'recap-btn-confirm' %>
     <% else %>
-      <p>Please sign in first</p>
+    <div class="recap--container__details">
+      <div class="recap-details-box">
+        <p class="recap-label">date:</p>
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' class="form-control recap-datetimepicker" name="event[timeslot]"/>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="recap-details-box">
+        <p class="recap-label">Total Price:</p>
+        <div class='recap-details-price'>
+          <p>£ <%= @course.price%></p>
+        </div>
+      </div>
+    </div>
+    <div class="recap-signin">
+      <%= link_to "Please Login", user_session_path , :class => 'recap-btn-confirm' %>
+      <%= link_to "Or Signup", new_user_registration_path , :class => 'recap-btn-confirm' %>
+    </div>
     <% end %>
   </div>
 <% end %>
