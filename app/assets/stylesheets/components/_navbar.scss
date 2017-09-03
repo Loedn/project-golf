@@ -115,3 +115,15 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.modal-footer {
+  text-align: left;
+  .shared-links-grouped {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+}
+.modal-footer p {
+      margin-bottom: 0;
+    }
+
