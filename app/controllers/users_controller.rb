@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
-    @friends = User.all # should be something like @user.friends in the future
+    if current_user
+      @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends\
+    end
   end
 
   def destroy

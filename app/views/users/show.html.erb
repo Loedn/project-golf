@@ -1,11 +1,11 @@
-<% url = @user.facebook_picture_url || @user.photo.url || "http://placehold.it/110x110" %>
+<% profile_image_url = @user.facebook_picture_url || @user.photo.url || "http://placehold.it/110x110" %>
 
 <div class="container-fluid">
   <div class="row user-dashboard">
     <div class="user--profile-info-container col-xs-12 col-md-3">
         <div class="user--profile-info">
           <div class="user--profile-info__avatar">
-            <%= image_tag url %>
+            <%= image_tag profile_image_url %>
             <h3>
               <%= @user.first_name %> <%= @user.last_name %>
             </h3>
@@ -15,6 +15,14 @@
             <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
             <% if @user == current_user  %>
             <%= link_to 'Edit your profile', edit_user_registration_path %>
+            <% end %>
+          </div>
+          <div class="user--profile-info__friends">
+            <%  @friends.each do |friend| %>
+              <% friend_image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/50x50" %>
+              <%= link_to user_path(friend) do %>
+                <%= image_tag friend_image_url %>
+              <% end %>
             <% end %>
           </div>
         </div>
