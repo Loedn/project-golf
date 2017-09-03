@@ -1,7 +1,7 @@
 <% if course.image? %>
-<% url = cl_image_path course.image, height: 300, width: 400, crop: :fill %>
+  <% url = cl_image_path course.image, height: 300, width: 400, crop: :fill %>
 <% else %>
-<% url = image_path "banner-background.png" %>
+  <% url = image_path "banner-background.png" %>
 <% end %>
 
 <div class="col-xs-12 col-md-6 col-lg-4">

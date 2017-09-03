@@ -18,17 +18,34 @@
             <% end %>
           </div>
           <div class="user--profile-info__friends">
+            <h5>Friends</h5>
             <%  @friends.each do |friend| %>
-              <% friend_image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/50x50" %>
+               <% friend_image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/50x50" %>
               <%= link_to user_path(friend) do %>
                 <%= image_tag friend_image_url %>
               <% end %>
             <% end %>
+            <div class="user--friends-count">
+              <p>
+                <%= @friends.count %> Friends
+              </p>
+              <% if @user != current_user %>
+              <a href="#"><i class="fa fa-plus"></i>Add as a friend</a>
+              <% end %>
+            </div>
           </div>
         </div>
     </div>
 
     <div class="user--events-container col-xs-12 col-md-9">
+      <div class="user--events">
+        <h1>Upcoming Events</h1>
+        <% @events.each do |event| %>
+        <% if event.invited_users.index(current_user)  %>
+          <%= render 'shared/dashboard_event', event: event, friends: @friends %>
+          <% end %>
+        <% end %>
+      </div>
 
     </div>
   </div>
