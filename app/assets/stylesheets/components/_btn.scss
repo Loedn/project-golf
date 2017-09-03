@@ -30,7 +30,7 @@
     margin: 2px;
     padding-right: 10px;
     font-family: FontAwesome;
-    content: "\f230";
+    content: '\f230';
   }
 }
 
@@ -93,13 +93,16 @@
   }
 }
 .btn-pay-all {
-  width: 100px;
   background: $main-green;
   color: white;
-  transition: all .2s;
+  transition: all 0.2s;
   border-radius: 8px;
+  p {
+    margin-right: 0 !important;
+  }
   i {
     line-height: 2;
+    margin-right: 3px;
   }
   &:hover {
     color: white;
