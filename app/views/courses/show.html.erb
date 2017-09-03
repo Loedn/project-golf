@@ -1,3 +1,8 @@
+<% disabled_days = [] %>
+<% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+<% @course.disabled_days.each do |d| %>
+  <% disabled_days << week_days[d] %>
+<% end %>
 
 <%= render 'shared/course_show_banner', course: @course %>
 
@@ -24,13 +29,24 @@
             <p><i class="fa fa-phone" aria-hidden="true"></i> 0771379423493</p>
             <p><i class="fa fa-envelope-o" aria-hidden="true"></i> idk@test.com</p>
             <p><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @course.address %></p>
-            <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i>Closed on:<% @course.disabled_days.each do |day| %><%= day %><% end %></p>
+            <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i>Closed on:
+              <%= disabled_days.join(', ') %>.
+            </p>
           </div>
           <div class="content-box--text">
-            <div class="hexagon"></div> <p>Badge #1</p>
-            <div class="hexagon"></div> <p>Badge #2</p>
-            <div class="hexagon"></div> <p>Badge #3</p>
-            <div class="hexagon"></div> <p>Badge #4</p>
+            <div class="badge-pair">
+              <p><div class="hexagon"></div> <span>Badge #1</span></p>
+            </div>
+            <div class="badge-pair">
+              <p><div class="hexagon"></div> <span>Badge #2</span></p>
+            </div>
+            <div class="badge-pair">
+              <p><div class="hexagon"></div> <span>Badge #3</span></p>
+            </div>
+            <div class="badge-pair">
+              <p><div class="hexagon"></div> <span>Badge #4</span></p>
+            </div>
+
           </div>
         </div>
       </div>
