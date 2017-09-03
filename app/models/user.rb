@@ -18,7 +18,8 @@ class User < ApplicationRecord
 #   algoliasearch do
 #     attribute :first_name, :last_name
 #   end
-
+  #API TOKEN:
+  acts_as_token_authenticatable
   # this for uploading profile pic
   mount_uploader :photo, PhotoUploader
 
