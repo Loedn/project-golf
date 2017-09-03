@@ -14,11 +14,11 @@ class User < ApplicationRecord
   validates :email, presence: true
   # validates :gender, presence: true
 # this for usersearch in navbar
-include AlgoliaSearch
-  algoliasearch do
-    attribute :first_name, :last_name
-  end
-  
+# include AlgoliaSearch
+#   algoliasearch do
+#     attribute :first_name, :last_name
+#   end
+
   # this for uploading profile pic
   mount_uploader :photo, PhotoUploader
 

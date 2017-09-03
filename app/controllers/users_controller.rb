@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    User.reindex
+    # User.reindex
   end
 
   def show
