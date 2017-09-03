@@ -5,14 +5,13 @@
 
       <%= simple_form_for(resource, as: resource_name, url: user_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :first_name, required: true, autofocus: true %>
-          <%= f.input :last_name, required: true, autofocus: true %>
-          <%= f.input :photo %>
-          <%= f.input :location, autofocus: true %>
-          <p>A bit about yourself</p>
-          <p>Favourit golf courses</p>
+        <div class="form-inputs">:
+          <%= f.input :first_name, required: true, autofocus: true, placeholder: "John" %>
+          <%= f.input :last_name, required: true, autofocus: true, placeholder: "Smith"%>
+          <%= f.input :photo, label: false, label: "Upload a profile photo" %>
+          <%= f.input :description, autofocus: true, label: "Tell us bit about yourself", placeholder: "Amateur golfer looking for buddies." %>
+          <%= f.input :location, autofocus: true, label: "Where are you based?", placeholder: "London" %>
+          <%= f.input :favourite_course, autofocus: true, label: "Where do you like to play?", placeholder: "London Golf Club" %>
         </div>
         <div class="form-actions">
           <%= f.button :submit, "Update User Profile", class:"btn btn-gray" %>
