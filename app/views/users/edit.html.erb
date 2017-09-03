@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 login-form-container">
+      <h2 class="text-center">Edit User Profile</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: user_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :first_name, required: true, autofocus: true %>
+          <%= f.input :last_name, required: true, autofocus: true %>
+          <%= f.input :photo %>
+          <%= f.input :location, autofocus: true %>
+          <p>A bit about yourself</p>
+          <p>Favourit golf courses</p>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Update User Profile", class:"btn btn-gray" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

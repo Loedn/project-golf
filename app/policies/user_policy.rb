@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.owner == user
+    return true
   end
 
   def update?
