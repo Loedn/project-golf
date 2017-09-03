@@ -1,43 +1,35 @@
-<div class="user-profile">
-  <%= render 'shared/user' %>
-  <div class="user-card">
-    <div class="user-add">
-      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+<% profile_image_url = @user.facebook_picture_url || @user.photo.url || "http://placehold.it/110x110" %>
+
+<div class="container-fluid">
+  <div class="row user-dashboard">
+    <div class="user--profile-info-container col-xs-12 col-md-3">
+        <div class="user--profile-info">
+          <div class="user--profile-info__avatar">
+            <%= image_tag profile_image_url %>
+            <h3>
+              <%= @user.first_name %> <%= @user.last_name %>
+            </h3>
+          </div>
+          <div class="user--profile-info__details">
+            <p><i class="fa fa-envelope-o"></i> <%= @user.email %></p>
+            <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
+            <% if @user == current_user  %>
+            <%= link_to 'Edit your profile', edit_user_registration_path %>
+            <% end %>
+          </div>
+          <div class="user--profile-info__friends">
+            <%  @friends.each do |friend| %>
+              <% friend_image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/50x50" %>
+              <%= link_to user_path(friend) do %>
+                <%= image_tag friend_image_url %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
     </div>
-    <div class="user-pic">
-      <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
+
+    <div class="user--events-container col-xs-12 col-md-9">
+
     </div>
-    <div class="user-details">
-      <div class="user-name">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      </div>
-      <div class="user-bio">
-        <p>Amateur golfer looking for golf buddies</p>
-      </div>
-      <div class="user-location">
-        <p><i class="fa fa-location-arrow" aria-hidden="true"></i> London</p>
-      </div>
-    </div>
-  </div>
-<br>
-  <div class="nav nav-pills nav-justified">
-    <ul class="list-inline">
-      <li><a href="#">Matches</a></li>
-      <li class="active"><a href="#">Friends</a></li>
-      <li><a href="#">Courses</a></li>
-      <li><a href="#">Stats</a></li>
-      <li><%= link_to "Add New Course", new_course_path %></li>
-    </ul>
   </div>
 </div>
-
-
-
-
-
-
-<!--
-<div class="stats-container">
-  <h1>My Statistics</h1>
-  <p>Statistics</p>
-</div> -->
