@@ -32,7 +32,6 @@ class EventsController < ApplicationController
 
     @event.user = current_user
     @event.course = Course.find(params[:course_id])
-
     invites_names = "" # event title string with invites names
     if params[:event][:invited_user_ids]
       params[:event][:invited_user_ids].each do |id|
@@ -47,6 +46,8 @@ class EventsController < ApplicationController
         params[:event][:invited_user_ids].each do |id|
           Invite.create(user: User.find(id), event: @event, status: 'payment-pending')
         end
+        @event.balance = @event.course.price * @event.invites.size
+        @event.save
       end
       redirect_to event_path(@event)
     else

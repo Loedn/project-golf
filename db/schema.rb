@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903205547) do
+ActiveRecord::Schema.define(version: 20170903214807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170903205547) do
     t.integer  "owner_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.float    "price"
+    t.integer  "price"
     t.integer  "disabled_days", default: [],              array: true
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170903205547) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
+    t.integer  "balance"
     t.index ["course_id"], name: "index_events_on_course_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end

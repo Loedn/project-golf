@@ -8,7 +8,7 @@
   <% end %>
   <div class="event-guest-pay">
     <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>"><%= invite.status == 'paid' ? "Paid" : "Pending"  %></p>
-    <p>£ <%= (@course.price).round(2) %></p>
+    <p>£ <%= @course.price %></p>
     <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : 'btn-to-pay'  %> ">
       <% if invite.status == 'payment-pending' %>
         <i class="fa fa-credit-card" aria-hidden="true"></i>

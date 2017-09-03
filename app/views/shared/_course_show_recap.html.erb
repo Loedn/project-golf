@@ -37,9 +37,13 @@
         </div>
       </div>
       <div class="recap-details-box">
-        <p class="recap-label">Total Price:</p>
+        <p class="recap-label">Price per person:</p>
         <div class='recap-details-price'>
           <p>£ <%= @course.price%></p>
+        </div>
+        <p class="recap-label">Total price:</p>
+        <div class='recap-details-price'>
+          <p class="total-price">£ <%= @course.price %></p>
         </div>
       </div>
     </div>
@@ -76,7 +80,7 @@
   <script>
   $(function () {
   var today = moment();
-  var tomorrowAtEight = moment(today).add('days', 1).set({'hour': 8, 'minute': 0})
+  var tomorrowAtEight = moment(today).add(1, 'days').set({'hour': 8, 'minute': 0})
     $('#datetimepicker1').datetimepicker({
       format: 'DD/MM/YYYY HH:mm',
       minDate: tomorrowAtEight,
@@ -87,5 +91,16 @@
       // inline: true
     });
   });
+  var totalPrice = document.querySelector('.total-price')
+  var checkedBoxes = document.querySelectorAll('input[type="checkbox"]');
+
+  checkedBoxes.forEach(function(box) {
+    box.addEventListener('change', function() {
+      var checkBoxCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      console.log(checkBoxCount);
+      totalPrice.innerText = '£ '+ <%= @course.price.to_i %> *  (checkBoxCount + 1);
+    })
+  })
+
   </script>
 <% end %>
