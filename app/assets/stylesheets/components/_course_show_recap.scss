@@ -3,7 +3,7 @@
   width: 27vw;
 }
 .recap--container {
-  height: 700px;
+  min-height: 700px;
   max-width: 27vw;
   width: 100%;
   background-color: $navy;
@@ -93,6 +93,7 @@
 }
 .event-checkbox-container {
   display: flex;
+  flex-wrap: wrap;
   .event-checkbox-label {
     border-radius: 50%;
     align-self: center;
