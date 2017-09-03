@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if current_user
-      @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends\
+      @friends = User.where.not(id: current_user.id).limit(10) # in the future this should be something like current_user.friends\
     end
   end
 
