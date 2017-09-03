@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
+    @friends = User.all # should be something like @user.friends in the future
   end
 
   def destroy
@@ -15,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache)
+  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache, :address)
   end
 end
