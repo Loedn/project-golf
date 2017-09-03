@@ -1,6 +1,7 @@
 .user-dashboard {
   min-height: calc(100vh - 140px);
   margin-top: 15px;
+  padding: 0 100px;
 }
 
 .user--profile-info-container {
@@ -22,7 +23,9 @@
       align-items: center;
       padding-top: 10px;
       img {
-        border-radius: 50%;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.22);
         width: 200px;
         height: 200px;
       }
@@ -50,6 +53,8 @@
       img {
         border-radius: 3px;
         margin: 3px;
+        width: 50px;
+        height: 50px;
       }
       .user--friends-count {
         padding-top: 20px;
@@ -83,5 +88,8 @@
 .user--events-container {
   min-height: 70vh;
   background-color: #f5f5f5;
-  background-color: blue;
+  // background-color: blue;
+  .user--events {
+    background-color: #f5f5f5;
+  }
 }

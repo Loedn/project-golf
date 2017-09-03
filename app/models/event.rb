@@ -5,4 +5,5 @@ class Event < ApplicationRecord
   has_many :invited_users, through: :invites, source: :user
   has_many :comments, dependent: :destroy
   validates :timeslot, presence: true
+  validates :status, presence: true
 end

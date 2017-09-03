@@ -28,8 +28,8 @@
       flex-basis: 25%;
       padding: 10px 25px;
       .recap-label {
-        color: rgba(255, 255, 255, .88);
-        font-size: .9em;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.9em;
         font-family: $headers-font;
       }
       .recap-datetimepicker {
@@ -84,11 +84,11 @@
 }
 
 .event-checkbox-label {
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
 }
 .event-checkbox:checked {
   & + .event-checkbox-label {
-    box-shadow: 0 0 0 3px lightblue;
+    box-shadow: 0 0 0 3px $main-green;
   }
 }
 .event-checkbox-container {
@@ -106,7 +106,7 @@
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   background-color: lighten($navy, 15%);
   padding: 20px 0;
@@ -117,12 +117,12 @@
 }
 
 .pac-container {
-  background-color: transparentize($main-green, .2);
+  background-color: transparentize($main-green, 0.2);
   .pac-item {
     border-color: darken($main-green, 25%);
     color: white;
     &:hover {
-      background-color: transparentize(darken($main-green, 18%), .2);
+      background-color: transparentize(darken($main-green, 18%), 0.2);
     }
   }
   .pac-item-query {
