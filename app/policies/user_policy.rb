@@ -14,7 +14,6 @@ class UserPolicy < ApplicationPolicy
 
   def destroy?
     record.owner == user
-
   end
 
 
