@@ -7,3 +7,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+//= require algolia/v3/algoliasearch.min

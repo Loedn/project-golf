@@ -14,6 +14,12 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <div class="input-group">
+        <form action="/users">
+          <input type="text" class="form-control search-friends" id="inlineFormInputGroup" placeholder="Search Friends">
+        </form>
+      </div>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -158,3 +164,17 @@
     </div>
   </div>
 </div>
+
+
+
+
+<!-- ALGOLIA SEARCH THING -->
+<!-- var client = algoliasearch(HKXGMO6YKP, 73d212cc580834ac0e53d588b29fcaf0);
+var index = client.initIndex('YourIndexName');
+index.search('something', { hitsPerPage: 10, page: 0 })
+  .then(function searchDone(content) {
+    console.log(content)
+  })
+  .catch(function searchFailure(err) {
+    console.error(err);
+  }); -->

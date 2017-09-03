@@ -38,7 +38,7 @@
   color: white;
   margin: 0;
   display: inline-block;
-  font-weight: 100;
+  // font-weight: 100;
   border: 1px solid $main-green;
   border-radius: 4px;
   transition: $fast-transition;
@@ -54,6 +54,7 @@
 .btn-login p {
   color: white;
   margin: 0;
+  // font-weight: 100;
   transition: $fast-transition;
   padding: 5px 16px;
   &:hover {
