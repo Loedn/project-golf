@@ -46,9 +46,9 @@ class EventsController < ApplicationController
         params[:event][:invited_user_ids].each do |id|
           Invite.create(user: User.find(id), event: @event, status: 'payment-pending')
         end
-        @event.balance = @event.course.price * @event.invites.size
-        @event.save
       end
+      @event.balance = @event.course.price * @event.invites.size
+      @event.save
       redirect_to event_path(@event)
     else
       render :new
@@ -98,7 +98,7 @@ class EventsController < ApplicationController
 private
 
   def event_params
-    params.require(:event).permit(:timeslot, :title)
+    params.require(:event).permit(:timeslot, :title, :balance)
   end
 
 
