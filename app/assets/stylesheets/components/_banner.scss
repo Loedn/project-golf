@@ -1,5 +1,5 @@
 .banner {
-  height: 85vh;
+  height: 100vh;
   // height: 40vh;
   padding-top: 50px;
   width: 100%;
@@ -7,7 +7,7 @@
   box-shadow: $subtle-shadow, 0 0 10px 1px rgba(0, 0, 0, 0.3);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
     image-url(
-      "banner-background.png"
+      'banner-background.png'
     ); // this should not be here. the background image should be inlined and this image should be used only in the homepage
   background-size: cover;
   background-position: center;

@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="recap-details-box">
-        <p class="recap-label">date:</p>
+        <p class="recap-label">Date & Time:</p>
 
         <div class="form-group">
           <div class='input-group date' id='datetimepicker1'>
@@ -36,13 +36,13 @@
           </div>
         </div>
       </div>
-      <div class="recap-details-box">
-        <p class="recap-label">Price per person:</p>
+      <div class="recap-details-box price-box">
         <div class='recap-details-price'>
+        <p class="price-label">Price per person:</p>
           <p>£ <%= @course.price%></p>
         </div>
-        <p class="recap-label">Total price:</p>
         <div class='recap-details-price'>
+        <p class="price-label">Total price:</p>
           <p class="total-price">£ <%= @course.price %></p>
         </div>
       </div>
@@ -62,13 +62,13 @@
         </div>
       </div>
       <div class="recap-details-box">
-        <p class="recap-label">Total Price:</p>
         <div class='recap-details-price'>
+        <p class="price-label">Total Price:</p>
           <p>£ <%= @course.price%></p>
         </div>
       </div>
     </div>
-    <div class="recap-signin">
+    <div class="recap-signin recap-btn-confirm">
       <%= link_to "Please Login", user_session_path , :class => 'recap-btn-confirm' %>
       <%= link_to "Or Signup", new_user_registration_path , :class => 'recap-btn-confirm' %>
     </div>
@@ -88,7 +88,7 @@
       sideBySide: true,
       stepping: 10,
       daysOfWeekDisabled:  <%= @course.disabled_days %>
-      // inline: true
+      disabledTimeIntervals: 
     });
   });
   var totalPrice = document.querySelector('.total-price')
