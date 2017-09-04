@@ -28,6 +28,11 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:course_id])
     authorize @course
     redirect_to root_path if @course.nil?
+    @user = @course.owner
+    @events = @user.events
+    if current_user
+      @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
+    end
 
   end
 

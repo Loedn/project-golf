@@ -11,7 +11,6 @@ class EventsController < ApplicationController
      authorize @event
    end
 
-
   def new
     @event = Event.new
   end
