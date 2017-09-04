@@ -9,6 +9,16 @@ skip_after_action :verify_policy_scoped, only: [:index]
     end
   end
 
+  def dashboard
+    @user = User.find(params[:user_id])
+    authorize @user
+    @events = @user.events
+
+    if current_user
+      @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     authorize @user
@@ -19,6 +29,19 @@ skip_after_action :verify_policy_scoped, only: [:index]
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+    @user.update(user_params)
+    redirect_to user_path(@user)
+
+  end
+
   def destroy
     @user = User.new
   end
@@ -26,6 +49,6 @@ skip_after_action :verify_policy_scoped, only: [:index]
   private
 
   def user_params
-  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache, :address)
+  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache, :address, :description, :favourite_course)
   end
 end

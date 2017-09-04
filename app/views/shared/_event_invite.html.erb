@@ -7,14 +7,54 @@
   </div>
   <% end %>
   <div class="event-guest-pay">
-    <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>"><%= invite.status == 'paid' ? "Paid" : "Pending"  %></p>
-    <p>£ <%= @course.price %></p>
-    <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : 'btn-to-pay'  %> ">
-      <% if invite.status == 'payment-pending' %>
-        <i class="fa fa-credit-card" aria-hidden="true"></i>
-      <% elsif invite.status == 'paid' %>
+    <% if @event.balance == 0 %>
+      <p class="status accepted">Paid</p>
+      <div class="btn btn-to-pay btn-paid">
         <i class="fa fa-check" aria-hidden="true"></i>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+    <% if invite.status != 'paid' %>
+    <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>">
+      Pending
+    </p>
+    <p>
+      £ <%= @order.amount / @event.invited_users.length %>
+    </p>
+    <% else %>
+    <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>">
+      Paid
+    </p>
+    <% end %>
+
+
+    <% if invite.status != 'paid' && invite.user == current_user%>
+      <%= form_tag order_split_path(@order) do %>
+        <%= hidden_field_tag 'event_id', @event.id %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Book Golf Course"
+            data-email="<%= current_user.email %>"
+            data-description="Booking <%= @order.sku %>"
+            data-amount="<%= @order.amount_cents / @event.invited_users.size %>"
+            data-currency="<%= @order.amount.currency %>">
+
+            </script>
+            <% if invite.status == 'payment-pending' %>
+              <%= button_tag(type: "submit", class: "btn btn-to-pay") do %>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <% end %>
+            <% elsif invite.status == 'paid' %>
+              <div class="btn btn-paid">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </div>
+            <% end %>
+         <% end %>
+      <% else %>
+        <div class="btn btn-paid" style="cursor:default">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+    <% end %>
+
+  <% end %>
   </div>
 </div>
