@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   root to: 'courses#index'
   resources :courses do
+
      resources :events do
+       resources :hole_scores, only: [:create]
        resources :orders, only: [:show, :create] do
          resources :payments, only: [:new, :create]
        end

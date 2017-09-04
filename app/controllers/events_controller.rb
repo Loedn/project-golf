@@ -11,7 +11,8 @@ class EventsController < ApplicationController
      @comment = Comment.new
 
      authorize @event
-   end
+     @hole_score = HoleScore.new
+  end
 
 
   def new
