@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   root to: 'courses#index'
   resources :courses do
-     resources :events
-     get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
+    get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
+     resources :events do
+       resources :hole_scores, only: [:create]
+     end
   end
 
   resources :users

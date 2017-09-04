@@ -9,7 +9,8 @@ class EventsController < ApplicationController
      @invitees = @event.invited_users
      @comment = Comment.new
      authorize @event
-   end
+     @hole_score = HoleScore.new
+  end
 
 
   def new
