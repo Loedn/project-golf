@@ -15,7 +15,9 @@
             <p><i class="fa fa-envelope-o"></i> <%= @user.email %></p>
             <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
             <% if @user == current_user  %>
-            <%= link_to 'Edit your profile', edit_user_path %>
+
+            <%= link_to 'Edit your profile', edit_user_registration_path %>
+            <%= link_to 'new course', new_course_path %>
             <% end %>
           </div>
           <div class="user--profile-info__friends">

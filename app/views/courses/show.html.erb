@@ -26,12 +26,17 @@
         </p>
         <div class="course-info">
           <div class="content-box--text">
-            <p><i class="fa fa-phone" aria-hidden="true"></i> 0771379423493</p>
-            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> idk@test.com</p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i> <%= @course.phone || 'No phone number provided'  %></p>
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @course.email || 'No email provided' %>
             <p><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @course.address %></p>
-            <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i>Closed on:
+            <p>
+              <% if disabled_days.size > 0 %>
+              <i class="fa fa-calendar-times-o" aria-hidden="true"></i> Closed on:
               <%= disabled_days.join(', ') %>.
             </p>
+            <% else %>
+              <i class="fa fa-calendar-check-o"></i> Opens every day
+            <% end %>
           </div>
           <div class="content-box--text">
             <div class="badge-pair">

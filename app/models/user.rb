@@ -13,12 +13,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   # validates :gender, presence: true
-# this for usersearch in navbar
-# include AlgoliaSearch
-#   algoliasearch do
-#     attribute :first_name, :last_name
-#   end
+# search stuff
+include PgSearch
+  pg_search_scope :search_by_fullname, against: [ :first_name, :last_name]
 
+  #API TOKEN:
+  acts_as_token_authenticatable
   # this for uploading profile pic
   mount_uploader :photo, PhotoUploader
 
