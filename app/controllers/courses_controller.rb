@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
   # after_action :verify_policy_scoped, only: [:dashboard]
   # skip_after_action :verify_authorized, only: [:dashboard]
 
@@ -28,6 +28,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:course_id])
     authorize @course
     redirect_to root_path if @course.nil?
+
   end
 
   def new

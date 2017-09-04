@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :courses do
      resources :events
      get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
+
   end
 
   resources :users
