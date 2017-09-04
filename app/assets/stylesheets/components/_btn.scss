@@ -92,6 +92,7 @@
     color: white;
   }
 }
+
 .btn-pay-all {
   background: $main-green;
   color: white;
@@ -140,4 +141,12 @@
   i {
     line-height: 2;
   }
+}
+
+.stripe-button-el span,
+.stripe-button-el {
+  background-color: $main-green !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 6px 8px;
 }

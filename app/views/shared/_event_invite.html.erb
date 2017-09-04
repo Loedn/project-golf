@@ -7,14 +7,27 @@
   </div>
   <% end %>
   <div class="event-guest-pay">
-    <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>"><%= invite.status == 'paid' ? "Paid" : "Pending"  %></p>
-    <p>£ <%= @course.price %></p>
-    <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : 'btn-to-pay'  %> ">
+    <% if @event.balance == 0 %>
+      <p class="status accepted">Paid</p>
+      <div class="btn btn-pay btn-paid">
+        <i class="fa fa-check" aria-hidden="true"></i>
+      </div>
+      <% else %>
+    <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>">
+      <%= invite.status == 'paid' ? "Paid" : "Pending"  %>
+    </p>
+
+    <p>
+      £ <%= @event.balance / @event.invited_users.length %>
+    </p>
+
+      <div class="btn btn-pay <%= invite.status == 'paid' ? 'btn-paid' : 'btn-to-pay'  %> ">
       <% if invite.status == 'payment-pending' %>
         <i class="fa fa-credit-card" aria-hidden="true"></i>
       <% elsif invite.status == 'paid' %>
         <i class="fa fa-check" aria-hidden="true"></i>
       <% end %>
     </div>
+    <% end %>
   </div>
 </div>
