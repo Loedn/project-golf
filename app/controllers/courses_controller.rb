@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :dashboard]
   # after_action :verify_policy_scoped, only: [:dashboard]
   # skip_after_action :verify_authorized, only: [:dashboard]
 
@@ -31,6 +31,12 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:course_id])
     authorize @course
     redirect_to root_path if @course.nil?
+    @user = @course.owner
+    @events = @user.events
+    if current_user
+      @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
+    end
+
   end
 
   def new

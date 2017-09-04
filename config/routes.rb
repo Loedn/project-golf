@@ -18,6 +18,7 @@ Rails.application.routes.draw do
        end
      end
      get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
+
   end
 
 

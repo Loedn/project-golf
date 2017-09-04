@@ -14,7 +14,6 @@ class EventsController < ApplicationController
      @hole_score = HoleScore.new
   end
 
-
   def new
     @event = Event.new
   end

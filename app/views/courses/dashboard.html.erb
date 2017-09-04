@@ -1,39 +1,40 @@
 
 <div class="course-show-container">
-
   <div class="flex">
-      <div class="show--content dashboard--content">
-      </div>
-      <div class="show--content dashboard--content">
+   <%= render 'shared/user_sidebar' %>
+    <div class="show--content dashboard--content">
+      <div class="show--content__box course-description">
+      <h1>Course Dashboard</h1>
+      <i>You can update the details of your golf course here:</i>
+
         <%= simple_form_for @course, method: :patch do |f| %>
-        <%= f.input :image %>
-
-        <%= f.input :image_cache, as: :hidden %>
-        <%= f.submit 'Change Image' %>
-
-        <% end %>
-        <h1>Course Settings:</h1>
-        <div class="show--content__box course-description">
-          <%= simple_form_for @course do |f| %>
-          <% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
-
-            <%= f.input :disabled_days, collection: week_days, as: :check_boxes, value_method: lambda { |d| week_days.index(d) } %>
-          <%= f.submit 'Add disabled days' %>
+          <%= f.error_notification %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :email %>
+          <%= f.input :phone %>
+          <%= f.input :price %>
+          <%= f.input :image, label: "Upload a new image"%>
+          <%= f.input :image_cache, as: :hidden %>
+          <%= f.input :description, label: "Update the description", :as => :text, :input_html => {:rows => 5} %>
+          <%= f.submit 'Update golf course details' %>
           <% end %>
-        </div>
-
-
-        <div class="show--content__box course-description">
-          <p class="content-box--label">
-            Change your description:
-          </p>
-          <%= simple_form_for @course, method: :patch, remote: true do |f| %>
-
-            <textarea class="edit-description-textarea" cols=110 rows=10 type="text" value="" name="course[description]" ><%= @course.description %></textarea>
-            <%= f.submit 'Edit your course description' %>
-            <% end %>
-        </div>
       </div>
+
+      <div class="show--content__box course-description">
+        <%= simple_form_for @course do |f| %>
+        <% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+          <%= f.input :disabled_days, label: "Tick days the golf course is closed:", collection: week_days, as: :check_boxes, value_method: lambda { |d| week_days.index(d) } %>
+        <%= f.submit 'Update disabled days' %>
+        <% end %>
+      </div>
+      <div class="show--content__box course-description">
+          <p>Space for updating holes info</p>
+
+
+      </div>
+
+    </div>
   </div>
 </div>
 
