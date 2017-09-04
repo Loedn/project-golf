@@ -210,7 +210,9 @@
        handler.getMap().setZoom(12);
     });
 
-    document.querySelector(".stripe-button-el").style.display = 'none';
+    document.querySelectorAll(".stripe-button-el").forEach(function(button) {
+      button.style.display = 'none';
+    })
 
   </script>
 

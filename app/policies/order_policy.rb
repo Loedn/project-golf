@@ -16,6 +16,9 @@ class OrderPolicy < ApplicationPolicy
     record.owner == user
   end
 
+  def split?
+    true
+  end
 
   class Scope < Scope
     attr_reader :user, :Scope

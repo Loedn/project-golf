@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :orders, only: :show do
     resources :payments
+    post 'orders/:order_id/split', to: 'payments#split', as: 'split'
   end
   resources :users
 
