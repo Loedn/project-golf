@@ -1,5 +1,21 @@
 
+<div class="index-container">
 <% @users.each do |u|%>
-<%= image_tag u.facebook_picture_url || u.photo.url || "http://placehold.it/110x110" %>
-<h3><%= u.first_name %> <%= u.last_name %></h3>
+
+<div class="user--index-container col-xs-12 col-md-4">
+    <div class="user--index-card">
+      <div class="user--index-card__avatar">
+        <%= image_tag u.facebook_picture_url || u.photo.url || "http://placehold.it/110x110" %>
+      </div>
+      <div class="user--index-card__details">
+        <h5><%= u.first_name %> <%= u.last_name %></h5>
+        <p><i class="fa fa-map-marker"></i> <%= u.location? ? u.location : 'No location to show' %></p>
+        <% if @user != current_user %>
+        <a href="#" class="btn btn-pay-all"><i class="fa fa-plus"></i>Add as a friend</a>
+        <% end %>
+      </div>
+    </div>
+</div>
+
 <% end %>
+</div>
