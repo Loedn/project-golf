@@ -1,4 +1,4 @@
-class EventPolicy < ApplicationPolicy
+class HoleScorePolicy < ApplicationPolicy
   def create?
     true
   end
@@ -6,7 +6,6 @@ class EventPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
-
   class Scope < Scope
     def resolve
       scope

@@ -16,11 +16,14 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @review = Review.new
+    authorize @course
     @event = Event.new
     if current_user
       @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends\
     end
     authorize @course
+
   end
 
   def dashboard

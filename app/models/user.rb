@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :invited_events , through: :invites, source: :events
   has_many :courses
   has_many :hole_scores
+  has_many :reviews
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true

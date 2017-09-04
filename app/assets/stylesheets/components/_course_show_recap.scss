@@ -74,9 +74,11 @@
     border-radius: 0 0 4px 4px;
     padding: 20px 10px;
     transition: $fast-transition;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     font-size: 1.2em;
     font-weight: $font-weight-bold;
+    font-family: $headers-font;
+    text-transform: uppercase;
     &:hover {
       background-color: $main-green;
     }
@@ -101,16 +103,31 @@
     height: 60px;
   }
 }
+.price-label {
+  color: #f9f9f9;
+  font-size: 1.2em;
+  & + p {
+    font-weight: $font-weight-bold;
+    font-size: 20px;
+    font-family: $body-font;
+  }
+}
+.price-box {
+  font-family: $headers-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
 .recap-details-price {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
+  justify-content: space-between;
+  font-size: 18px;
   color: rgba(255, 255, 255, 1);
-  font-size: 1.6em;
   text-align: center;
   background-color: lighten($navy, 15%);
-  padding: 20px 0;
+  padding: 8px 20px;
   border-radius: 100px;
   margin-bottom: 20px;
   p {

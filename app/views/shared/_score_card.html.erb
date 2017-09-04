@@ -20,9 +20,16 @@
               <td id="player-score"><%= hole_score.strikes %></td>
             <% end %>
           <% else %>
-            <td id="player-score">0</td>
+
+            <td id="player-score"><%= simple_form_for [@course, @event, @hole_score] do |h| %>
+              <%= h.input :strikes %>
+              <%= hidden_field_tag 'user_id', user.id %>
+              <%= hidden_field_tag 'hole_id', hole.id %>
+              <%= h.submit "s" %><% end %>
+            </td>
+
           <% end %>
-        <% end %>
+        <%end %>
       </tr>
     <% end %>
   </tbody>

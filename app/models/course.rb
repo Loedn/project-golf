@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   has_many :events, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   belongs_to :owner, :class_name => :User , :foreign_key => "owner_id"
   validates :name, presence: true
   has_many :holes
@@ -15,6 +16,8 @@ class Course < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   before_save :capitalize_description
   # after_create :set_timeslots
+  monetize :price_cents
+
 private
 
   def capitalize_description

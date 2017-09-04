@@ -12,10 +12,26 @@
                 <h3>Players</h3>
               </div>
               <div class="event-guest-pay">
+                <% if @event.balance != 0 %>
                 <p>£ <%= @event.balance %></p>
-                <div class="btn btn-pay-all">
-                  <p>Pay All <i class="fa fa-credit-card" aria-hidden="true"></i></p>
-                </div>
+                <%= form_tag order_payments_path(@order) do %>
+                  <%= hidden_field_tag 'event_id', @event.id %>
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-name="Book Golf Course"
+                      data-email="<%= current_user.email %>"
+                      data-description="Booking <%= @order.sku %>"
+                      data-amount="<%= @event.balance_cents %>"
+                      data-currency="<%= @order.amount.currency %>">
+
+                      </script>
+                      <%= button_tag(type: "submit", class: "btn btn-pay-all") do %>
+                      <i class="fa fa-credit-card" aria-hidden="true"></i>  Pay All
+                      <% end %>
+                  <% end %>
+                  <% else %>
+                  <p class="btn btn-pay-all" style="cursor: default">All paid!</p>
+                <% end %>
               </div>
             </div>
 
@@ -25,11 +41,6 @@
             <% end %>
 
 
-
-            <div class="event-guest">
-              <div class="event-guest-name total">
-              </div>
-            </div>
           </div>
           <div class="event-box">
             <h3>Scores</h3>
@@ -41,7 +52,7 @@
           <div class="event-box comments-box">
             <div class="comments-form">
               <h3>
-                <%= pluralize @event.comments.size, "comment" %>
+                <%= pluralize @event.comments.size, "Comment" %>
               </h3>
               <%= render 'comments/form', event: @event, comment: @comment  %>
             </div>
@@ -193,5 +204,11 @@
       handler.fitMapToBounds();
        handler.getMap().setZoom(12);
     });
+
+    document.querySelectorAll(".stripe-button-el").forEach(function(button) {
+      button.style.display = 'none';
+    })
+
   </script>
+
 <% end %>
