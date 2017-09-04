@@ -41,7 +41,7 @@
           <div class="event-box comments-box">
             <div class="comments-form">
               <h3>
-                <%= pluralize @event.comments.size, "comment" %>
+                <%= pluralize @event.comments.size, "Comment" %>
               </h3>
               <%= render 'comments/form', event: @event, comment: @comment  %>
             </div>

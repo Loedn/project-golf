@@ -3,8 +3,7 @@
   <%= image_tag image_url, class: 'avatar-xs' %>
   <div class="message-text-container">
     <div class="message-name">
-      <h3><%= comment.user.first_name %> :</h3>
-      <h3><%= comment.updated_at.to_s(:time) %></h3>
+      <h3><%= comment.user.first_name %> (<%= time_ago_in_words(comment.updated_at) %>)</h3>
     </div>
     <div class="message-content">
       <p><%= comment.content %></p>
