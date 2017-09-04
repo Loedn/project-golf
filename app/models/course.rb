@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   has_many :events, dependent: :destroy
-  has_may :reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   belongs_to :owner, :class_name => :User , :foreign_key => "owner_id"
   validates :name, presence: true
   has_many :holes
