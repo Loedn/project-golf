@@ -3,7 +3,8 @@
   color: white;
   display: flex;
   // flex-direction: column;
-  // align-items: center;
+  justify-content: center;
+  align-items: center;
   .form-border {
     // box-shadow: $subtle-shadow, 0 0px 16px 1px rgba(0, 0, 0, 0.1);
   }
@@ -11,10 +12,11 @@
     background: transparent;
     border: none;
     color: white;
-    font-size: 5em;
+    font-size: 4em;
     border-bottom: 1px solid white;
-    height: 68px;
+    height: 75px;
     margin-bottom: 20px;
+    box-shadow: none;
     &::placeholder {
       color: white;
       text-align: center;

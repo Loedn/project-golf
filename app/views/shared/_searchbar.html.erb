@@ -1,12 +1,12 @@
-<form action="/courses" class="form-inline search-form searchbar--home"><div class="form-border"><input type="text" name="address" class="form-control autocomplete_input" id="inlineFormInput" placeholder=""></div><button type="submit" class="btn search-button"></button></div></form>
+<form action="/courses" class="form-inline search-form searchbar--home"><div class="form-border"><input type="text" name="address" class="form-control autocomplete_input" id="inlineFormInput" placeholder=""></div></div></form>
 
 <% content_for(:after_js) do %>
   <script>
     var options = {
-      strings: ["London", "Madrid", "Vicenza", "Dixon's House", ""],
+      strings: ["London", "Madrid", "Vicenza", "Dixon's House", "Search"],
       loop: false,
       loopCount: Infinity,
-      typeSpeed: 50,
+      typeSpeed: 1,
       attr: 'placeholder'
     };
 
