@@ -17,6 +17,13 @@ Rails.application.routes.draw do
      end
      get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
   end
+
+
+  resources :users do
+    get 'dashboard', to: 'users#dashboard', as: 'dashboard'
+  end
+  patch "users/:id", to: "user#update"
+
   resources :orders, only: :show do
     resources :payments
     post 'orders/:order_id/split', to: 'payments#split', as: 'split'

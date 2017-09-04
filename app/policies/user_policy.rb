@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.owner == user
+    return true
   end
 
   def update?
@@ -16,9 +16,15 @@ class UserPolicy < ApplicationPolicy
     record.owner == user
   end
 
+
+  def dashboard?
+    return true
+  end
+
   def index?
     true
   end
+
 
   class Scope < Scope
     attr_reader :user, :Scope
