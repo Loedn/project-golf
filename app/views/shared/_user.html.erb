@@ -1,0 +1,5 @@
+
+<% @users.each do |u|%>
+<%= image_tag u.facebook_picture_url || u.photo.url || "http://placehold.it/110x110" %>
+<h3><%= u.first_name %> <%= u.last_name %></h3>
+<% end %>

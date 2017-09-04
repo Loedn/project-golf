@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-
+skip_after_action :verify_policy_scoped, only: [:index]
   def index
-    @users = User.all
-    # User.reindex
+    if params[:search].present?
+      @users = User.search_by_fullname(params[:search])
+      @users = User.all if @users.empty?
+    else
+      @users = User.all
+    end
   end
 
   def show

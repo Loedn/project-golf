@@ -16,6 +16,9 @@ class UserPolicy < ApplicationPolicy
     record.owner == user
   end
 
+  def index?
+    true
+  end
 
   class Scope < Scope
     attr_reader :user, :Scope
