@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   end
 
 
+  resources :courses, only: [ :index, :show ] do
+    resources :reviews, only: :create
+  end
+
+
   resources :users do
     get 'dashboard', to: 'users#dashboard', as: 'dashboard'
   end
@@ -28,6 +33,7 @@ Rails.application.routes.draw do
     resources :payments
     post 'orders/:order_id/split', to: 'payments#split', as: 'split'
   end
+
   resources :users
 
 

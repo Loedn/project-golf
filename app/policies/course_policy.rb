@@ -20,6 +20,10 @@ class CoursePolicy < ApplicationPolicy
     edit?
   end
 
+  def reviewable?
+    record.owner != user
+  end
+
   class Scope < Scope
     attr_reader :user, :Scope
 
