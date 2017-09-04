@@ -18,7 +18,7 @@
   font-weight: bold;
   padding: 10px 15px;
   transition-duration: 0.2s;
-  margin: 10px 0 10px 0px;
+  margin: 10px 0 20px 0px;
   &:hover {
     color: white;
     text-decoration: none;
@@ -92,6 +92,7 @@
     color: white;
   }
 }
+
 .btn-pay-all {
   background: $main-green;
   color: white;
@@ -140,4 +141,12 @@
   i {
     line-height: 2;
   }
+}
+
+.stripe-button-el span,
+.stripe-button-el {
+  background-color: $main-green !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 6px 8px;
 }

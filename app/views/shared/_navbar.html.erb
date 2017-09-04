@@ -15,11 +15,13 @@
 
       <!-- Links when logged in -->
       <div class="input-group">
-        <form action="/users">
-          <input type="text" class="form-control search-friends" id="inlineFormInputGroup" placeholder="Search Friends">
-        </form>
+        <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :search, params[:search], placeholder:"Search Users", class:"search-friends"  %>
+        <%= button_tag(type: "submit") do %>
+<i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
+        <% end %>
       </div>
-
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -34,18 +36,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-bell"></i> <%= t(".profile", default: "Notifications") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path(current_user) do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-              <!-- edit_course_path(current_user.course)  -->
+              <%= link_to user_dashboard_path(current_user) do %>
                 <i class="fa fa-tachometer"></i>  <%= t(".settings", default: "Dashboard") %>
               <% end %>
             </li>
@@ -115,20 +111,20 @@
       <div class="modal-body">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <div class="form-inputs">
-          <%= f.input :first_name, required: true %>
-          <%= f.input :last_name, required: true %>
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
-          <%= f.input :photo %>
-        </div>
+          <div class="form-inputs">
+            <%= f.input :first_name, required: true %>
+            <%= f.input :last_name, required: true %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <!--<%= f.input :password_confirmation, required: true %>-->
+            <%= f.input :photo %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class:"btn btn-gray" %>
+          </div>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class:"btn btn-gray" %>
-        </div>
-        <% end %>
         <%= render "devise/shared/links" %>
       </div>
     </div>
@@ -153,12 +149,12 @@
             <%= f.input :password, required: false %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Login", class:"btn btn-gray" %>
+          </div>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <div class="form-actions">
-          <%= f.button :submit, "Login", class:"btn btn-gray" %>
-        </div>
-        <% end %>
         <%= render "devise/shared/links" %>
       </div>
     </div>
@@ -169,12 +165,3 @@
 
 
 <!-- ALGOLIA SEARCH THING -->
-<!-- var client = algoliasearch(HKXGMO6YKP, 73d212cc580834ac0e53d588b29fcaf0);
-var index = client.initIndex('YourIndexName');
-index.search('something', { hitsPerPage: 10, page: 0 })
-  .then(function searchDone(content) {
-    console.log(content)
-  })
-  .catch(function searchFailure(err) {
-    console.error(err);
-  }); -->

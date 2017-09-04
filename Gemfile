@@ -18,6 +18,8 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'typedjs-rails'
 gem "simple_token_authentication"
+gem 'money-rails'
+gem 'stripe'
 
 gem "algoliasearch-rails"
 gem 'pg_search'

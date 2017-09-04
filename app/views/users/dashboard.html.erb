@@ -8,16 +8,14 @@
           <div class="user--profile-info__avatar">
             <%= image_tag profile_image_url %>
             <h3>
-              <%= @user.first_name %> <%= @user.last_name %>
+              User Dashboard <%= @user.first_name %> <%= @user.last_name %>
             </h3>
           </div>
           <div class="user--profile-info__details">
             <p><i class="fa fa-envelope-o"></i> <%= @user.email %></p>
             <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
             <% if @user == current_user  %>
-
-            <%= link_to 'Edit your profile', edit_user_registration_path %>
-            <%= link_to 'new course', new_course_path %>
+            <%= link_to 'Edit your profile', edit_user_path(current_user) %>
             <% end %>
           </div>
           <div class="user--profile-info__friends">
@@ -53,3 +51,4 @@
     </div>
   </div>
 </div>
+
