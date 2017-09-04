@@ -39,8 +39,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-              <!-- edit_course_path(current_user.course)  -->
+              <%= link_to user_dashboard_path(current_user) do %>
                 <i class="fa fa-tachometer"></i>  <%= t(".settings", default: "Dashboard") %>
               <% end %>
             </li>

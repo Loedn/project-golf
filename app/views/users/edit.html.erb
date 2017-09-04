@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 login-form-container">
       <h2 class="text-center">Edit User Profile</h2>
 
-      <%= simple_form_for(resource, as: resource_name, url: user_path(resource_name), html: { method: :put }) do |f| %>
+      <%= simple_form_for @user, method: :patch do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">:
           <%= f.input :first_name, required: true, autofocus: true, placeholder: "John" %>

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
      get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
   end
 
-  resources :users
+  resources :users do
+    get 'dashboard', to: 'users#dashboard', as: 'dashboard'
+  end
+  patch "users/:id", to: "user#update"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

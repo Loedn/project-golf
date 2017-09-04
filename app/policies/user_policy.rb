@@ -17,6 +17,10 @@ class UserPolicy < ApplicationPolicy
 
   end
 
+  def dashboard?
+    return true
+  end
+
 
   class Scope < Scope
     attr_reader :user, :Scope
