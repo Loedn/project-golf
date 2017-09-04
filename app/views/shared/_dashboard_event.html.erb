@@ -20,7 +20,7 @@
       <div class="event--details__right">
         <div class="event--details__payment">
           <% btn_pay_class = event.invites.where(user_id: current_user.id).first.status == 'paid' ? 'btn-paid' : 'btn-to-pay' %>
-          <p>Balance: £ <%= event.course.price.to_i * event.invited_users.length %></p>
+          <p>Balance: £  <%= event.balance %> </p>
           <div class="btn btn-pay <%= btn_pay_class %> ">
             <% if event.invites.where(user_id: current_user.id).first.status == 'payment-pending' %>
               <i class="fa fa-credit-card" aria-hidden="true"></i>
