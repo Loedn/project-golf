@@ -1,1 +1,15 @@
-<p><%= review.content %></p>
+<% image_url = review.user.facebook_picture_url || review.user.photo.url || "http://placehold.it/60" %>
+
+<div class="review-container">
+  <div class="reviewer-details">
+    <%= image_tag image_url, class: 'avatar-xs' %>
+    <h3><%= review.user.first_name %> (<%= time_ago_in_words(review.updated_at) %>)</h3>
+  </div>
+  <div class="review">
+    <p><%= review.content %></p>
+  </div>
+</div>
+
+
+
+

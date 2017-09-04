@@ -14,6 +14,10 @@ Rails.application.routes.draw do
      get 'dashboard', to: 'courses#dashboard', as: "course_dashboard"
   end
 
+  resources :courses, only: [ :index, :show ] do
+    resources :reviews, only: :create
+  end
+
   resources :users
   # API ROUTES:
   namespace :api, defaults: { format: :json } do

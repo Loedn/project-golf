@@ -29,6 +29,9 @@
       color: rgba(0, 0, 0, 0.5);
       flex: 50%;
     }
+    .review-container {
+      width: 300px;
+    }
   }
 }
 .badge-pair {
@@ -38,3 +41,17 @@
   width: 89vw;
   margin: 0 auto;
 }
+
+.course-review h2 {
+  font-size:12px;
+}
+
+.reviewer-details {
+  display: flex;
+  h3 {
+    font-size: 10px;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+}
+

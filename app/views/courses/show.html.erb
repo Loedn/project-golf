@@ -56,15 +56,19 @@
         </div>
       </div>
       <div class="show--content__box">
+      <p class="content-box--label">
+          <%= pluralize @course.reviews.size, "Review" %>
+        </p>
         <div class="course-review">
-          <h2>
-            <%= pluralize @course.reviews.size, "review" %>
-          </h2>
+            <% if policy(@course).reviewable? %>
+              <%= render 'reviews/form', course: @course, review: @review %>
+            <% end %>
           <div id="reviews">
+
             <% if @course.reviews.blank? %>
               Be the first to leave a review for <%= @course.name %>
             <% else %>
-              <% @course.reviews.each do |review| %>
+              <% @course.reviews.reverse.each do |review| %>
                 <%= render 'reviews/show', review: review %>
               <% end %>
             <% end %>
