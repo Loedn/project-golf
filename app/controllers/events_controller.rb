@@ -1,13 +1,15 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where(user_id[current_user.id])
+    @events = Event.where(user_id[current_user.id]).order
   end
 
   def show
      @event = Event.find(params[:id])
      @course = @event.course
+     @order = Order.where(event_id: @event.id, status: 'pending').first
      @invitees = @event.invited_users
      @comment = Comment.new
+     
      authorize @event
    end
 
@@ -47,9 +49,11 @@ class EventsController < ApplicationController
           Invite.create(user: User.find(id), event: @event, status: 'payment-pending')
         end
       end
-      @event.balance = @event.course.price * @event.invites.size
+      @event.balance_cents = @event.course.price_cents * @event.invites.size
       @event.save
-      redirect_to event_path(@event)
+
+      @order = Order.create!(amount: @event.balance, sku: "#{@event.course.name.downcase.split(' ').join('-')}-#{@event.invited_users.size}-id:#{@event.id}", status: 'pending', event_id: @event.id)
+      redirect_to course_event_path(@event.course, @event)
     else
       render :new
     end

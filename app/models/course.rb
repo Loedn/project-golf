@@ -15,6 +15,8 @@ class Course < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   before_save :capitalize_description
   # after_create :set_timeslots
+  monetize :price_cents
+
 private
 
   def capitalize_description

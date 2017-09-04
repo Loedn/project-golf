@@ -13,9 +13,12 @@
               </div>
               <div class="event-guest-pay">
                 <p>£ <%= @event.balance %></p>
-                <div class="btn btn-pay-all">
-                  <p>Pay All <i class="fa fa-credit-card" aria-hidden="true"></i></p>
-                </div>
+                <%= form_tag order_payments_path @order do %>
+                  <%= hidden_field_tag 'event_id', @event.id %>
+                    <%= button_tag(type: "submit", class: "btn btn-pay-all") do %>
+                     <i class="fa fa-credit-card" aria-hidden="true"></i>  Pay All
+                    <% end %>
+                <% end %>
               </div>
             </div>
 
