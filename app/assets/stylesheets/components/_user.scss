@@ -1,0 +1,29 @@
+.user--index-container {
+}
+
+.user--index-card {
+  margin-top: 20px;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+  display: flex;
+  img {
+    border-radius: 3px 0 0 3px;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.user--index-card__avatar {
+}
+
+.user--index-card__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+  // align-items: center;
+}
+
+.index-container {
+  min-height: calc(100vh - 140px);
+}
