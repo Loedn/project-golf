@@ -9,11 +9,11 @@
   <div class="event-guest-pay">
     <% if @event.balance == 0 %>
       <p class="status accepted">Paid</p>
-      <div class="btn btn-pay btn-paid">
+      <div class="btn btn-to-pay btn-paid">
         <i class="fa fa-check" aria-hidden="true"></i>
       </div>
-      <% else %>
-      <% if invite.status != 'paid' %>
+    <% else %>
+    <% if invite.status != 'paid' %>
     <p class="status <%= invite.status == 'paid' ? 'accepted' : 'pending'  %>">
       Pending
     </p>
@@ -39,16 +39,18 @@
             data-currency="<%= @order.amount.currency %>">
 
             </script>
-            <%= button_tag(type: "submit", class: "btn btn-to-pay") do %>
             <% if invite.status == 'payment-pending' %>
-              <i class="fa fa-credit-card" aria-hidden="true"></i>
+              <%= button_tag(type: "submit", class: "btn btn-to-pay") do %>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <% end %>
             <% elsif invite.status == 'paid' %>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <div class="btn btn-paid">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </div>
             <% end %>
-           <% end %>
-        <% end %>
-        <% else %>
-        <div class="btn btn-to-pay" style="cursor:default">
+         <% end %>
+      <% else %>
+        <div class="btn btn-paid" style="cursor:default">
           <i class="fa fa-check" aria-hidden="true"></i>
         </div>
     <% end %>
