@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903214807) do
+ActiveRecord::Schema.define(version: 20170904130000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20170903214807) do
     t.integer  "owner_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "price"
     t.integer  "disabled_days", default: [],              array: true
+    t.integer  "price_cents",   default: 0,  null: false
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
 
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20170903214807) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.datetime "timeslot"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "title"
-    t.integer  "balance"
+    t.integer  "balance_cents", default: 0, null: false
     t.index ["course_id"], name: "index_events_on_course_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(version: 20170903214807) do
     t.string   "status"
     t.index ["event_id"], name: "index_invites_on_event_id", using: :btree
     t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status"
+    t.string   "sku"
+    t.integer  "amount_cents", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_orders_on_event_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,4 +135,5 @@ ActiveRecord::Schema.define(version: 20170903214807) do
   add_foreign_key "holes", "courses"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
+  add_foreign_key "orders", "events"
 end
