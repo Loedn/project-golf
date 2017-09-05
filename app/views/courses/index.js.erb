@@ -1,0 +1,4 @@
+$('#course-list').html(
+  "<% @courses.each do |course| %><%= j render 'shared/course_card', course: course %><% end %>"
+)
+$("body").animate({ scrollTop: window.pageYOffset + $(window).height()}, 600);

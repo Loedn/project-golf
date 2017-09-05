@@ -1,0 +1,33 @@
+<% if course.size %>
+<div class="badge-pair col-xs-12 col-md-6 col-lg-4">
+  <p><div class="hexagon"></div> <span><%= course.size.capitalize %> Sized</span></p>
+</div>
+<% end %>
+<% if course.sand %>
+  <div class="badge-pair col-xs-12 col-md-6 col-lg-4">
+    <p>
+      <div class="hexagon sand-badge"></div>
+       <span>Sand</span>
+     </p>
+  </div>
+<% end %>
+
+<% if course.water %>
+  <div class="badge-pair col-xs-12 col-md-6 col-lg-4">
+    <p>
+      <div class="hexagon water-badge"></div>
+      <span>Water</span></p>
+  </div>
+<% end %>
+
+<% if course.trees %>
+  <div class="badge-pair col-xs-12 col-md-6 col-lg-4 ">
+    <p><div class="hexagon trees-badge"></div> <span>Trees</span></p>
+  </div>
+<% end %>
+
+<% if course.plain %>
+  <div class="badge-pair col-xs-12 col-md-6 col-lg-4">
+    <p><div class="hexagon"></div> <span><%= course.plain ? 'Plain Terrain' : 'Mountains'  %></span></p>
+  </div>
+<% end %>

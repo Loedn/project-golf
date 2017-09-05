@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170905130658) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +41,11 @@ ActiveRecord::Schema.define(version: 20170905130658) do
     t.datetime "updated_at",                 null: false
     t.integer  "disabled_days", default: [],              array: true
     t.integer  "price_cents",   default: 0,  null: false
+    t.string   "size"
+    t.boolean  "water"
+    t.boolean  "sand"
+    t.boolean  "trees"
+    t.boolean  "plain"
     t.index ["owner_id"], name: "index_courses_on_owner_id", using: :btree
   end
 

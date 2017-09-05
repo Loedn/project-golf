@@ -29,6 +29,17 @@
         <% end %>
       </div>
       <div class="show--content__box course-description">
+        <%= simple_form_for @course, method: :patch do |f| %>
+          <%= f.input :size, collection: ['short', 'medium', 'long'] %>
+          <%= f.input :water, as: :boolean %>
+          <%= f.input :sand, as: :boolean %>
+          <%= f.input :trees, as: :boolean %>
+          <%= f.input :plain, as: :boolean %>
+          <%= f.submit %>
+        <% end %>
+
+      </div>
+      <div class="show--content__box course-description">
           <p>Space for updating holes info</p>
 
 

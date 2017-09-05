@@ -47,7 +47,13 @@ class CoursesController < ApplicationController
   def update
     @course = Course.find(params[:id])
     authorize @course
+
     @course.update(course_edit_params)
+
+    @course.sand = params[:course][:sand] == 1
+    @course.water = params[:course][:water] == 1
+    @course.trees = params[:course][:trees] == 1
+    @course.plain = params[:course][:plain] == 1
     #build the array of date based on params[:course][:disabled_days]
     updated_days = []
     if params[:course][:disabled_days]
@@ -86,6 +92,6 @@ class CoursesController < ApplicationController
   end
 
   def course_edit_params
-    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price)
+    params.require(:course).permit(:name, :address, :description, :image, :image_cache, :email, :phone, :timeslots, :badges, :price, :size, :water, :sand, :trees, :plain)
   end
 end
