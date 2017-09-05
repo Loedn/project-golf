@@ -1,4 +1,9 @@
-<form action="/courses" class="form-inline search-form searchbar--home"><div class="form-border"><input type="text" name="address" class="form-control autocomplete_input" id="inlineFormInput" placeholder=""></div></div></form>
+<%= form_tag courses_path, remote: true, class: 'form-inline search-form searchbar--home', method: :get do %>
+  <div class="form-border">
+    <%= text_field_tag :address, '', class: 'autocomplete_input form-control', placeholder: '' %>
+  </div>
+<% end %>
+
 
 <% content_for(:after_js) do %>
   <script>
@@ -10,15 +15,10 @@
       attr: 'placeholder'
     };
 
-    var button = document.querySelector('.search-button');
-    var input = document.getElementById('inlineFormInput');
-    $('#inlineFormInput').typed(options);
 
-    input.addEventListener('input', function (e) {
-      if (e.target.value !== '') {
-        button.innerText = 'Search'
-      }
-    })
+
+    $('.autocomplete_input').typed(options);
+
 
 
 

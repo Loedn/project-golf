@@ -8,9 +8,7 @@
   #map {
     height: 300px;
   }
-  .course-info {
-    display: flex;
-  }
+
   .show--content__box {
     box-shadow: 1px 1px 16px 0 rgba(0, 0, 0, 0.1);
     min-height: 300px;
@@ -20,7 +18,7 @@
     // border: 1px solid rgba(0, 0, 0, 0.13);
     background-color: #f9f9f9;
     .content-box--label {
-      font-size: .85em;
+      font-size: 0.85em;
       color: #888;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       padding-bottom: 5px;
@@ -36,6 +34,9 @@
 }
 .badge-pair {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .course-show-container {
   width: 89vw;
@@ -55,3 +56,64 @@
   margin-left: 40px;
 }
 
+////////// HEXAGON
+
+.hexagon {
+  position: relative;
+  width: 25px;
+  height: 14.43px;
+  background-color: $main-green;
+  margin: 7.22px 0;
+  & + span {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 7.22px solid $main-green;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 7.22px solid $main-green;
+}
+
+.water-badge {
+  background-color: $blue;
+  &.hexagon:before {
+    border-bottom-color: $blue;
+  }
+  &.hexagon:after {
+    border-top-color: $blue;
+  }
+}
+.sand-badge {
+  background-color: #ffe082;
+  &.hexagon:before {
+    border-bottom-color: #ffe082;
+  }
+  &.hexagon:after {
+    border-top-color: #ffe082;
+  }
+}
+.trees-badge {
+  background-color: $main-green;
+  &.hexagon:before {
+    border-bottom-color: darken($main-green, 20%);
+  }
+  &.hexagon:after {
+    border-top-color: #795548;
+  }
+}

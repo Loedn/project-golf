@@ -24,8 +24,8 @@
         <p class="content-box--label">
           Information
         </p>
-        <div class="course-info">
-          <div class="content-box--text">
+        <div class="course-info row">
+          <div class="content-box--text col-xs-12 col-md-6">
             <p><i class="fa fa-phone" aria-hidden="true"></i> <%= @course.phone || 'No phone number provided'  %></p>
             <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @course.email || 'No email provided' %>
             <p><i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @course.address %></p>
@@ -38,20 +38,8 @@
               <i class="fa fa-calendar-check-o"></i> Opens every day
             <% end %>
           </div>
-          <div class="content-box--text">
-            <div class="badge-pair">
-              <p><div class="hexagon"></div> <span>Badge #1</span></p>
-            </div>
-            <div class="badge-pair">
-              <p><div class="hexagon"></div> <span>Badge #2</span></p>
-            </div>
-            <div class="badge-pair">
-              <p><div class="hexagon"></div> <span>Badge #3</span></p>
-            </div>
-            <div class="badge-pair">
-              <p><div class="hexagon"></div> <span>Badge #4</span></p>
-            </div>
-
+          <div class="content-box--text col-xs-12 col-md-6 row">
+            <%= render 'shared/course_badges', course: @course %>
           </div>
         </div>
       </div>
