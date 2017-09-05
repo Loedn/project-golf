@@ -21,10 +21,14 @@
       </div>
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <i class="fa fa-bell", data-toggle="dropdown"></i><%= current_user.notifications.count %>
+          <i class="fa fa-bell", data-toggle="dropdown"></i><%= current_user.notifications.where(read: false).count %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% current_user.notifications.each do |n| %>
-            <li><%= n.user_id %></li>
+              <% current_user.notifications.where(read: false).each do |n| %>
+              <% if n.event_id !=nil %>
+                <li><%= n.event.user.first_name %> invited you to<%= n.event.title %></li>
+              <% else %>
+                <li> <%= FriendRequest.find(n.friend_request_id).user.first_name %> Sent you a friend request <%= link_to friend_request_friendships_path(n.friend_request_id), method: :post do %><i class="fa fa-check" aria-hidden="true"></i><% end %><%= link_to root_path do %><i class="fa fa-times" aria-hidden="true"></i><% end %></li>
+              <% end %>
             <% end %>
           </ul>
         </div>
