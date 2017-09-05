@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-
+  resources :friend_requests, only: [:index, :create, :update, :destroy]
   # API ROUTES:
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

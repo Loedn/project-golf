@@ -47,6 +47,7 @@ class EventsController < ApplicationController
       unless params[:event][:invited_user_ids].nil?
         params[:event][:invited_user_ids].each do |id|
           Invite.create(user: User.find(id), event: @event, status: 'payment-pending')
+          Notification.create(user: User.find(id), event: @event)
         end
       end
       @event.balance_cents = @event.course.price_cents * @event.invites.size

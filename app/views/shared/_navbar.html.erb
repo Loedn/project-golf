@@ -19,12 +19,22 @@
         <%= text_field_tag :search, params[:search], placeholder:" Search Users", class:"search-friends"  %>
         <% end %>
       </div>
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <i class="fa fa-bell", data-toggle="dropdown"></i><%= current_user.notifications.count %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% current_user.notifications.each do |n| %>
+            <li><%= n.user_id %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% avatar_url = current_user.facebook_picture_url || current_user.photo.url || "http://placehold.it/30x30" %>
-  <!--  || cl_image_path(current_user.photo)  -->
 <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
