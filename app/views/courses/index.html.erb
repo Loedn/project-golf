@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 
-<div class="row cards--container">
+<div class="row cards--container" id="course-list">
   <% @courses.each do |course| %>
-  <%= render 'shared/course_card', course: course %>
+    <%= render 'shared/course_card', course: course %>
   <% end %>
 </div>
