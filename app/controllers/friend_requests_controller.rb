@@ -9,9 +9,12 @@ class FriendRequestsController < ApplicationController
   def create
     friend = User.find(params[:user_id])
     new_friend_request = current_user.pending_friend_requests.new(friend: friend)
-    new_friend_request.save
-    redirect_to :back
-    authorize new_friend_request
+    # binding.pry
+    if new_friend_request.save
+      Notification.create(user: friend, friend_request_id: new_friend_request.id)
+      redirect_to :back
+    end
+      authorize new_friend_request
   end
 
   def update
