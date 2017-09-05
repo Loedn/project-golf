@@ -1,4 +1,3 @@
-// app/views/reviews/create.js.erb
 // Here you will write *javascript* that would be executed by the browser
 <% if @review.errors.any? %>
   // Render new review form with errors
@@ -13,6 +12,4 @@
   // Reset the form
   $('#new_review').html("<%= j render 'reviews/form', course: @course, review: Review.new %>");
   $('.content-box--label').text("<%= pluralize @course.reviews.size, 'Review' %>");
-  $('.reviews').html();
-
 <% end %>
