@@ -11,7 +11,8 @@
         <h5><%= u.first_name %> <%= u.last_name %></h5>
         <p><i class="fa fa-map-marker"></i> <%= u.location? ? u.location : 'No location to show' %></p>
         <% if @user != current_user %>
-        <a href="#" class="btn btn-pay-all"><i class="fa fa-plus"></i>Add as a friend</a>
+        <%= link_to "ADD", friend_requests_path(user_id: u.id), method: :post, class:"btn btn-pay-all" %>
+        <div class="btn btn-pay-all"><i class="fa fa-plus"></i>Add as a friend</a>
         <% end %>
       </div>
     </div>

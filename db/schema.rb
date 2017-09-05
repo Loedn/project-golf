@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170904130000) do
-
+ActiveRecord::Schema.define(version: 20170905102041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +54,25 @@ ActiveRecord::Schema.define(version: 20170904130000) do
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friend_requests_on_friend_id", using: :btree
+    t.index ["user_id"], name: "index_friend_requests_on_user_id", using: :btree
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
+    t.index ["user_id"], name: "index_friendships_on_user_id", using: :btree
+  end
+
   create_table "hole_scores", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "hole_id"
@@ -87,7 +104,6 @@ ActiveRecord::Schema.define(version: 20170904130000) do
     t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
   end
 
-
   create_table "orders", force: :cascade do |t|
     t.string   "status"
     t.string   "sku"
@@ -98,7 +114,6 @@ ActiveRecord::Schema.define(version: 20170904130000) do
     t.integer  "event_id"
     t.index ["event_id"], name: "index_orders_on_event_id", using: :btree
   end
-
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
@@ -143,6 +158,10 @@ ActiveRecord::Schema.define(version: 20170904130000) do
   add_foreign_key "courses", "users", column: "owner_id"
   add_foreign_key "events", "courses"
   add_foreign_key "events", "users"
+  add_foreign_key "friend_requests", "users"
+  add_foreign_key "friend_requests", "users", column: "friend_id"
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "hole_scores", "events"
   add_foreign_key "hole_scores", "holes"
   add_foreign_key "hole_scores", "users"
@@ -150,6 +169,5 @@ ActiveRecord::Schema.define(version: 20170904130000) do
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
   add_foreign_key "orders", "events"
-
   add_foreign_key "reviews", "courses"
 end

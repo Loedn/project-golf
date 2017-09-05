@@ -10,10 +10,23 @@ class User < ApplicationRecord
   has_many :courses
   has_many :hole_scores
   has_many :reviews
+  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
   # validates :gender, presence: true
+
+  # friendship
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships, foreign_key: :friend_id
+  # requests that the user received
+  has_many :friend_requests, foreign_key: :friend_id, dependent: :destroy
+  # requests that the user sent
+  has_many :pending_friend_requests, class_name: 'FriendRequest', dependent: :destroy, foreign_key: :user_id
+  # friends who haven't accepted the user request yet
+  has_many :pending_friends, through: :pending_friend_requests, source: :friend
+
+
 # search stuff
 include PgSearch
   pg_search_scope :search_by_fullname, against: [ :first_name, :last_name]
