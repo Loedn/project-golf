@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170905163633) do
 
   # These are extensions that must be enabled in order to support this database
@@ -20,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170905163633) do
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["event_id"], name: "index_comments_on_event_id", using: :btree
   end
 
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(version: 20170905163633) do
     t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
   end
 
+
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
@@ -138,6 +141,7 @@ ActiveRecord::Schema.define(version: 20170905163633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "rating"
     t.index ["course_id"], name: "index_reviews_on_course_id", using: :btree
   end
 

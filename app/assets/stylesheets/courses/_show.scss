@@ -27,9 +27,6 @@
       color: rgba(0, 0, 0, 0.5);
       flex: 50%;
     }
-    .review-container {
-      width: 300px;
-    }
   }
 }
 .badge-pair {
@@ -42,19 +39,7 @@
   width: 89vw;
   margin: 0 auto;
 }
-.reviewer-details {
-  display: flex;
-  align-items: center;
-  h3 {
-    font-size: 12px;
-    margin-left: 0;
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
-}
-.review p {
-  margin-left: 40px;
-}
+
 
 ////////// HEXAGON
 
