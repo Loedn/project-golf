@@ -24,7 +24,7 @@
           <i class="fa fa-bell", data-toggle="dropdown"></i><%= current_user.notifications.count %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <% current_user.notifications.each do |n| %>
-            <li><%= n.user.first_name %></li>
+            <li><%= n.user_id %></li>
             <% end %>
           </ul>
         </div>
