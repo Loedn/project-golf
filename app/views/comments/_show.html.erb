@@ -1,4 +1,5 @@
 <% image_url = comment.user.facebook_picture_url || comment.user.photo.url || "http://placehold.it/60" %>
+
 <div class="message">
   <%= image_tag image_url, class: 'avatar-xs' %>
   <div class="message-text-container">
