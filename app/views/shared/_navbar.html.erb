@@ -38,6 +38,11 @@
 <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <%= link_to user_dashboard_path(current_user) do %>
+                <i class="fa fa-tachometer"></i>  <%= t(".settings", default: "Dashboard") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
@@ -47,11 +52,7 @@
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
-            <li>
-              <%= link_to user_dashboard_path(current_user) do %>
-                <i class="fa fa-tachometer"></i>  <%= t(".settings", default: "Dashboard") %>
-              <% end %>
-            </li>
+
             <li>
               <%= link_to destroy_user_session_path , method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>

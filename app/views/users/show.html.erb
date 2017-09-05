@@ -1,56 +1,25 @@
 <% profile_image_url = @user.facebook_picture_url || @user.photo.url || "http://placehold.it/110x110" %>
 
-
-<div class="container-fluid">
-  <div class="row user-dashboard">
-    <div class="user--profile-info-container col-xs-12 col-md-3">
-        <div class="user--profile-info">
-          <div class="user--profile-info__avatar">
-            <%= image_tag profile_image_url %>
-            <h3>
-              <%= @user.first_name %> <%= @user.last_name %>
-            </h3>
-          </div>
-          <div class="user--profile-info__details">
-            <p><i class="fa fa-envelope-o"></i> <%= @user.email %></p>
-            <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
-            <% if @user == current_user  %>
-
-            <%= link_to 'Edit your profile', edit_user_registration_path %>
-            <%= link_to 'new course', new_course_path %>
-
-            <% end %>
-          </div>
-          <div class="user--profile-info__friends">
-            <h5>Friends</h5>
-            <%  @friends.each do |friend| %>
-               <% friend_image_url = friend.facebook_picture_url || friend.photo.url || "http://placehold.it/50x50" %>
-              <%= link_to user_path(friend) do %>
-                <%= image_tag friend_image_url %>
-              <% end %>
-            <% end %>
-            <div class="user--friends-count">
-              <p>
-                <%= @friends.count %> Friends
-              </p>
-              <% if @user != current_user %>
-              <a href="#"><i class="fa fa-plus"></i>Add as a friend</a>
-              <% end %>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 login-form-container">
+      <div class="profile-container">
+        <div class="profile-image">
+          <%= image_tag profile_image_url %>
         </div>
-    </div>
-
-    <div class="user--events-container col-xs-12 col-md-9">
-      <div class="user--events">
-        <h1>Upcoming Events</h1>
-        <% @events.each do |event| %>
-        <% if event.invited_users.index(current_user)  %>
-          <%= render 'shared/dashboard_event', event: event, friends: @friends %>
-          <% end %>
-        <% end %>
+        <div class="profile-details">
+          <h2>
+            <%= @user.first_name %> <%= @user.last_name %>
+          </h2>
+            <p><b><i class="fa fa-envelope-o"></i>:</b> <%= @user.email %></p>
+            <p><b><i class="fa fa-map-marker"></i>:</b> <%= @user.location? ? @user.location : 'No location to show' %></p>
+            <p><b>A little bit about me:</b> <%= @user.description %></p>
+            <p><b>My favourite golf course:</b> <%= @user.favourite_course %></p>
+            <% if @user == current_user  %>
+            <%= link_to 'Edit your profile', edit_user_path(current_user) %>
+            <% end %>
+        </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 text-center">
-      <h1 class="text-center">Add a New Course</h1>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 login-form-container">
+      <h2 class="text-center">Add a New Golf Course</h2>
+      <p>If you are a golf club and you would like to allow golfers to book through Golf Hub, you can add your golf course here and it will appear in our listing:</p>
       <%= simple_form_for @course do |f| %>
-      <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of Golf Course', error: 'Please insert name of the club' %>
-      <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf Course address' %>
-      <%= f.input :description, placeholder: 'Please describe your golf' %>
-      <%= f.input :image %>
-      <%= f.input :price, as: :float %>
+      <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of you golf course', error: 'Please insert name of the club' %>
+      <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf course address, e.g. London' %>
+      <%= f.input :description, placeholder: 'Please describe your golf course for users' %>
+      <%= f.input :image, label: 'Upload an image of of your golf club:' %>
+      <%= f.input :price, as: :integer %>
       <%= f.input :image_cache, as: :hidden %>
-      <%= f.button :submit, class:"btn btn-success" %>
+      <%= f.button :submit, "Add a New Golf Course", class:"btn btn-gray" %>
       <% end %>
     </div>
   </div>
