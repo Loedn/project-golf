@@ -8,8 +8,24 @@
   color: white;
 }
 .alert-info {
-  background: $green;
+  background: transparent;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 45%;
+  margin: auto;
+  border: none;
+  color: white;
+  font-weight: bold;
 }
 .alert-warning {
-  background: $red;
+  background: transparent;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 45%;
+  margin: auto;
+  border: none;
+  color: white;
+  font-weight: bold;
 }
