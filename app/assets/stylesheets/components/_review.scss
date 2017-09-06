@@ -16,6 +16,19 @@
   margin-left: 40px;
 }
 .icon-star {
-  content: "\f005";
+  content: '\f005';
+}
 
+input[name='review[rating]'] {
+  display: none;
+}
+
+input[name='review[rating]']:checked {
+  & + label {
+    color: $main-green;
+  }
+}
+
+#new_review > label {
+  margin-right: 20px;
 }
