@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
 
  def default_url_options
-   { host: ENV["HOST"] || "www.golfpal.io" }
+   { host: ENV["HOST"] || "projectgolf.herokuapp.com" }
  end
 
 def configure_permitted_parameters
