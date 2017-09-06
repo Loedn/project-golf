@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 login-form-container">
       <h2 class="text-center">Add a New Golf Course</h2>
-      <p>If you are a golf club and you would like to allow golfers to book through Golf Hub, you can add your golf course here and it will appear in our listing:</p>
+      <p><i>If you are a golf club and you would like to allow golfers to book through Golf Hub, you can add your golf course here and it will appear in our listing:</i></p>
       <%= simple_form_for @course do |f| %>
       <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of you golf course', error: 'Please insert name of the club' %>
       <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf course address, e.g. London' %>

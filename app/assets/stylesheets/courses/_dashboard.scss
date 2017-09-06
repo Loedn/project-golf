@@ -26,8 +26,6 @@
 }
 .course-description {
   font-family: $base-font;
-  color: lighten($navy, 25%);
-  font-size: 20px;
   margin: 0;
 }
 .edit-description-textarea {
@@ -49,11 +47,15 @@
 
 .dashboard--content {
   margin: 0 auto;
+  padding-bottom: 0;
 }
 
 .course-description h2 {
   margin-top: 0;
+  font-size: 38px;
+  color: $navy;
 }
 .show--content {
   margin-left: 0;
 }
+
