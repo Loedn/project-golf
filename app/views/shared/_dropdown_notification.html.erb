@@ -1,0 +1,18 @@
+<% if n.event_id != nil %>
+  <li><%= n.event.user.first_name %> invited you to<%= n.event.title %> <span class="notification-moment"></span></li>
+<% else %>
+  <li> <%= FriendRequest.find(n.friend_request_id).user.first_name %> sent you a friend request <%= link_to friend_request_friendships_path(n.friend_request_id), method: :post do %><i class="fa fa-check" aria-hidden="true"></i><% end %><%= link_to root_path do %><i class="fa fa-times" aria-hidden="true"></i><% end %></li>
+<% end %>
+
+<% content_for :after_js_dropdown do %>
+  <script>
+  var notificationMoment = document.querySelector('.notification-moment')
+  var notificationCreatedTime = new Date("<%= n.created_at.to_s %>");
+
+  var fromNow = moment(notificationCreatedTime).fromNow();
+
+  notificationMoment.insertAdjacentHTML('afterbegin', fromNow);
+
+
+  </script>
+<% end %>
