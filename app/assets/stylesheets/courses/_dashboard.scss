@@ -67,3 +67,9 @@
 .course-hole {
   display: flex;
 }
+.course-sidebar-container {
+  position: sticky;
+  height: 100vh;
+  top: 20px;
+  overflow: auto;
+}

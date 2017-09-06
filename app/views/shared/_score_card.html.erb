@@ -22,7 +22,7 @@
           <% else %>
 
             <td id="player-score"><%= simple_form_for [@course, @event, @hole_score] do |h| %>
-              <%= h.input :strikes %>
+              <%= h.input :strikes, wrapper_html: { class: 'player-strikes' } %>
               <%= hidden_field_tag 'user_id', user.id %>
               <%= hidden_field_tag 'hole_id', hole.id %>
               <%= h.submit "s" %><% end %>
