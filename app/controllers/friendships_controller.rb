@@ -6,6 +6,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(user_id: current_user.id, friend_id: FriendRequest.find(params[:friend_request_id]).user.id)
     if @friendship.save
       @notification = Notification.where(friend_request_id: params[:friend_request_id])
+      FriendRequest.find(params[:friend_request_id]).update(status: 'accepted')
       @notification.update(read: true)
     end
     authorize @friendship

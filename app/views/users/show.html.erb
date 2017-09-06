@@ -34,7 +34,19 @@
                 <%= @friends.count %> Friends
               </p>
               <% if @user != current_user %>
-              <a href="#"><i class="fa fa-plus"></i>Add as a friend</a>
+                <% friendship = Friendship.find_by(user_id: @user.id, friend_id: current_user.id) || Friendship.find_by(user_id: current_user.id, friend_id: @user.id) %>
+                <% friendship_request = FriendRequest.find_by(user_id: @user.id, friend_id: current_user.id) || FriendRequest.find_by(user_id: current_user.id, friend_id: @user.id) %>
+                <% if friendship_request  %>
+                  <% if friendship_request.status == 'pending' %>
+                  <a href="#">Pending <i class="fa fa-check"></i></a>
+                  <% else %>
+                  <a href="#">Friends <i class="fa fa-check"></i></a>
+                  <% end %>
+                <% else %>
+                  <%= link_to friend_requests_path(user_id: @user.id), method: :post, class:"btn btn-pay-all" do %>
+                    <i class="fa fa-plus"></i> Add friend
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           </div>
