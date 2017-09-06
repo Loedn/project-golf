@@ -3,7 +3,7 @@
   <div class="flex">
    <%= render 'shared/course_sidebar' %>
     <div class="show--content dashboard--content">
-      <div class="show--content__box course-description">
+      <div id="course-details", class="show--content__box course-description">
       <h2>Edit Course Details</h2>
       <i>You can update the details of your golf course here:</i>
         <%= simple_form_for @course, method: :patch do |f| %>
@@ -36,12 +36,37 @@
           <%= f.input :sand, as: :boolean %>
           <%= f.input :trees, as: :boolean %>
           <%= f.input :plain, as: :boolean %>
-          <%= f.submit %>
+          <%= f.submit 'Update golf course details' %>
         <% end %>
 
       </div>
-      <div class="show--content__box course-description course-holes">
+      <div id= "course-holes", class="show--content__box course-description course-holes">
         <h2>Holes</h2>
+        <p>Number of holes: <%= @course.holes.count %></p>
+        <p>Hole/Par</p>
+        <%= simple_form_for(@course) do |f| %>
+          <% @course.holes.each do |hole| %>
+            <%= f.simple_fields_for hole do |p| %>
+            <div class="course-hole">
+              <%= p.input :hole_id, as: :hidden, input_html: {value: hole.id } %>
+              <%= p.input :name, label: false, wrapper_html: { class: 'course-hole-name' }%>
+              <%= p.input :par, label: false, wrapper_html: { class: 'course-hole-par' }%>
+            </div>
+            <% end %>
+          <% end %>
+          <%= f.submit 'Update holes' %>
+
+        <% end %>
+
+
+      </div>
+      <div id="course-bookings", class="show--content__box course-description course-bookings">
+        <h2>Events Booked on Your Course</h2>
+        <% @events.each do |event| %>
+          <p><b><%= event.title %> </b> (<%= event.timeslot.strftime('%A, %d %b - %H:%M') %>)</p>
+          <p>Outstanding balance: <%= event.balance %></p>
+          <p>Owner: <%= event.user.first_name %></p>
+        <% end %>
 
 
       </div>

@@ -16,9 +16,11 @@
     <p><i class="fa fa-phone"></i> <%= @course.phone %></p>
     <p><i class="fa fa-map-marker"></i> <%= @course.address %></p>
     <p><b>Description: </b><%= @course.description %></p>
-    <p><%= link_to 'Edit your course', new_course_path %></p>
+    <p><%= link_to 'View your course', course_path(@course) %></p>
+    <p><a href="#course-details">Edit your course</a></p>
+    <p><a href="#course-holes">Edit course holes</a></p>
+    <p><a href="#course-bookings">View course bookings</a></p>
     <p><%= link_to 'Add a new course', new_course_path %></p>
-    <p>Bookings</p>
 
     </div>
   </div>

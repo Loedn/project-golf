@@ -32,16 +32,18 @@ class CoursesController < ApplicationController
     authorize @course
     redirect_to root_path if @course.nil?
     @user = @course.owner
-    @events = @user.events
+    @events = @course.events
     if current_user
       @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
     end
+    @holes = @course.holes
 
   end
 
   def new
     @course = Course.new
     authorize @course
+    @holes = @course.holes
   end
 
   def update
@@ -61,6 +63,11 @@ class CoursesController < ApplicationController
         updated_days << d
         @course.update(disabled_days: updated_days.slice(1, updated_days.size))
       end
+    end
+
+    if params[:course][:hole]
+      hole = Hole.find(params[:course][:hole][:hole_id].to_i)
+      hole.update(name: params[:course][:hole][:name], par: params[:course][:hole][:par].to_i)
     end
 
     redirect_to @course
