@@ -4,12 +4,16 @@ class EventsController < ApplicationController
   end
 
   def show
+
      @event = Event.find(params[:id])
      @course = @event.course
      @order = Order.where(event_id: @event.id).first
      @invitees = @event.invited_users
      @comment = Comment.new
-
+     notification = Notification.find_by(event_id: @event.id, user_id: current_user.id)
+     if notification
+       notification.update(read: true);
+     end
      authorize @event
      @hole_score = HoleScore.new
   end

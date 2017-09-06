@@ -1,0 +1,30 @@
+<% if n.event_id != nil %>
+  <li>
+    <div class="notification-body">
+      <%= link_to event_path(n.event) do  %>
+      <p><%= n.event.user.first_name %> invited you to <span class="notification-event-title"><%= n.event.title %></span>
+
+    </div>
+         <span class="notification-moment"> - <%= time_ago_in_words(n.created_at) %> ago.</span></p>
+    <% end %>
+  </li>
+
+<% else %>
+
+  <li>
+    <div class="notification-body">
+      <%= link_to user_path(FriendRequest.find(n.friend_request_id).user) do %>
+      <p><%= FriendRequest.find(n.friend_request_id).user.first_name %>
+        <% end %>
+        <span class="notification-friend-request"> sent you a friend request</span>
+        <%= link_to friend_request_friendships_path(n.friend_request_id), method: :post do %>
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to root_path do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <% end %>
+    </div>
+    <span class="notification-moment"> - <%= time_ago_in_words(n.created_at) %> ago.</span>
+  </p>
+  </li>
+  <% end %>

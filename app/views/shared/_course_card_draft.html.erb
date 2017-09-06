@@ -1,0 +1,33 @@
+<% if course.image? %>
+  <% url = cl_image_path course.image, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <% url = image_path "banner-background.png" %>
+<% end %>
+
+<div class="col-xs-12 col-md-6 col-lg-4">
+  <div class="card2" >
+    <%= link_to course_path(course) do %>
+      <div class="card--background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
+      </div>
+    <div class="card-details">
+      <div class="details-row">
+        <h2><%= course.name %></h2>
+        <div class="rating-stars">
+          <% rating = 4 # rating == course.rating %>
+          <% rating.times do %>
+          <i class="fa fa-star"></i>
+          <% end %>
+          <% (5 - rating).times do  %>
+          <i class="fa fa-star-o"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="details-row">
+        <%= render 'shared/course_badges', course: course %>
+        <div class="price tag tag__green">$ <%= course.price.to_i %></div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

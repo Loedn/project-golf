@@ -1,0 +1,51 @@
+.notification-moment {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
+.notification-dropdown {
+  min-width: 500px;
+  .notification-body {
+    flex: 1;
+    font-weight: $font-weight-bold !important;
+    margin-right: 7px;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    padding: 10px 20px;
+    white-space: nowrap;
+    p {
+      margin: 0;
+    }
+    a:hover {
+      color: black;
+    }
+    a {
+      color: $navy !important;
+      padding: 0;
+    }
+  }
+  li:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .notification-event-title,
+  .notification-friend-request {
+    color: $main-green;
+  }
+}
+
+.dropdown i.fa-bell,
+.dropdown .notification-count {
+  font-size: 1.4em;
+  transition: all 0.3s;
+  color: white;
+  &:hover {
+    transform: rotate(-16deg);
+  }
+  &.unread-notifications {
+    color: #00e676;
+  }
+}
