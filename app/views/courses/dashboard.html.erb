@@ -4,9 +4,8 @@
    <%= render 'shared/user_sidebar' %>
     <div class="show--content dashboard--content">
       <div class="show--content__box course-description">
-      <h1>Course Dashboard</h1>
+      <h2>Edit Course Details</h2>
       <i>You can update the details of your golf course here:</i>
-
         <%= simple_form_for @course, method: :patch do |f| %>
           <%= f.error_notification %>
           <%= f.input :name %>
@@ -22,6 +21,7 @@
       </div>
 
       <div class="show--content__box course-description">
+      <h2>Opening Times</h2>
         <%= simple_form_for @course do |f| %>
         <% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
           <%= f.input :disabled_days, label: "Tick days the golf course is closed:", collection: week_days, as: :check_boxes, value_method: lambda { |d| week_days.index(d) } %>
@@ -29,6 +29,7 @@
         <% end %>
       </div>
       <div class="show--content__box course-description">
+      <h2>Course Specifics</h2>
         <%= simple_form_for @course, method: :patch do |f| %>
           <%= f.input :size, collection: ['short', 'medium', 'long'] %>
           <%= f.input :water, as: :boolean %>
@@ -40,7 +41,7 @@
 
       </div>
       <div class="show--content__box course-description">
-          <p>Space for updating holes info</p>
+        <h2>Holes</h2>
 
 
       </div>

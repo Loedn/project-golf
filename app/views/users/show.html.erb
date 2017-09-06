@@ -14,7 +14,7 @@
             <p><b><i class="fa fa-envelope-o"></i>:</b> <%= @user.email %></p>
             <p><b><i class="fa fa-map-marker"></i>:</b> <%= @user.location? ? @user.location : 'No location to show' %></p>
             <p><b>A little bit about me:</b> <%= @user.description %></p>
-            <p><b>My favourite golf course:</b> <%= @user.favourite_course %></p>
+            <p><b>Where I like to play:</b> <%= @user.favourite_course %></p>
             <% if @user == current_user  %>
             <%= link_to 'Edit your profile', edit_user_path(current_user) %>
             <% end %>

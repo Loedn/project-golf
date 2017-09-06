@@ -6,11 +6,20 @@
       <%= simple_form_for @course do |f| %>
       <%= f.input :name, label: 'Golf Club Name', placeholder: 'Name of you golf course', error: 'Please insert name of the club' %>
       <%= f.input :address, input_html: { class: 'autocomplete_input' }, placeholder: 'Golf course address, e.g. London' %>
-      <%= f.input :description, placeholder: 'Please describe your golf course for users' %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :price %>
       <%= f.input :image, label: 'Upload an image of of your golf club:' %>
-      <%= f.input :price, as: :integer %>
       <%= f.input :image_cache, as: :hidden %>
-      <%= f.button :submit, "Add a New Golf Course", class:"btn btn-gray" %>
+      <%= f.input :description, placeholder: 'Please describe your golf course for users', :as => :text, :input_html => {:rows => 5}  %>
+      <% week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+      <%= f.input :disabled_days, label: "Tick days the golf course is closed:", collection: week_days, as: :check_boxes, value_method: lambda { |d| week_days.index(d) } %>
+      <%= f.input :size, collection: ['short', 'medium', 'long'] %>
+      <%= f.input :water, as: :boolean %>
+      <%= f.input :sand, as: :boolean %>
+      <%= f.input :trees, as: :boolean %>
+      <%= f.input :plain, as: :boolean %>
+      <%= f.button :submit, "Add a new golf course", class:"btn btn-gray" %>
       <% end %>
     </div>
   </div>
