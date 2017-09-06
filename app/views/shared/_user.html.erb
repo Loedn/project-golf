@@ -10,8 +10,13 @@
       <div class="user--index-card__details">
         <h5><%= u.first_name %> <%= u.last_name %></h5>
         <p><i class="fa fa-map-marker"></i> <%= u.location? ? u.location : 'No location to show' %></p>
-        <% if @user != current_user %>
-        <%= link_to "ADD", friend_requests_path(user_id: u.id), method: :post, class:"btn btn-pay-all" %>
+        <% if Friendship.find_by(user_id: u.id, friend_id: current_user.id) || Friendship.find_by(user_id: current_user.id, friend_id: u.id)  %>
+        <a href="#" class="btn btn-pay-all" >Friends <i class="fa fa-check"></i></a>
+          <% else %>
+          <%= link_to friend_requests_path(user_id: u.id), method: :post, class:"btn btn-pay-all" do %>
+          <i class="fa fa-plus"></i> Add Friend 
+          <% end %>
+
         <% end %>
       </div>
     </div>

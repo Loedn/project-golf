@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
     authorize @course
     @event = Event.new
     if current_user
-      @friends = User.where.not(id: current_user.id) # in the future this should be something like current_user.friends\
+      @friends = current_user.friends.limit(3)
     end
     authorize @course
 

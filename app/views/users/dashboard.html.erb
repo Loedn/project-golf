@@ -31,7 +31,8 @@
                 <%= @friends.count %> Friends
               </p>
               <% if @user != current_user %>
-              <a href="#"><i class="fa fa-plus"></i>Add as a friend</a>
+  
+                <a style="background-color: red;" href="#"><i class="fa fa-plus"></i>Add as a friend</a>
               <% end %>
             </div>
           </div>
@@ -51,4 +52,3 @@
     </div>
   </div>
 </div>
-

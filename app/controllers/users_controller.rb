@@ -3,9 +3,9 @@ skip_after_action :verify_policy_scoped, only: [:index]
   def index
     if params[:search].present?
       @users = User.search_by_fullname(params[:search])
-      @users = User.all if @users.empty?
+      @users = User.all.where.not(id: current_user.id) if @users.empty?
     else
-      @users = User.all
+      @users = User.all.where.not(id: current_user.id)
     end
   end
 
@@ -15,7 +15,7 @@ skip_after_action :verify_policy_scoped, only: [:index]
     @events = @user.events
 
     if current_user
-      @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
+      @friends = @user.friends
     end
   end
 
@@ -25,7 +25,7 @@ skip_after_action :verify_policy_scoped, only: [:index]
     @events = @user.events
 
     if current_user
-      @friends = User.where.not(id: @user.id).limit(10) # in the future this should be something like current_user.friends\
+      @friends = @user.friends
     end
   end
 
