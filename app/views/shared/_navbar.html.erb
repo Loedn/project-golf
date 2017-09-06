@@ -20,10 +20,12 @@
         <% end %>
       </div>
       <div class="navbar-wagon-item">
+        <% unread = current_user.notifications.where(read: false).count %>
         <div class="dropdown">
-          <i class="fa fa-bell", data-toggle="dropdown"></i><%= current_user.notifications.where(read: false).count %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu notification-dropwdown">
-              <% current_user.notifications.each do |n| %>
+          <i class="fa fa-bell <%= unread > 0 ? 'unread-notifications' : '' %>", data-toggle="dropdown"></i>
+          <span data-toggle="dropdown" class="notification-count <%= unread > 0 ? 'unread-notifications' : '' %>"><%= unread %></span>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu notification-dropdown">
+              <% current_user.notifications.where(read: false).each do |n| %>
                 <%= render 'shared/dropdown_notification', n: n %>
             <% end %>
           </ul>
