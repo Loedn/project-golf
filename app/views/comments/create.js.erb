@@ -11,4 +11,5 @@
   new_comment.slideDown();
   // Reset the form
   $('#new_comment').html("<%= j render 'comments/form', event: @event, comment: Comment.new %>");
+  $('.comments-number').text("<%= pluralize @event.comments.size, 'Comment' %>");
 <% end %>

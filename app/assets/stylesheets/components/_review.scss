@@ -1,0 +1,21 @@
+.reviewer-details {
+  display: flex;
+  align-items: center;
+  h3 {
+    font-size: 12px;
+    margin-left: 0;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+}
+.review-stars {
+  margin-left: 40px;
+  margin-top: 0px;
+}
+.review-content {
+  margin-left: 40px;
+}
+.icon-star {
+  content: "\f005";
+
+}

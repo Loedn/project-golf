@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20170905163633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "rating"
     t.index ["course_id"], name: "index_reviews_on_course_id", using: :btree
   end
 
