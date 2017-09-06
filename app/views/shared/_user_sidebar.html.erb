@@ -18,20 +18,19 @@
             <p><i class="fa fa-map-marker"></i> <%= @user.location? ? @user.location : 'No location to show' %></p>
             </li>
             <li>
-            <%= link_to 'View profile', user_path(current_user) %>
+            <%= link_to 'Profile', user_path(current_user) %>
             </li>
-            <li>
-            <%= link_to 'Edit profile', edit_user_path(current_user) %>
-            </li>
-            <li>View events</li>
-            <li>View scores</li>
+            <li>Notifications</li>
+            <li>Friends</li>
+            <li>Events</li>
             <li>
             <%= link_to 'Add a course', new_course_path %>
             </li>
             <li>
-            <%= link_to 'Edit course', new_course_path %>
+            <%= link_to 'Course settings', new_course_path %>
             </li>
-            <li><%= link_to 'Edit settings', edit_user_registration_path %>
+            <li>Bookings</li>
+            <li><%= link_to 'Settings', edit_user_registration_path %>
             </li>
           </ul>
         <% end %>
