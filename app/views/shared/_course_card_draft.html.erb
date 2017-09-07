@@ -4,30 +4,48 @@
   <% url = image_path "banner-background.png" %>
 <% end %>
 
-<div class="col-xs-12 col-md-6 col-lg-4">
-  <div class="card2" >
+<div class="col-xs-12 col-sm-6 col-lg-4">
     <%= link_to course_path(course) do %>
-      <div class="card--background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
-      </div>
-    <div class="card-details">
-      <div class="details-row">
-        <h2><%= course.name %></h2>
-        <div class="rating-stars">
-          <% rating = 4 # rating == course.rating %>
-          <% rating.times do %>
-          <i class="fa fa-star"></i>
-          <% end %>
-          <% (5 - rating).times do  %>
-          <i class="fa fa-star-o"></i>
-          <% end %>
+    <div class="card2">
+      <div class="card--background" style="background-image: url('<%= url %>');">
         </div>
-      </div>
-      <div class="details-row">
-        <%= render 'shared/course_badges', course: course %>
-        <div class="price tag tag__green">$ <%= course.price.to_i %></div>
-
+        <div class="course-card-details">
+        <h2><%= course.name %></h2>
+        <div class="course-rating-badges">
+          <div class="rating">
+            <% rating = 4 # rating == course.rating %>
+            <% rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <% (5 - rating).times do  %>
+              <i class="fa fa-star-o"></i>
+            <% end %>
+          </div>
+          <div class="badges-card">
+            <% if course.size %>
+            <div class="hexagon card-badge size-badge"></div>
+            <% end %>
+            <% if course.water %>
+            <div class="hexagon card-badge water-badge"></div>
+            <% end %>
+            <% if course.sand %>
+            <div class="hexagon card-badge sand-badge"></div>
+            <% end %>
+            <% if course.trees %>
+            <div class="hexagon card-badge trees-badge"></div>
+            <% end %>
+            <% if course.plain %>
+            <div class="hexagon card-badge plain-badge"></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="seventy-flex"></div>
+          <div class="price tag tag__green">£ <%= course.price.to_i %>
+          </div>
+        </div>
+        <p><i class="fa fa-map-marker"></i> <%= course.address %></p>
       </div>
     </div>
     <% end %>
-  </div>
 </div>

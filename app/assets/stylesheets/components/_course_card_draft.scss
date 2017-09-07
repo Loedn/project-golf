@@ -1,0 +1,68 @@
+.card--background {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+}
+.row-nomargin {
+  margin: 0;
+}
+.card2 {
+  margin-bottom: 40px;
+  transition: all 0.2s;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.15);
+  &:hover {
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.35);
+  }
+}
+
+.course-card-details {
+  background-color: #f9f9f9;
+  padding: 20px 10px 10px;
+  color: $navy;
+  h2 {
+    font-size: 1.2em;
+    margin: 0;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a {
+    color: $navy;
+  }
+  .price {
+    text-align: center;
+    flex-basis: 30%;
+    font-size: 1.2em;
+    align-self: flex-end;
+  }
+  .flex {
+    display: flex;
+    padding-bottom: 15px;
+  }
+  .seventy-flex {
+    flex-basis: 70%;
+  }
+  & > p {
+    font-size: 0.7em;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.course-rating-badges {
+  margin-top: 8px;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  i {
+    color: $main-green;
+  }
+}
+
+.card-badge {
+  transform: scale(0.7);
+}
+
+.badges-card {
+  display: flex;
+}
