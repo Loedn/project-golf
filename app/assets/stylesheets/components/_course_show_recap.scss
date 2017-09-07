@@ -105,7 +105,8 @@
 }
 .price-label {
   color: #f9f9f9;
-  font-size: 1.2em;
+  font-size: 0.85em;
+  font-weight: $font-weight-normal;
   & + p {
     font-weight: $font-weight-bold;
     font-size: 20px;

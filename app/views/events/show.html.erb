@@ -1,4 +1,4 @@
-
+<% if @event.timeslot.to_date.future? %>
 <!-- <div class="container"> -->
 <!--   <div class="row">
     <div class="col"> -->
@@ -42,10 +42,6 @@
 
 
           </div>
-          <div class="event-box">
-            <h3>Scores</h3>
-            <%= render 'shared/score_card' %>
-          </div>
         </div>
         <div class="event-container-right">
           <div id="event-map"></div>
@@ -70,6 +66,18 @@
 
         </div>
       </div>
+      <% else %> <%# IF EVENT IS PAST  %>
+      <div class="event-container">
+        <div class="event-container-left event-past-container">
+          <%= render 'shared/event_banner', event: @event, course: @course %>
+        <div class="event-box">
+          <h3>Scores</h3>
+          <%= render 'shared/score_card' %>
+        </div>
+      </div>
+    </div>
+      <% end %>
+
 <!--     </div>
   </div> -->
 <!-- </div> -->
