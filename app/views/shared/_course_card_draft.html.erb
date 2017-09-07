@@ -13,12 +13,14 @@
         <h2><%= course.name %></h2>
         <div class="course-rating-badges">
           <div class="rating">
-            <% rating = 4 # rating == course.rating %>
-            <% rating.times do %>
+            <% if Review.where(course_id: course.id) %>
+            <% average_rating = Review.where(course_id: course.id).average(:rating).to_i # average_rating == course.average_rating %>
+            <% average_rating.times do %>
               <i class="fa fa-star"></i>
             <% end %>
-            <% (5 - rating).times do  %>
+            <% (5 - average_rating).times do  %>
               <i class="fa fa-star-o"></i>
+              <% end %>
             <% end %>
           </div>
           <div class="badges-card">
