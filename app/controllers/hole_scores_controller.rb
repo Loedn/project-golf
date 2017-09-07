@@ -4,6 +4,7 @@ class HoleScoresController < ApplicationController
   def create
     @holescore = HoleScore.new(user_id: params[:user_id], event_id: params[:event_id], hole_id: params[:hole_id], strikes: params["hole_score"]["strikes"])
     @holescore.save
+    redirect_to :back
   end
 
   private
