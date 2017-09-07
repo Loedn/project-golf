@@ -33,17 +33,17 @@
         font-family: $headers-font;
       }
       .recap-datetimepicker {
-        background-color: lighten($main-green, 20%);
+        background-color: #b9f6ca;
         color: lighten($navy, 15%);
         border-color: black;
         font-family: $base-font;
       }
       span.glyphicon {
-        color: #ffc107;
+        color: #00e676;
         // color: $navy;
       }
       .input-group-addon {
-        background-color: $main-green;
+        background-color: lighten($navy, 30%);
         border-color: black;
       }
     }

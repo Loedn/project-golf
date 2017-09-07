@@ -1,6 +1,7 @@
 <p class="content-box--label">
   <%= pluralize @course.reviews.size, "Review" %>
 </p>
+<p>Average rating: <%= Review.where(course_id: @course.id).average(:rating) %></p>
 <div class="course-review">
   <% if policy(@course).reviewable? %>
     <%= render 'reviews/form', course: @course, review: @review %>
@@ -15,4 +16,3 @@
     <% end %>
   </div>
 </div>
-
