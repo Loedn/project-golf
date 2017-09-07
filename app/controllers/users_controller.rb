@@ -49,6 +49,6 @@ skip_after_action :verify_policy_scoped, only: [:index]
   private
 
   def user_params
-  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache, :address, :description, :favourite_course, :location)
+  params.require(:user).permit(:first_name, :last_name, :email, :gender, :admin, :photo, :photo_cache, :address, :description, :favourite_course)
   end
 end
