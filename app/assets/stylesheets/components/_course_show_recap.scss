@@ -3,7 +3,7 @@
   width: 27vw;
 }
 .recap--container {
-  min-height: 700px;
+  // min-height: 700px;
   max-width: 27vw;
   width: 100%;
   background-color: $navy;
@@ -14,7 +14,7 @@
   margin: 0;
   margin-bottom: 30px;
   border-radius: 4px;
-  margin-top: -150px;
+  margin-top: -240px;
   box-shadow: $subtle-shadow, 2px 2px 18px 0 rgba(0, 0, 0, 0.4);
   // padding: 10px;
   display: flex;
@@ -67,7 +67,7 @@
   .recap-btn-confirm {
     appearance: none;
     border: none;
-    color: $navy;
+    color: white;
     width: 100%;
     background-color: darken($main-green, 5%);
     text-align: center;
@@ -128,7 +128,8 @@
   text-align: center;
   background-color: lighten($navy, 15%);
   padding: 8px 20px;
-  border-radius: 100px;
+  width: 100%;
+  border-radius: 2px;
   margin-bottom: 20px;
   p {
     margin: 0;

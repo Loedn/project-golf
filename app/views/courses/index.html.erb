@@ -1,7 +1,8 @@
 <%= render 'shared/banner' %>
 <div class="container-fluid">
   <div class="row row-nomargin">
-    <div class="row cards--container col-xs 12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2" id="course-list">
+    <div class="row cards--container col-xs-12 col-md-12" id="course-list">
+      <h4 id="course-index">Our Available Courses:</h4>
       <% @courses.each do |course| %>
       <!-- <%= render 'shared/course_card', course: course %> -->
       <%= render 'shared/course_card_draft', course: course %>
