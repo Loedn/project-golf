@@ -40,7 +40,33 @@
 
       </div>
       <div class="show--content__box course-description">
-          <p>Space for updating holes info</p>
+        <div id= "course-holes", class="show--content__box course-description course-holes">
+       <h2>Holes</h2>
+       <p>Number of holes: <%= @course.holes.count %></p>
+       <p>Hole/Par</p>
+       <%= simple_form_for(@course) do |f| %>
+         <% @course.holes.each do |hole| %>
+           <%= f.simple_fields_for hole do |p| %>
+           <div class="course-hole">
+             <%= p.input :hole_id, as: :hidden, input_html: {value: hole.id } %>
+             <%= p.input :name, label: false, wrapper_html: { class: 'course-hole-name' }%>
+             <%= p.input :par, label: false, wrapper_html: { class: 'course-hole-par' }%>
+           </div>
+           <% end %>
+         <% end %>
+         <%= f.submit 'Update holes' %>
+
+       <% end %>
+
+
+     </div>
+     <div id="course-bookings", class="show--content__box course-description course-bookings">
+       <h2>Events Booked on Your Course</h2>
+       <% @events.each do |event| %>
+         <p><b><%= event.title %> </b> (<%= event.timeslot.strftime('%A, %d %b - %H:%M') %>)</p>
+         <p>Outstanding balance: <%= event.balance %></p>
+         <p>Owner: <%= event.user.first_name %></p>
+       <% end %>
 
 
       </div>
@@ -149,7 +175,7 @@
     {
         "featureType": "transit",
         "elementType": "all",
-        "stylers": [Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        "stylers": [
             {
                 "visibility": "off"
             }
