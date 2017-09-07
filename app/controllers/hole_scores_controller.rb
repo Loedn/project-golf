@@ -2,15 +2,18 @@ class HoleScoresController < ApplicationController
   skip_after_action :verify_authorized
   skip_after_action :verify_policy_scoped
   def create
-    @holescore = HoleScore.new(user_id: params[:user_id], event_id: params[:event_id], hole_id: params[:hole_id], strikes: params["hole_score"]["strikes"])
-    @holescore.save
-    redirect_to :back
+    @hole_score = HoleScore.new(hole_score_params)
+    if @hole_score.save
+    respond_to do |format|
+      format.js
+      format.html { redirect_to :back }
+    end
   end
+end
 
   private
 
-  # def holescores_params
-  #   params.require()
-  # end
-  #
+  def hole_score_params
+    params.require(:hole_score).permit(:user_id, :hole_id, :strikes)
+  end
 end

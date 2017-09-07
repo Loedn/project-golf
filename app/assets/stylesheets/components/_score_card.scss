@@ -6,21 +6,30 @@ thead {
 #holen {
   background-color: #d3d3d3;
   text-align: center;
-  border-color: transparentize($navy, .4);
+  border-color: transparentize($navy, 0.4);
+}
+
+.above-par {
+  color: $red;
+}
+
+.below-par {
+  color: $green;
 }
 
 #parn {
   background-color: lighten(#d3d3d3, 7%);
   text-align: center;
-  border-color: transparentize($navy, .4);
+  border-color: transparentize($navy, 0.4);
 }
-#player-score {
+.player-score {
   text-align: center;
-  border-color: transparentize($navy, .4);
+  border-color: $navy;
+  font-weight: $font-weight-bold;
 }
 
 .event-box {
-  border-color: transparentize($navy, .4);
+  border-color: transparentize($navy, 0.4);
   padding: 10px 40px;
   h3 {
     margin-left: 0;
@@ -33,15 +42,32 @@ thead {
   background-color: transparent;
   border-radius: 50%;
 }
-#player-scoren {
+.player-scoren {
+  font-weight: $font-weight-bold;
+  text-align: center;
   form {
     align-items: center;
+    padding-top: 10px;
+    align-items: baseline;
     justify-content: space-around;
     display: flex;
-   #hole_score_strikes {
-     text-align: center;
-     border-radius: 50%;
+    #hole_score_strikes {
+      text-align: center;
+      border-radius: 50%;
+      border-radius: 4px;
       width: 52px;
     }
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    // padding: 10px;
+    border-radius: 50%;
+    &:hover {
+      background-color: #d3d3d3;
+    }
+  }
+  i {
+    color: $green;
   }
 }
