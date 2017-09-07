@@ -36,6 +36,12 @@
           border: 3px solid $main-green;
         }
       }
+      .future-event {
+        color: $green;
+      }
+      .past-event {
+        color: $red;
+      }
     }
     .event--details__right {
       display: flex;

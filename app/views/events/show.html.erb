@@ -1,4 +1,4 @@
-
+<% if @event.timeslot.to_date.future? %>
 <!-- <div class="container"> -->
 <!--   <div class="row">
     <div class="col"> -->
@@ -70,6 +70,18 @@
 
         </div>
       </div>
+      <% else %>
+      <div class="event-container">
+        <div class="event-container-left">
+
+          <%= render 'shared/event_banner', event: @event, course: @course %>
+          <div class="event-box">
+            <div class="event-guest">
+              <div class="event-guest-name">
+                <h3>Players</h3>
+              </div></div></div></div></div>
+      <% end %>
+
 <!--     </div>
   </div> -->
 <!-- </div> -->
