@@ -18,10 +18,10 @@
         <% end %>
         <span class="notification-friend-request"> sent you a friend request</span>
         <%= link_to friend_request_friendships_path(n.friend_request_id), method: :post do %>
-        <i class="fa fa-check" aria-hidden="true"></i>
+        <i class="fa fa-check accept-friend-request" aria-hidden="true"></i>
         <% end %>
         <%= link_to root_path do %>
-        <i class="fa fa-times" aria-hidden="true"></i>
+        <i class="fa fa-times reject-friend-request" aria-hidden="true"></i>
         <% end %>
     </div>
     <span class="notification-moment"> - <%= time_ago_in_words(n.created_at) %> ago.</span>
