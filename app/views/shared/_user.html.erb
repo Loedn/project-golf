@@ -10,13 +10,18 @@
       <div class="user--index-card__details">
         <h5><%= u.first_name %> <%= u.last_name %></h5>
         <p><i class="fa fa-map-marker"></i> <%= u.location? ? u.location : 'No location to show' %></p>
-        <% if Friendship.find_by(user_id: u.id, friend_id: current_user.id) || Friendship.find_by(user_id: current_user.id, friend_id: u.id)  %>
-        <a href="#" class="btn btn-pay-all" >Friends <i class="fa fa-check"></i></a>
+        <% friendship = Friendship.find_by(user_id:u.id, friend_id: current_user.id) || Friendship.find_by(user_id: current_user.id, friend_id: u.id) %>
+        <% friendship_request = FriendRequest.find_by(user_id: u.id, friend_id: current_user.id) || FriendRequest.find_by(user_id: current_user.id, friend_id: u.id) %>
+        <% if friendship_request  %>
+          <% if friendship_request.status == 'pending' %>
+          <a href="#" class="btn btn-pending-friendship" style="color: #3D5AFE;border-color: #3D5AFE;">Pending <i class="fa fa-clock-o"></i></a>
           <% else %>
-          <%= link_to friend_requests_path(user_id: u.id), method: :post, class:"btn btn-pay-all" do %>
-          <i class="fa fa-plus"></i> Add Friend 
+          <a href="#" class="btn btn-pending-friendship">Friends <i class="fa fa-check" ></i></a>
           <% end %>
-
+        <% else %>
+          <%= link_to friend_requests_path(user_id: u.id), method: :post, class:"btn btn-pay-all" do %>
+            <i class="fa fa-plus"></i> Add friend
+          <% end %>
         <% end %>
       </div>
     </div>
