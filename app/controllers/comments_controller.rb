@@ -2,10 +2,11 @@ class CommentsController < ApplicationController
   skip_after_action :verify_authorized, only: [:create]
 
   def create
+    # binding.pry
     @event = Event.find(params[:event_id])
     @comment = Comment.new(comment_params)
     @comment.event = @event
-    @comment.user = current_user
+    @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
         format.html { redirect_to event_path(@event) }

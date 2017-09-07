@@ -25,7 +25,12 @@
               <%= h.input :strikes, label: false, class:"score-input"%>
               <%= hidden_field_tag 'user_id', user.id %>
               <%= hidden_field_tag 'hole_id', hole.id %>
-              <%= h.submit "o", class:"submit" %><% end %>
+
+  <%= button_tag type: 'submit' do %>
+      <i class="fa fa-check" aria-hidden="true"></i>
+  <% end %><% end %>
+
+
             </td>
 
           <% end %>

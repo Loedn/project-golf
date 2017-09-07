@@ -35,12 +35,13 @@ thead {
 }
 #player-scoren {
   form {
-    align-items: center;
+    padding-top: 10px;
+    align-items: baseline;
     justify-content: space-around;
     display: flex;
    #hole_score_strikes {
      text-align: center;
-     border-radius: 50%;
+     border-radius: 4px;
       width: 52px;
     }
   }
