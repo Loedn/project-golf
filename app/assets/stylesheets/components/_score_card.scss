@@ -26,3 +26,22 @@ thead {
     margin-left: 0;
   }
 }
+.submit {
+  height: 30px;
+  width: 30px;
+  border: 1px solid $main-green;
+  background-color: transparent;
+  border-radius: 50%;
+}
+#player-scoren {
+  form {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+   #hole_score_strikes {
+     text-align: center;
+     border-radius: 50%;
+      width: 52px;
+    }
+  }
+}
