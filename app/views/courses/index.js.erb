@@ -1,4 +1,7 @@
 $('#course-list').html(
-  "<% @courses.each do |course| %><%= j render 'shared/course_card_draft', course: course %><% end %>"
+  "<h4>Your search returned <%= @courses.size %> results:</h4><% @courses.each do |course| %><%= j render 'shared/course_card_draft', course: course %><% end %>"
+)
+$('#course-index').html(
+  " "
 )
 $("body").animate({ scrollTop: window.pageYOffset + $(window).height()}, 600);

@@ -17,10 +17,12 @@
 }
 .icon-star {
   content: '\f005';
+  // font-family: $base-font;
 }
 
 input[name='review[rating]'] {
   display: none;
+  font-family: $base-font;
 }
 
 input[name='review[rating]']:checked {

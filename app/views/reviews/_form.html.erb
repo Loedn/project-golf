@@ -1,7 +1,7 @@
 
 
 <%= simple_form_for([ course, review ], remote: true) do |form| %>
-  <%= form.collection_radio_buttons :rating, [[1, ], [2, '2'], [3, '3'], [4, '4'], [5, '5']], :first, :last, { item_wrapper_tag: false } do |b|
+  <%= form.collection_radio_buttons :rating, [[1, '1' ], [2, '2'], [3, '3'], [4, '4'], [5, '5']], :first, :last, { item_wrapper_tag: false } do |b|
     b.radio_button + b.label(:class => "collection_radio_buttons icon-star")
     end %>
   <%= form.input :content, as: :text, label: false %>

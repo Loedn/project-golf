@@ -10,7 +10,7 @@
   justify-content: space-between;
 }
 .navbar-logo-name h1 {
-  font-family: "Graduate";
+  font-family: 'Graduate';
   color: white;
   font-size: 26px;
   margin-left: 15px;
@@ -90,6 +90,17 @@
   color: white;
   border: 1px solid white;
   border-radius: 20px !important;
+  text-align: center;
+  &::placeholder {
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: 0 0 4px 2px $main-green;
+  }
 }
 
 .navbar-logo {
@@ -111,7 +122,8 @@
   }
 }
 
-.modal-body, .modal-footer {
+.modal-body,
+.modal-footer {
   width: 80%;
   margin: 0 auto;
 }
@@ -124,6 +136,5 @@
   }
 }
 .modal-footer p {
-      margin-bottom: 0;
-    }
-
+  margin-bottom: 0;
+}

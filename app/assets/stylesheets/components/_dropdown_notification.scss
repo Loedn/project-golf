@@ -35,6 +35,25 @@
   .notification-friend-request {
     color: $main-green;
   }
+  .accept-friend-request {
+    color: $green;
+    font-size: 1.8em;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  .reject-friend-request {
+    font-size: 1.8em;
+    border-radius: 3px;
+    &:hover {
+      background-color: #ddd;
+    }
+    color: $red;
+  }
 }
 
 .dropdown i.fa-bell,
