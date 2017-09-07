@@ -42,10 +42,6 @@
 
 
           </div>
-          <div class="event-box">
-            <h3>Scores</h3>
-            <%= render 'shared/score_card' %>
-          </div>
         </div>
         <div class="event-container-right">
           <div id="event-map"></div>
@@ -70,16 +66,16 @@
 
         </div>
       </div>
-      <% else %>
+      <% else %> <%# IF EVENT IS PAST  %>
       <div class="event-container">
-        <div class="event-container-left">
-
+        <div class="event-container-left event-past-container">
           <%= render 'shared/event_banner', event: @event, course: @course %>
-          <div class="event-box">
-            <div class="event-guest">
-              <div class="event-guest-name">
-                <h3>Players</h3>
-              </div></div></div></div></div>
+        <div class="event-box">
+          <h3>Scores</h3>
+          <%= render 'shared/score_card' %>
+        </div>
+      </div>
+    </div>
       <% end %>
 
 <!--     </div>

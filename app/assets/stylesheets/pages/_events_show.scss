@@ -14,6 +14,9 @@
   margin-right: 20px;
   margin-left: 20px;
 }
+.event-past-container {
+  flex-basis: 100%;
+}
 
 #event-map {
   height: 350px;
@@ -58,7 +61,7 @@
     padding-bottom: 15px;
   }
   .event-banner-date {
-    font-size: .95em;
+    font-size: 0.95em;
     color: rgba(255, 255, 255, 0.87);
   }
 }
@@ -101,7 +104,7 @@
     margin-left: 0;
   }
 
-  color: transparentize($navy, .4);
+  color: transparentize($navy, 0.4);
 }
 .event-guest-pay {
   display: flex;
@@ -181,8 +184,8 @@
   color: white;
   width: 80px;
   font-size: 1em;
-  transition: all .2s;
-  opacity: .8;
+  transition: all 0.2s;
+  opacity: 0.8;
   &:hover {
     background: transparent;
     color: white;
