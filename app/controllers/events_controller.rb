@@ -15,7 +15,7 @@ class EventsController < ApplicationController
        notification.update(read: true);
      end
      authorize @event
-     @hole_score = HoleScore.new
+    #  @hole_score = HoleScore.new
   end
 
   def new

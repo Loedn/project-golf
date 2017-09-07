@@ -17,15 +17,19 @@
           <% hole_scores = user.hole_scores.where(hole_id: hole.id) %>
           <% if hole_scores.any? %>
             <% hole_scores.each do |hole_score| %>
-              <td id="player-score"><%= hole_score.strikes %></td>
+              <td id="player-score" class="player-score <%= hole_score.strikes > hole_score.hole.par ? 'above-par' : 'below-par' %>"><%= hole_score.strikes %></td>
             <% end %>
           <% else %>
-
-            <td id="player-scoren"><%= simple_form_for [@course, @event, @hole_score] do |h| %>
-              <%= h.input :strikes, label: false, class:"score-input"%>
-              <%= hidden_field_tag 'user_id', user.id %>
-              <%= hidden_field_tag 'hole_id', hole.id %>
-              <%= h.submit "o", class:"submit" %><% end %>
+            <% hole_score = HoleScore.find_or_initialize_by(event: @event, user: user, hole: hole) %>
+            <td class="player-scoren" id="hole-score-<%= user.id %>-<%= hole.id %>">
+              <%= simple_form_for [@course, @event, hole_score], remote: true do |h| %>
+              <%= h.input :strikes, label: false, class:"score-input" %>
+              <%= h.input :user_id, as: :hidden %>
+              <%= h.input :hole_id, as: :hidden %>
+              <%= button_tag type: 'submit' do %>
+                 <i class="fa fa-check" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
             </td>
 
           <% end %>
