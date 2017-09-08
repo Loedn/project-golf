@@ -17,7 +17,6 @@
             <% if @user == current_user  %>
 
             <%= link_to 'Edit your profile', edit_user_registration_path %>
-            <%= link_to 'new course', new_course_path %>
 
             <% end %>
           </div>
@@ -55,7 +54,7 @@
 
     <div class="user--events-container col-xs-12 col-md-9">
       <div class="user--events">
-        <h1>Upcoming Events</h1>
+        <h1>Events</h1>
         <% @events.each do |event| %>
         <% if event.invited_users.index(current_user)  %>
           <%= render 'shared/dashboard_event', event: event, friends: @friends %>
