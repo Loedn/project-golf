@@ -22,7 +22,7 @@ skip_after_action :verify_policy_scoped, only: [:index]
   def show
     @user = User.find(params[:id])
     authorize @user
-    @events = @user.events
+    @events = @user.events.order(timeslot: :desc)
 
     if current_user
       @friends = @user.friends
