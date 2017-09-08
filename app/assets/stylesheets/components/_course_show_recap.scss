@@ -141,13 +141,13 @@
   background-color: transparentize($main-green, 0.2);
   .pac-item {
     border-color: darken($main-green, 25%);
-    color: white;
+    color: black;
     &:hover {
       background-color: transparentize(darken($main-green, 18%), 0.2);
     }
   }
   .pac-item-query {
-    color: white;
+    color: black;
   }
   .pac-icon {
     color: #ffc107;
