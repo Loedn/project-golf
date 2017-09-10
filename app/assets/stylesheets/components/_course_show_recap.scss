@@ -136,7 +136,9 @@
     margin: 0;
   }
 }
-
+.recap-signin {
+  display: flex;
+}
 .pac-container {
   background-color: transparentize($main-green, 0.2);
   .pac-item {
